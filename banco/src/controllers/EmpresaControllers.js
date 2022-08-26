@@ -63,8 +63,8 @@ module.exports ={
             namebanco: req.file.filename,
             url: req.file.path,
             IdEmpresa:req.params.id,
-            tipoValidade: "2 anos",
-            numero: 2
+            numero: req.body.numero,
+            tipoValidade: req.body.tipoValidade
             })
         const empresa = await Empresa.findByIdAndUpdate(
                 contrato.IdEmpresa,
