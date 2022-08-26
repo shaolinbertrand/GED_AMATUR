@@ -1,0 +1,11 @@
+.listStyle {
+    cursor: pointer;
+    box-shadow: '1px 3px 4px grey';
+    border-radius: '16px';
+    margin:'10px';
+    padding:'10px';
+    flex-direction:'row';
+    justify-content:'space-between';
+    height: '50px';
+    background:"#ffd666";
+ } 

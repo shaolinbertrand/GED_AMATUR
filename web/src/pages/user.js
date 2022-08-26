@@ -25,12 +25,12 @@ const text = {
 
      
  
-function Adm(props){
+function User(props){
          const [user, setList] = useState([]);
         //const user = api.get(`/usuario/${props.match.params.id}`)
         useEffect(()=>{
             //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
-            api.get(`/adm/${props.match.params.id}`)
+            api.get(`/usuario/${props.match.params.id}`)
           .then((todo)=> setList(todo.data));
         },[])
         console.log(props.id)
@@ -39,14 +39,13 @@ function Adm(props){
             <div id="page-CreateUser">
                   <Sidebar/>
                   <div className="create-user-form" >
-                  <h2 style={text}>ADM</h2>
+                  <h2 style={text}>USUÁRIO</h2>
 
                   
                     <div  style={listStyle}  >
-                        <h2 style={text}>Nome: {user.name}</h2>
+                        <h2 style={text}>Nome: {user.nome}</h2>
                         <h2 style={text}>Cpf: {user.CPF}</h2>
-                        <h2 style={text}>Registro: {user.registro}</h2>
-                        <h2 style={text}>Email: {user.email}</h2>
+                        <h2 style={text}>Cargo: {user.cargo}</h2>
                         <h2 style={text}>Telefone: {user.telefone}</h2>
                                     
                     </div>                  
@@ -60,4 +59,4 @@ function Adm(props){
 
 };
 
-export default Adm;
+export default User;

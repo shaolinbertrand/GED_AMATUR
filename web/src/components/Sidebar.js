@@ -28,7 +28,7 @@ export default function Sidebar(){
                             <BiUserPin size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
-                    <div>Novo Registrado</div>
+                    <div>Novo Admininstrador</div>
                     <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
                             <BsFillPersonPlusFill size={26} color="rgba(0, 0, 0, 0.6)"/>
@@ -40,7 +40,7 @@ export default function Sidebar(){
                             <CgUserList size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
-                    <div>Listar Registrados</div>
+                    <div>Listar Admininstradores</div>
                     <Link to="/admin/listADM" className="enter-app">
                         <button type="button" className= "botao">
                             <BsCardList size={26} color="rgba(0, 0, 0, 0.6)"/>

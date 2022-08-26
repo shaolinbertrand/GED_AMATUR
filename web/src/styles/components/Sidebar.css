@@ -1,0 +1,54 @@
+ aside{
+    width: 440px;
+    background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
+    padding: 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+aside h2{
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 42px;
+    margin-top: 64px;
+}
+
+aside .corpo{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+aside  .enter-app{
+    display:flex;
+    flex-direction: column;
+    
+    line-height:24px;
+}
+
+aside .botao{
+    background: #ffd666;
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.botao:hover{
+    background: #96FEFF;
+}
+
+aside footer{
+   display:flex;
+   flex-direction: column;
+
+   line-height:24px;
+}
+
+
+

@@ -1,0 +1,17 @@
+* {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+body{
+    color: aliceblue;
+    background: url('../images/papeldeparede.png');
+    background-size: cover;
+    
+}
+
+body, input, button, textarea{
+    font: 600 18px Nunito, sans-serif
+}

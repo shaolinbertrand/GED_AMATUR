@@ -1,0 +1,117 @@
+#page-login {
+    width: 100vw;
+    height:100vh;
+
+    position: relative;
+    display: flex;
+    background: url('../../images/papeldeparede.png') no-repeat center center;
+    
+
+}
+
+#page-login aside{
+    width: 440px;
+    background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
+    padding: 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+#page-login aside h2{
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 42px;
+    margin-top: 64px;
+}
+
+#page-login aside footer{
+   display:flex;
+   flex-direction: column;
+
+   line-height:24px;
+}
+
+.Formulario{
+    width: 500px;
+    height: 300px;
+    margin: 300px auto;
+  
+    background: #FFFFFF;
+    border: 1px solid #D3E2E5;
+    border-radius: 20px;
+  
+    padding: 64px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+}
+
+.Formulario .input-block label {
+    display: flex;
+    color: #8FA7B3;
+    margin-bottom: 8px;
+    line-height: 24px;
+    padding: 30;
+    height: 30;
+    
+  }
+
+  .Formulario .input-block input {
+    width: 100%;
+    background: #F5F8FA;
+    border: 1px solid #D3E2E5;
+    border-radius: 20px;
+    outline: none;
+    color: #5C8599;
+    
+  }
+
+  .Formulario fieldset {
+    justify-content: space-between;
+    border: 0;
+  }
+
+  .Formulario  fieldset + fieldset {
+    margin-top: 40px;
+  }
+
+.CRA-RR{
+
+    width: 400px;
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+#page-login .Entrar_no_sistema{
+    position: absolute ;
+
+    right: 40px;
+    bottom: 40px;
+
+    z-index: 10;
+
+    width: 64px;
+    height: 64px;
+    background: #15c3d6;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-color 0.2s;
+
+}
+
+#page-login .Entrar_no_sistema:hover{
+    background: #17d6eb;
+}

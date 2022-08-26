@@ -14,8 +14,8 @@ import Sidebar from "../components/Sidebar";
   const [name, setName] = useState('')
   const [registro, setregistro] = useState('')
   const [cpf, setCPF] = useState('')
-  const [email, setemail] = useState('não possui')
-  const [telefone, setTelefone] = useState('não possui')
+  const [email, setemail] = useState('')
+  const [telefone, setTelefone] = useState('')
   const [documento, setdocumento] = useState([])
   
   
@@ -31,11 +31,8 @@ import Sidebar from "../components/Sidebar";
     })
 
     if(response.status == 200){
-      const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-        acao:"Realizou Cadastro do Registrado "+name
-      })
       alert('Cadastro realizado com sucesso!!')
-      history.push('/admin/listADM')
+      history.push('/admin/inicial')
     }else{
       alert(response.statusText)
     }
@@ -50,7 +47,7 @@ import Sidebar from "../components/Sidebar";
       <main>
         <div className="create-ADM-form" >
           <fieldset>
-            <legend>Dados do Registrado</legend>
+            <legend>Dados</legend>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
