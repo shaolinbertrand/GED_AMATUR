@@ -6,10 +6,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    telefone:{
-        type: String,
-        required: true,
-    },
     password:{
         type: String,
         required: true,
@@ -22,8 +18,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    admin:{
-        type: Boolean,
+    setor:{
+        type: String,
         required: true
     },
     ativo:{
