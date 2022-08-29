@@ -15,20 +15,21 @@ export default function Sidebar(){
     return (
         <aside>
                 <header>
-                    <img src={logoImg} className="CRA-RR"/>
+                    <img src={logoImg}  className="CRA-RR"/>
 
-                    <h2>Escolha a opção desejada</h2>
+                    <h2>Escolha a opção desejada:</h2>
                 </header>
-
+                <div className='espaco'></div>
 
                 <div className="corpo" >
-                    Novo user
+                    
                     <Link to="/admin/usuario/create" className="enter-app">
                         <button type="button" className= "botao">
+                        Novo Usuario
                             <BiUserPin size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
-                    <div>Novo Admininstrador</div>
+                    <div>Nova Empresa</div>
                     <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
                             <BsFillPersonPlusFill size={26} color="rgba(0, 0, 0, 0.6)"/>
@@ -38,6 +39,24 @@ export default function Sidebar(){
                     <Link to="/ativos" className="enter-app">
                         <button type="button" className= "botao">
                             <CgUserList size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>
+                    </Link>
+                    <div>Listar Admininstradores</div>
+                    <Link to="/admin/listADM" className="enter-app">
+                        <button type="button" className= "botao">
+                            <BsCardList size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>
+                    </Link>
+                    <div>Listar Admininstradores</div>
+                    <Link to="/admin/listADM" className="enter-app">
+                        <button type="button" className= "botao">
+                            <BsCardList size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>
+                    </Link>
+                    <div>Listar Admininstradores</div>
+                    <Link to="/admin/listADM" className="enter-app">
+                        <button type="button" className= "botao">
+                            <BsCardList size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <div>Listar Admininstradores</div>
