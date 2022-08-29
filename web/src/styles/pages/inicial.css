@@ -52,9 +52,9 @@
 
     left: 0;
     top: 0;
-    width: 400px;
-    height: 400px;
-
+    width: 350px;
+    height: 350px;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
 
