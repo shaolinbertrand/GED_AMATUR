@@ -32,6 +32,7 @@ aside .corpo{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 aside  .enter-app{
@@ -43,8 +44,9 @@ aside  .enter-app{
 
 aside .botao{
     background: #ffd666;
+    color:black;
     border-radius: 30px;
-
+    padding: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,12 +55,16 @@ aside .botao{
 
 .botao:hover{
     background: #ff4800;
+    color:white;
 }
+
+
 
 aside footer{
    display:flex;
    flex-direction: column;
-
+   
+    color: white;
    line-height:24px;
 }
 

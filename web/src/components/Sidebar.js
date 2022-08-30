@@ -27,9 +27,9 @@ export default function Sidebar(){
 
                     <h2>Escolha a opção desejada:</h2>
                 </header>
-                <div className='espaco'></div>
 
                 <div className="corpo" >
+                <br></br>
                     <div>Novo Usuario</div>
                     <Link to="/admin/usuario/create" className="enter-app">
                         <button type="button" className= "botao">
@@ -37,55 +37,63 @@ export default function Sidebar(){
                             <BiUserPin size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
+                    <br></br>
                     <div>Listar Usuários</div>
                     <Link to="/ativos" className="enter-app">
                         <button type="button" className= "botao">
                             <CgUserList size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
+                    <br></br>
                     <div>Cadastrar Contrato</div>
                     <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
                             <FaFileContract size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
-                  
+                    <br></br>
                     <div>Listar Contratos</div>
                     <Link to="/admin/listADM" className="enter-app">
                         <button type="button" className= "botao">
                             <FaFileContract size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
+                    <br></br>
                     <div>Cadastrar Caixa</div>
                     <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
                             <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
+                    <br></br>
                     <div>Listar Caixas</div>
                     <Link to="/admin/listADM" className="enter-app">
                         <button type="button" className= "botao">
                             <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
+                    <br></br>
                     <div>Cadastrar Imposto</div>
                     <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
                             <FaMoneyCheckAlt size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
+                    <br></br>
                     <div>Listar Impostos</div>
                     <Link to="/admin/listADM" className="enter-app">
                         <button type="button" className= "botao">
                             <FaMoneyCheckAlt size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
+                    <br></br>
                     <div>Cadastrar Folha de Pagamento</div>
                     <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
                             <FaWallet size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
+                    <br></br>
                     <div>Listar Folhas de Pagamento</div>
                     <Link to="/admin/listADM" className="enter-app">
                         <button type="button" className= "botao">
@@ -99,7 +107,7 @@ export default function Sidebar(){
                     Sair do Sistema
                     <Link to="/login" className="enter-app">
                         <button type="button"  className= "botao">
-                            < BiLogOut size={24} color="FFF"/>
+                            < BiLogOut size={26}/>
                         </button>
                     </Link>
                     <div className='espaco'></div>
