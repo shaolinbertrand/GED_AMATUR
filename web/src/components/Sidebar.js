@@ -1,13 +1,21 @@
 import React from 'react';
 import {BiLogOut} from  'react-icons/bi'
 import { useHistory } from 'react-router-dom';
-import '../styles/components/Sidebar.css'
+import '../styles/components/Sidebar.css';
 import logoImg from '../images/logo.png';
 import { Link } from 'react-router-dom';
 import {BiUserPin} from 'react-icons/bi'
 import {BsFillPersonPlusFill} from 'react-icons/bs'; 
-import {CgUserList} from 'react-icons/cg'
-import {BsCardList} from 'react-icons/bs'
+import {CgUserList} from 'react-icons/cg';
+import {BsCardList} from 'react-icons/bs';
+import {FaCashRegister} from 'react-icons/fa';
+import {FaFileContract} from 'react-icons/fa';
+import {FaMoneyCheckAlt} from "react-icons/fa";
+import {FaWallet} from "react-icons/fa";
+
+
+
+
 
 
 export default function Sidebar(){
@@ -22,17 +30,11 @@ export default function Sidebar(){
                 <div className='espaco'></div>
 
                 <div className="corpo" >
-                    
+                    <div>Novo Usuario</div>
                     <Link to="/admin/usuario/create" className="enter-app">
                         <button type="button" className= "botao">
-                        Novo Usuario
+
                             <BiUserPin size={26} color="rgba(0, 0, 0, 0.6)"/>
-                        </button>
-                    </Link>
-                    <div>Nova Empresa</div>
-                    <Link to="/user/adms/create" className="enter-app">
-                        <button type="button" className= "botao">
-                            <BsFillPersonPlusFill size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <div>Listar Usuários</div>
@@ -41,32 +43,58 @@ export default function Sidebar(){
                             <CgUserList size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
-                    <div>Listar Admininstradores</div>
-                    <Link to="/admin/listADM" className="enter-app">
+                    <div>Cadastrar Contrato</div>
+                    <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
-                            <BsCardList size={26} color="rgba(0, 0, 0, 0.6)"/>
+                            <FaFileContract size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
-                    <div>Listar Admininstradores</div>
+                  
+                    <div>Listar Contratos</div>
                     <Link to="/admin/listADM" className="enter-app">
                         <button type="button" className= "botao">
-                            <BsCardList size={26} color="rgba(0, 0, 0, 0.6)"/>
+                            <FaFileContract size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
-                    <div>Listar Admininstradores</div>
-                    <Link to="/admin/listADM" className="enter-app">
+                    <div>Cadastrar Caixa</div>
+                    <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
-                            <BsCardList size={26} color="rgba(0, 0, 0, 0.6)"/>
+                            <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
-                    <div>Listar Admininstradores</div>
+                    <div>Listar Caixas</div>
                     <Link to="/admin/listADM" className="enter-app">
                         <button type="button" className= "botao">
-                            <BsCardList size={26} color="rgba(0, 0, 0, 0.6)"/>
+                            <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>
+                    </Link>
+                    <div>Cadastrar Imposto</div>
+                    <Link to="/user/adms/create" className="enter-app">
+                        <button type="button" className= "botao">
+                            <FaMoneyCheckAlt size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>
+                    </Link>
+                    <div>Listar Impostos</div>
+                    <Link to="/admin/listADM" className="enter-app">
+                        <button type="button" className= "botao">
+                            <FaMoneyCheckAlt size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>
+                    </Link>
+                    <div>Cadastrar Folha de Pagamento</div>
+                    <Link to="/user/adms/create" className="enter-app">
+                        <button type="button" className= "botao">
+                            <FaWallet size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>
+                    </Link>
+                    <div>Listar Folhas de Pagamento</div>
+                    <Link to="/admin/listADM" className="enter-app">
+                        <button type="button" className= "botao">
+                            <FaWallet size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                 </div>
-                
+                <div className='espaco'></div>
+                <div className='espaco'></div>
                 <footer>
                     Sair do Sistema
                     <Link to="/login" className="enter-app">
@@ -74,6 +102,7 @@ export default function Sidebar(){
                             < BiLogOut size={24} color="FFF"/>
                         </button>
                     </Link>
+                    <div className='espaco'></div>
                     <strong>Boa Vista</strong>
                     <span>Roraima</span>
                 </footer>
