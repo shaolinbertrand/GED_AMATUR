@@ -24,6 +24,7 @@ function Login(){
         
 
         if(response.status == 200){
+             console.log('id_login');
             const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
                 acao:"Realizou Login "
               })

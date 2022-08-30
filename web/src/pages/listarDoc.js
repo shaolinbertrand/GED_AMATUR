@@ -43,7 +43,7 @@ function DocumentosMap(props){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
         acao:"Visualizou Documentos do Registrado "+props.match.params.name
       })
-        api.get(`adm/doc/${props.match.params.id}`)
+        api.get(`empresa/doc/${props.match.params.id}`)
       .then((todo)=> setList(todo.data));
     },[])
 
