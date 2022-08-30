@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/pages/inicial.css';
 import Sidebar from '../components/Sidebar'
-function Inicial(){
+import api from '../services/api';
+ function Inicial(props){
     return(
         <div id="page-inicial">
-            <Sidebar/>
+            <Sidebar id={props.match.params.id}/>
                 <div className="content-wrapper">
                     <main>
                         <h1>Gestão Eletronica de Documentos</h1>

@@ -11,7 +11,7 @@ function Inicial(){
         
                 <main>
                     <h1>Gestão Eletronica de Documentos</h1>
-                    <p>Sistema de Arquivos AMATUR</p>
+                    <p>Sistema de Arquivos CRA-RR</p>
                 </main>
 
                 <div className='location'>

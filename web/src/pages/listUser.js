@@ -7,7 +7,9 @@ import {BsTrash} from 'react-icons/bs';
 import Sidebar from '../components/Sidebar'
 import '../styles/pages/listarUser.css';
 import { Link } from 'react-router-dom';
+import admin from './login'
 
+let logado = admin.logado
 const listStyle = {
     cursor: "pointer",
     boxShadow: '1px 3px 4px grey',
@@ -38,9 +40,18 @@ function User(){
     const [list, setList] = useState([]);
 
     useEffect(()=>{
-        //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
-        api.get("usuarios?id=607b5fcfc740aa2cc8057a89")
-      .then((todo)=> setList(todo.data));
+        try{
+            console.log(admin.logado)
+            //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
+            const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+                acao:"Listou todos os usuários "
+              })
+            api.get(`usuarios?id=${localStorage.getItem('id_login')}`)
+          .then((todo)=> setList(todo.data));
+        }catch(e){
+            console.log(e)
+        }
+       
     },[])
     
         return (
@@ -63,7 +74,7 @@ function User(){
                 {list.map(user => (
                         <div  style={listStyle}  >
                            <span style={text}>{user.nome}</span>
-                            <Link to='user/' className="atualizar_dados">
+                            <Link to={`/admin/edituser/${user._id}`} className="atualizar_dados">
                                 <button type="button" className= "botao">
                                     <BsWrench size={26} color="gray"/>
                                 </button>

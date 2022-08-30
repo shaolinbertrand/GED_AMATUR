@@ -19,6 +19,7 @@ export default function CreateUser() {
   const [Ativo, setAtivo] = useState(true)
   const [telefone, setTelefone] = useState('')
   
+
   async function handleSubmit() {
     console.log('ssdsdsd')
 
@@ -33,7 +34,14 @@ export default function CreateUser() {
       ativo: Ativo
     })
 
+    
+
+    //user/id
+
     if(response.status == 200){
+      const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+        acao:"Realizou cadastro do usuário "+name
+      })
       alert('Cadastro realizado com sucesso!!')
       history.push('/admin/inicial')
     }else{

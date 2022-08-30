@@ -38,8 +38,11 @@ function User(){
     const [list, setList] = useState([]);
 
     useEffect(()=>{
+        const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+            acao:"Visualizou Usuários Inativos "
+          })
         //api.get("usuariosinativos?id=60ac05f9498fd53d8c5514ec")
-        api.get("usuariosinativos?id=607b5fcfc740aa2cc8057a89")
+        api.get(`usuariosinativos?id=${localStorage.getItem('id_login')}`)
       .then((todo)=> setList(todo.data));
     },[])
     
