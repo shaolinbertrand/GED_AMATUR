@@ -34,7 +34,7 @@ const contratoSchema = new mongoose.Schema({
 });
 contratoSchema.pre('save',function(){
     if (this.url){
-        this.url = `http://192.168.0.23:3001/files/${this.namebanco}`;
+        this.url = `http://192.168.10.146:3001/files/${this.namebanco}`;
     }
 });
 
