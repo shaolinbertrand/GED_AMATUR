@@ -38,7 +38,7 @@ function DocumentosMap(props){
     const [list, setList] = useState([]);
 
     useEffect(()=>{
-        api.get(`adm/doc/${props.match.params.id}`)
+        api.get(`empresa/doc/${props.match.params.id}`)
       .then((todo)=> setList(todo.data));
     },[])
 

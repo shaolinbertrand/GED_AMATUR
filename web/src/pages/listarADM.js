@@ -39,7 +39,7 @@ function AdministradoresMap(){
     const [list, setList] = useState([]);
 
     useEffect(()=>{
-        api.get("adm/cadastrados")
+        api.get("empresa/cadastradas")
       .then((todo)=> setList(todo.data));
     },[])
     
