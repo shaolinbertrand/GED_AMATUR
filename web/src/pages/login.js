@@ -5,7 +5,10 @@ import {BiLogIn} from 'react-icons/bi'
 import { useHistory } from "react-router-dom";
 import api from "../services/api";
 import '../styles/pages/login.css'
+
+
 function Login(){
+     let logado
 
     const history = useHistory()
 
@@ -13,7 +16,7 @@ function Login(){
     const [senha, setPassword] = useState('')
     
     async function handleSubmit() {
-      
+  
      console.log(name)
      console.log(senha)
      try{
@@ -21,8 +24,14 @@ function Login(){
         
 
         if(response.status == 200){
+            const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+                acao:"Realizou Login "
+              })
            alert('Login realizado com sucesso!!')
-           history.push('/admin/inicial')
+           localStorage.setItem('id_login', response.data._id);
+           localStorage.setItem('cargo', response.data.cargo);
+           localStorage.setItem('nome', response.data.nome);
+           history.push(`/admin/inicial`)
         }else{
            
         }
