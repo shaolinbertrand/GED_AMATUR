@@ -5,7 +5,7 @@ import '../styles/components/Sidebar.css'
 import logoImg from '../images/logo.png';
 import { Link } from 'react-router-dom';
 import {BiUserPin} from 'react-icons/bi'
-import {BsFillPersonPlusFill} from 'react-icons/bs'; 
+import {BsFillPersonPlusFill} from 'react-icons/bs';
 import {CgUserList} from 'react-icons/cg'
 import {BsCardList} from 'react-icons/bs'
 
