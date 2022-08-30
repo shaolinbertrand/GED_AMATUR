@@ -14,7 +14,10 @@ import CriarADM from './pages/criarADM';
 import ListADM from './pages/listarADM';
 import Adm from './pages/ADM';
 import Doc from './pages/listarDoc';
-
+import EditUser from './pages/editUser';
+import EditAdm from './pages/editAdm';
+import Upload from './pages/uploadfile';
+import Log from './pages/log';
 
 
 function Routes(){
@@ -27,13 +30,17 @@ function Routes(){
                 <Route path="/ativos" component={ListUserAtivos}/>
                 <Route path="/inativos" component={ListUserInativos}/>
                 <Route path="/admin/user/:id" component={User}/>
+                <Route path="/admin/edituser/:id" component={EditUser}/>
+                <Route path="/admin/editadm/:id" component={EditAdm}/>
                 <Route path="/admin/usuario/create" component={CriarUser}/>
                 <Route path="/admin/inicial" component={InicialAdm}/>
                 <Route path="/user/inicial" component={InicialUser}/>
                 <Route path="/user/adms/create" component={CriarADM}/>
                 <Route path='/admin/listADM' component={ListADM}/>
                 <Route path='/adm/:id' component={Adm}/>
-                <Route path='/doc/:id/:name' component={Doc}/>
+                <Route path='/doc/:id/:name/:registro' component={Doc}/>
+                <Route path='/upload/:id/' component={Upload}/>
+                <Route path='/log/:id/' component={Log}/>
             </Switch>
         </BrowserRouter>
     );
