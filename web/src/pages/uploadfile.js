@@ -27,7 +27,7 @@ export default function UploadFile(props) {
 
   useEffect(()=>{
     //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
-     api.get(`/adm/${props.match.params.id}`)
+     api.get(`/empresa/${props.match.params.id}`)
   .then( todo=> {
     setName(todo.data.name)
   }

@@ -44,7 +44,7 @@ function AdministradoresMap(){
             acao:"Visualizou Todos os Registrados "
           })
     
-        api.get("adm/cadastrados")
+        api.get("empresa/cadastradas")
       .then((todo)=> setList(todo.data));
     },[])
     const history = useHistory()
