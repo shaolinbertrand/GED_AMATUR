@@ -4,6 +4,7 @@ const upload = require('./config/multer');
 
 const UserControllers = require ('./controllers/UserControllers');
 const EmpresaControllers = require ('./controllers/EmpresaControllers');
+const AgenciaControllers = require ('./controllers/AgenciaControllers');
 const { Router } = require('express');
 routes.get("/usuariosAtivos", UserControllers.indexAtivos); //lista todos os usuarios ativos
 routes.get("/usuariosInativos", UserControllers.indexInativos); //lista todos os usuarios inativos
@@ -13,15 +14,23 @@ routes.post("/cadastro", UserControllers.store);// cadastra um novo usuario no b
 routes.put("/usuario/:id",UserControllers.update);// atualiza dados de um unico usuario 
 routes.delete("/usuario/:id",UserControllers.destroy);//deleta um usuario
 routes.get("/login",UserControllers.login);//login no sistema
-routes.post("/novaEmpresa",upload.single('contrato'),EmpresaControllers.store);//cadastra nova empresa no banco
-routes.get("/empresa/cadastradas",EmpresaControllers.index);//lista todas as empresas no banco
-routes.delete("/empresa/:id",EmpresaControllers.destroy);//deleta um adm do banco
-routes.put("/empresa/doc/:id",upload.single('contrato'),EmpresaControllers.CriaContrato);//envia um documento associando a uma empresa
-routes.put("/empresa/:id",EmpresaControllers.update);//atualiza dados de uma empresa
-routes.get("/empresa/:id",EmpresaControllers.show);//mostra um unico adm
-routes.get("/buscarEmpresa",EmpresaControllers.buscar);//busca um adm pelo n° de registro, nome, CPF, telefone ou email
-routes.get("/empresa/doc/:id",EmpresaControllers.doc)//lista todos os documentos associados ao mesma empresa
 routes.post("/log/user/:id", UserControllers.log)//cria um log para tal usuario
 routes.get("/listaLog/:id",UserControllers.ListaLog)//mostra todos os logs do usuario
-
+//Empresas
+routes.post("/novaEmpresa",upload.single('contrato'),EmpresaControllers.store);//cadastra nova empresa no banco
+routes.get("/empresa/cadastradas",EmpresaControllers.index);//lista todas as empresas no banco
+routes.delete("/empresa/:id",EmpresaControllers.destroy);//deleta uma empresa do banco
+routes.put("/empresa/doc/:id",upload.single('contrato'),EmpresaControllers.CriaContrato);//envia um documento associando a uma empresa
+routes.put("/empresa/:id",EmpresaControllers.update);//atualiza dados de uma empresa
+routes.get("/empresa/:id",EmpresaControllers.show);//mostra uma unica empresa
+routes.get("/buscarEmpresa",EmpresaControllers.buscar);//busca uma empresa pelo nome ou area
+routes.get("/empresa/doc/:id",EmpresaControllers.doc)//lista todos os contratos associados a mesma empresa
+//Agencias
+routes.post("/novaAgencia",upload.single('caixa'),AgenciaControllers.store);//cadastra nova agencia no banco
+routes.get("/agencia/cadastradas",AgenciaControllers.index);//lista todas as agencias no banco
+routes.delete("/agencia/:id",AgenciaControllers.destroy);//deleta uma agencia do banco
+routes.put("/agencia/doc/:id",upload.single('caixa'),AgenciaControllers.CriaCaixa);//envia um caixa associando a uma agencia
+routes.get("/agencia/doc/:id",AgenciaControllers.doc)//lista todos os caixas associados a mesma agencia
+routes.put("/agencia/:id",AgenciaControllers.update);//atualiza dados de uma agencia
+routes.get("/agencia/:id",AgenciaControllers.show);//mostra uma unica agencia
 module.exports = routes;

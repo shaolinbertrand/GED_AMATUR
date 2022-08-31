@@ -2,7 +2,7 @@ const mongoose = require ('mongoose');
 const caixa = require('../models/caixa');
 const Agencia = mongoose.model('AGENCIA');
 const Caixa = mongoose.model('CAIXA');
-const agenciaView = require('../views/AgenciaViewrs');
+const agenciaView = require('../views/AgenciaViewers');
 const user = require('./UserControllers');
 const logger = require("../logger");
 
@@ -32,7 +32,7 @@ module.exports ={
     },
     //mostrando todos os caixas associados a mesma agencia
     async doc(req,res){
-        const contratos = await Caixa.find({"IdEmpresa":req.params.id});
+        const contratos = await Caixa.find({"IdAgencia":req.params.id});
         const adm = await Agencia.findById(req.params.id);
         return res.json(contratos)
 
@@ -42,7 +42,6 @@ module.exports ={
     async store(req,res){
         let agencia = await Agencia.create({
             name: req.body.name,
-            area: req.body.area,
             });
         return res.json(agencia)
     },
@@ -53,8 +52,9 @@ module.exports ={
             namebanco: req.file.filename,
             url: req.file.path,
             IdAgencia:req.params.id,
-            numero: req.body.numero,
-            tipoValidade: req.body.tipoValidade
+            dia: req.body.dia,
+            mes: req.body.mes,
+            ano:req.body.ano
             })
         const agencia = await Agencia.findByIdAndUpdate(
                 caixa.IdAgencia,

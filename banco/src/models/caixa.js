@@ -6,9 +6,18 @@ const caixaSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    data: {
-        type: Date,
+    dia: {
+        type: Number,
         required: true,
+    },
+    mes:{
+        type: Number,
+        required: true,
+    },
+    ano:{
+        type: Number,
+        required: true,
+
     },
     url:{
         type: String,
