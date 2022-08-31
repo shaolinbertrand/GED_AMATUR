@@ -24,23 +24,14 @@ module.exports ={
         console.log(usuario)
     let empresa = await Empresa.findOne({"name":{$regex: usuario}});
         if(!empresa){
-            empresa= await Empresa.findOne({"registro":{$regex: usuario}});
+            empresa= await Empresa.findOne({"area":{$regex: usuario}});
             if(!empresa){
-                empresa= await Empresa.findOne({"CPF":{$regex: usuario}})
-                if(!empresa){
-                    empresa= await Empresa.findOne({"email":{$regex: usuario}})
-                    if(!empresa){
-                        empresa= await Empresa.findOne({"telefone":{$regex: usuario}})
-                        if(!empresa){
-                            return res.json("Registrado não encontrado").status("200");
-                        }
-                    }
-                }
+                return res.json("Empresa não encontrada").status("200");
             }
         }
         return res.json(empresaView.render(empresa));
     },
-    //mostrando todos os documentos associados ao mesmo adm
+    //mostrando todos os contratos associados a mesma empresa
     async doc(req,res){
         const contratos = await Contrato.find({"IdEmpresa":req.params.id});
         const adm = await Empresa.findById(req.params.id);
@@ -48,7 +39,7 @@ module.exports ={
 
     },
 
-    //Inserindo novo Administrador no banco de dados
+    //Inserindo nova Empresa no banco de dados
     async store(req,res){
         let empresa = await Empresa.create({
             name: req.body.name,
@@ -56,7 +47,7 @@ module.exports ={
             });
         return res.json(empresa)
     },
-    //Inserindo novo documento (PDF) no banco de dados
+    //Inserindo novo contrato (PDF) no banco de dados
     async CriaContrato(req,res){
         const contrato = await Contrato.create({
             name: req.file.originalname,
@@ -80,7 +71,7 @@ module.exports ={
             )
         return res.json(empresa)
     },
-    //Atualizando os dados do administrador (exeto documentos)
+    //Atualizando os dados da Empresa (exeto documentos)
     async update(req,res){
         const empresa = await Empresa.findByIdAndUpdate(req.params.id, req.body, {new: true});
         return res.json(empresa);
@@ -88,7 +79,7 @@ module.exports ={
 
     async destroy(req,res){
         await Empresa.findByIdAndRemove(req.params.id);
-
+        await Contrato.findManyAndRemove({"IdEmpresa":req.params.id})
         return res.send({msg:"Empresa excluida com sucesso"});
     },
 
