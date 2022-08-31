@@ -17,10 +17,10 @@ routes.post("/novaEmpresa",upload.single('contrato'),EmpresaControllers.store);/
 routes.get("/empresa/cadastradas",EmpresaControllers.index);//lista todas as empresas no banco
 routes.delete("/empresa/:id",EmpresaControllers.destroy);//deleta um adm do banco
 routes.put("/empresa/doc/:id",upload.single('contrato'),EmpresaControllers.CriaContrato);//envia um documento associando a uma empresa
-routes.put("/empresa/:id",EmpresaControllers.update);//atualiza dados dos adm registrados
+routes.put("/empresa/:id",EmpresaControllers.update);//atualiza dados de uma empresa
 routes.get("/empresa/:id",EmpresaControllers.show);//mostra um unico adm
 routes.get("/buscarEmpresa",EmpresaControllers.buscar);//busca um adm pelo n° de registro, nome, CPF, telefone ou email
-routes.get("/empresa/doc/:id",EmpresaControllers.doc)//lista todos os documentos associados ao mesmo adm
+routes.get("/empresa/doc/:id",EmpresaControllers.doc)//lista todos os documentos associados ao mesma empresa
 routes.post("/log/user/:id", UserControllers.log)//cria um log para tal usuario
 routes.get("/listaLog/:id",UserControllers.ListaLog)//mostra todos os logs do usuario
 

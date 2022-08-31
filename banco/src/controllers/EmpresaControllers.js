@@ -79,7 +79,7 @@ module.exports ={
 
     async destroy(req,res){
         await Empresa.findByIdAndRemove(req.params.id);
-        await Contrato.findManyAndRemove({"IdEmpresa":req.params.id})
+        await Contrato.find({"IdEmpresa":req.params.id}).remove()
         return res.send({msg:"Empresa excluida com sucesso"});
     },
 
