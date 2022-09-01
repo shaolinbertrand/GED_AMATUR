@@ -3,6 +3,7 @@ const contrato = require('../models/contrato');
 const Empresa = mongoose.model('EMPRESA');
 const Contrato = mongoose.model('Contrato');
 const empresaView = require('../views/EmpresaViewrs');
+const contratoView = require('../views/ContratoViewers')
 const user = require('./UserControllers');
 const logger = require("../logger");
 
@@ -35,7 +36,7 @@ module.exports ={
     async doc(req,res){
         const contratos = await Contrato.find({"IdEmpresa":req.params.id});
         const adm = await Empresa.findById(req.params.id);
-        return res.json(contratos)
+        return res.json(contratoView.renderMany(contratos))
 
     },
 

@@ -14,9 +14,13 @@ const DocSchema = new mongoose.Schema({
         type:String,
         required: true,
     },
-    IdAdm:{
+    IdPagamento:{
         type: String,
         required: true
+    },
+    DataUpload:{
+        type: String,
+        required: true,
     },
     createdAt:{
         type: Date,

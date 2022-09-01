@@ -33,4 +33,5 @@ routes.put("/agencia/doc/:id",upload.single('caixa'),AgenciaControllers.CriaCaix
 routes.get("/agencia/doc/:id",AgenciaControllers.doc)//lista todos os caixas associados a mesma agencia
 routes.put("/agencia/:id",AgenciaControllers.update);//atualiza dados de uma agencia
 routes.get("/agencia/:id",AgenciaControllers.show);//mostra uma unica agencia
+//Folha de Pagamento
 module.exports = routes;
