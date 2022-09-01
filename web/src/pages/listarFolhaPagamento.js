@@ -3,7 +3,7 @@ import api from "../services/api";
 import React, {useEffect, useState} from 'react'
 import { useHistory } from "react-router-dom";
 import Sidebar from '../components/Sidebar'
-import '../styles/pages/listarUser.css';
+import '../styles/pages/listarFP.css';
 import {BsWrench} from 'react-icons/bs';
 import {BiArchive} from 'react-icons/bi';
 import {BsEye} from 'react-icons/bs'
@@ -44,7 +44,7 @@ function AdministradoresMap(){
             acao:"Visualizou Todos os Registrados "
           })
     
-        api.get("empresa/cadastradas")
+        api.get("folhas/cadastradas")
       .then((todo)=> setList(todo.data));
     },[])
     const history = useHistory()
@@ -69,26 +69,39 @@ function AdministradoresMap(){
                 <Sidebar/>
                 <div className="create-user-form" >
                 <div>
-                    <fieldset>
+                    
                         <div className="input-block">
-                            <h2 style={text}>Busca</h2>
-                            <input id="busca" 
-                                value={busca} 
-                                onChange={event => setBusca(event.target.value)} />
-                        </div>
-                    </fieldset>
+                            <h2 style={text}>Qual Mês Deseja? </h2>
+                            <select id="busca" name="busca"  onChange={event => setBusca(event.target.value)}>
+		                        <option value='1'>Janeiro</option>
+		                        <option value='2'>Fevereiro</option>
+		                        <option value='3'>Março</option>
+                                <option value='4'>Abril</option>
+                                <option value='5'>Maio</option>
+                                <option value='6'>Junho</option>
+                                <option value='7'>Julho</option>
+                                <option value='8'>Agosto</option>
+                                <option value='9'>Setembro</option>
+                                <option value='10'>Outubro</option>
+                                <option value='11'>Novembro</option>
+                                <option value='12'>Dezembro</option>
+	                        </select>
+                            
+                        
+                    
                     <button onClick={handleSubmit}  type="submit" className= "botaoBuscar">
                         Buscar
                     </button>
+                    </div>
                 </div>
-                  <h2 style={text}>REGISTRADOS</h2>
+                  <h2 style={text}>Folha de Pagamento</h2>
 
                   <ul>  
                 {list.map(adm => (
                         <div  style={listStyle}  >
                            
-                            <span style={text}>{adm.registro}</span>
-                            <span style={text}>{adm.name}</span>
+                            
+                            <span style={text}>{adm.mes}</span>
                             <span>
                                 <Link to={`/adm/${adm._id}`} className="mostrar_dados">
                                     <button type="button" className= "botao">

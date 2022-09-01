@@ -11,7 +11,10 @@ import CriarUser from './pages/criarUser';
 import InicialUser from './pages/inicialUser';
 import InicialAdm from './pages/inicialAdm';
 import CriarADM from './pages/criarADM';
-import ListADM from './pages/listarADM';
+import ListarContrato from './pages/listarContrato';
+import ListarAgencia from './pages/listarAgencia';
+import ListarImposto from './pages/listarImposto';
+import ListarFP from './pages/listarFolhaPagamento';
 import Adm from './pages/ADM';
 import Doc from './pages/listarDoc';
 import EditUser from './pages/editUser';
@@ -36,7 +39,10 @@ function Routes(){
                 <Route path="/admin/inicial" component={InicialAdm}/>
                 <Route path="/user/inicial" component={InicialUser}/>
                 <Route path="/user/adms/create" component={CriarADM}/>
-                <Route path='/admin/listADM' component={ListADM}/>
+                <Route path='/admin/listarContrato' component={ListarContrato}/>
+                <Route path='/admin/listarAgencia' component={ListarAgencia}/>
+                <Route path='/admin/listarImposto' component={ListarImposto}/>
+                <Route path='/admin/listarFolhaPagamentos' component={ListarFP}/>
                 <Route path='/adm/:id' component={Adm}/>
                 <Route path='/doc/:id/:name/:registro' component={Doc}/>
                 <Route path='/upload/:id/' component={Upload}/>

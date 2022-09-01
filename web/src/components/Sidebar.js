@@ -53,21 +53,21 @@ export default function Sidebar(){
                     </Link>
                     <br></br>
                     <div>Listar Contratos</div>
-                    <Link to="/admin/listADM" className="enter-app">
+                    <Link to="/admin/listarContrato" className="enter-app">
                         <button type="button" className= "botao">
                             <FaFileContract size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <br></br>
-                    <div>Cadastrar Caixa</div>
+                    <div>Cadastrar Caixa de Agencia</div>
                     <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
                             <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <br></br>
-                    <div>Listar Caixas</div>
-                    <Link to="/admin/listADM" className="enter-app">
+                    <div>Listar Agencia</div>
+                    <Link to="/admin/listarAgencia" className="enter-app">
                         <button type="button" className= "botao">
                             <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
@@ -81,7 +81,7 @@ export default function Sidebar(){
                     </Link>
                     <br></br>
                     <div>Listar Impostos</div>
-                    <Link to="/admin/listADM" className="enter-app">
+                    <Link to="/admin/listarImposto" className="enter-app">
                         <button type="button" className= "botao">
                             <FaMoneyCheckAlt size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
@@ -95,7 +95,7 @@ export default function Sidebar(){
                     </Link>
                     <br></br>
                     <div>Listar Folhas de Pagamento</div>
-                    <Link to="/admin/listADM" className="enter-app">
+                    <Link to="/admin/listarFolhaPagamentos" className="enter-app">
                         <button type="button" className= "botao">
                             <FaWallet size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>

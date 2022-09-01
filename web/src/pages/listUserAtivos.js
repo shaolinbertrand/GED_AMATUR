@@ -41,7 +41,6 @@ function User(){
         const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
             acao:"Listou Usuários Ativos "
           })
-        //api.get("usuariosAtivos?id=60ac05f9498fd53d8c5514ec")
         api.get(`usuariosAtivos?id=${localStorage.getItem('id_login')}`)
       .then((todo)=> setList(todo.data));
     },[])
@@ -89,7 +88,6 @@ function User(){
         )   
         
 
- //adm/cadastrados
 
 };
 
