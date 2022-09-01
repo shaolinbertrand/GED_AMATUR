@@ -2,10 +2,10 @@
 module.exports = {
     render(Empresa){
         return{
-                contrato: Empresa.contrato,
                 _id:Empresa._id,
                 name: Empresa.name,
                 area: Empresa.area,
+                contrato: Empresa.contrato,
         };
     },
     renderMany(empresas){

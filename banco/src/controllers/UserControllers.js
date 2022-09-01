@@ -1,5 +1,5 @@
 const mongoose = require ('mongoose');
-const { findById } = require('../models/doc');
+const { findById } = require('../models/documento');
 const User = mongoose.model('User');
 const Log = mongoose.model('Log');
 const userView = require('../views/UserViwers')
