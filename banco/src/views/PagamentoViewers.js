@@ -4,7 +4,8 @@ module.exports = {
         return{
                 ano:Pagamento.ano,
                 mes: Pagamento.mes,
-                documentos:Pagamento.documentos
+                _id:Pagamento._id,
+                documento:Pagamento.documentos
         };
     },
     renderMany(pagamentos){

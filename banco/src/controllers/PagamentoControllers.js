@@ -1,6 +1,6 @@
 const mongoose = require ('mongoose');
-const doc = require('../models/doc');
-const Pagamento = mongoose.model('PAGAMENTO');
+const doc = require('../models/documento');
+const Pagamento = mongoose.model('Pagamento');
 const Documento = mongoose.model('Doc');
 const pagamentoView = require('../views/PagamentoViewers');
 const docView = require('../views/DocViewers');
@@ -33,7 +33,7 @@ module.exports ={
     },
     //mostrando todos os documentos associados a mesma folha de pagamento
     async doc(req,res){
-        const documentos = await Documento.find({"IdAgencia":req.params.id});
+        const documentos = await Documento.find({"IdPagamento":req.params.id});
         return res.json(docView.renderMany(documentos))
 
     },
@@ -41,7 +41,8 @@ module.exports ={
     //Inserindo nova Agencia no banco de dados
     async store(req,res){
         let pagamento = await Pagamento.create({
-            name: req.body.name,
+            mes:req.body.mes,
+            ano:req.body.ano
             });
         return res.json(pagamento)
     },
@@ -53,13 +54,13 @@ module.exports ={
             namebanco: req.file.filename,
             url: req.file.path,
             IdPagamento:req.params.id,
-            dataUpload: `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`
+            DataUpload: `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`
             })
         const pagamento = await Pagamento.findByIdAndUpdate(
                 documento.IdPagamento,
                 {
                     $push: {
-                        caixa: {
+                        documento: {
                             url: documento.url,
                             name: documento.name
                         }
@@ -77,6 +78,7 @@ module.exports ={
 
     async destroy(req,res){
         await Pagamento.findByIdAndRemove(req.params.id);
+        await Documento.find({"IdFolha":req.params.id}).remove()
         return res.send({msg:"Folha de Pagamento excluida com sucesso"});
     },
 

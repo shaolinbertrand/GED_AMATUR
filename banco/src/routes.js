@@ -5,6 +5,7 @@ const upload = require('./config/multer');
 const UserControllers = require ('./controllers/UserControllers');
 const EmpresaControllers = require ('./controllers/EmpresaControllers');
 const AgenciaControllers = require ('./controllers/AgenciaControllers');
+const PagamentoControllers = require('./controllers/PagamentoControllers')
 const { Router } = require('express');
 routes.get("/usuariosAtivos", UserControllers.indexAtivos); //lista todos os usuarios ativos
 routes.get("/usuariosInativos", UserControllers.indexInativos); //lista todos os usuarios inativos
@@ -34,4 +35,11 @@ routes.get("/agencia/doc/:id",AgenciaControllers.doc)//lista todos os caixas ass
 routes.put("/agencia/:id",AgenciaControllers.update);//atualiza dados de uma agencia
 routes.get("/agencia/:id",AgenciaControllers.show);//mostra uma unica agencia
 //Folha de Pagamento
+routes.post("/novaFolha",upload.single('documento'),PagamentoControllers.store);//cadastra nova folha de pagamento no banco
+routes.get("/folhas/cadastradas",PagamentoControllers.index);//lista todas as folhas de pagamento no banco
+routes.delete("/folha/:id",PagamentoControllers.destroy);//deleta uma folha de pagamento do banco
+routes.put("/folha/doc/:id",upload.single('documento'),PagamentoControllers.CriaDoc);//envia um documento associando a uma folha de pagamento
+routes.get("/folha/doc/:id",PagamentoControllers.doc)//lista todos os documneots associados a mesma folha de pagamento
+routes.put("/folha/:id",PagamentoControllers.update);//atualiza dados de uma folha
+routes.get("/folha/:id",PagamentoControllers.show);//mostra uma unica folha
 module.exports = routes;

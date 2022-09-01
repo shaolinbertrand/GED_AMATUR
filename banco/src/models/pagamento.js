@@ -10,7 +10,7 @@ const PagamentoSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    documentos:{
+    documento:{
         type: Array,
         required: false,
     },

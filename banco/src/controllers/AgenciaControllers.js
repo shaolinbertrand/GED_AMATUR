@@ -32,9 +32,9 @@ module.exports ={
     },
     //mostrando todos os caixas associados a mesma agencia
     async doc(req,res){
-        const contratos = await Caixa.find({"IdAgencia":req.params.id});
+        const caixas = await Caixa.find({"IdAgencia":req.params.id});
         const adm = await Agencia.findById(req.params.id);
-        return res.json(contratos)
+        return res.json(caixas)
 
     },
 
