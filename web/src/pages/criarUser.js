@@ -15,9 +15,8 @@ export default function CreateUser() {
   const [cargo, setCargo] = useState('')
   const [senha, setPassword] = useState('')
   const [CPF, setCPF] = useState('')
-  const [Adimin, setAdimin] = useState(false)
   const [Ativo, setAtivo] = useState(true)
-  const [telefone, setTelefone] = useState('')
+  const [setor, setSetor] = useState('')
   
 
   async function handleSubmit() {
@@ -26,11 +25,10 @@ export default function CreateUser() {
 
     const response = await api.post('/cadastro',  {
       nome: name,
-      telefone: telefone,
+      setor: setor,
       password:senha,
       CPF:CPF,
       cargo: cargo,
-      admin: Adimin,
       ativo: Ativo
     })
 
@@ -68,9 +66,15 @@ export default function CreateUser() {
 
             <div className="input-block">
               <label htmlFor="senha" show='*'>Senha</label >
-              <input id="senha"
+              <input type='password' id="senha"
               value={senha} 
               onChange={event => setPassword(event.target.value)} />
+            </div>
+            <div className="input-block">
+              <label htmlFor="CPF">CPF</label >
+              <input id="CPF"
+              value={CPF} 
+              onChange={event => setCPF(event.target.value)} />
             </div>
 
             <div className="input-block">
@@ -81,34 +85,18 @@ export default function CreateUser() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="telefone">Telefone</label >
-              <input id="telefone"
-              value={telefone} 
-              onChange={event => setTelefone(event.target.value)} />
-            </div>
-
-            <div className="input-block">
-              <label htmlFor="CPF">CPF</label >
-              <input id="CPF"
-              value={CPF} 
-              onChange={event => setCPF(event.target.value)} />
-            </div>
-
-            <div className="input-block">
-              <label htmlFor="Adimin">Administrador do Sistema</label>
-
-              <div className="button-select">
-                <button type="button" 
-                className={Adimin ? 'active' : ''}
-                onClick={() => setAdimin(true)}
-                >Sim</button>
-                <button 
-                type="button"
-                className={!Adimin ? 'active' : ''}
-                onClick={() => setAdimin(false)}
-                >Não</button>
+              <label htmlFor="setor">Setor</label > 
+              <div className="radium" >
+                <input type="radio" name="setor" value="diretoria" onChange={event => setSetor(event.target.value)} /> Diretoria
+                <input  type="radio" name="setor" value="ti" onChange={event => setSetor(event.target.value)}/> T.i
+                <input  type="radio" name="setor" value="rh" onChange={event => setSetor(event.target.value)}/> R.H
+                <input  type="radio" name="setor" value="financeiro" onChange={event => setSetor(event.target.value)}/>  Financeiro
+               </div>
               </div>
-
+             
+              
+              
+               <div className="input-block">
               <label htmlFor="Adimin">Usuário Ativo</label>
               <div className="button-select">
                 <button type="button" 
@@ -133,5 +121,3 @@ export default function CreateUser() {
     </div>
   );
 }
-
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;

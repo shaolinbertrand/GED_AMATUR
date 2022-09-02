@@ -19,7 +19,7 @@
     overflow: hidden;
   }
   
-/*.input-block #busca{
+.input-block #busca{
    margin-left: 170px;
    width: 100px;
    height: 30px;
@@ -35,7 +35,7 @@
     font-size: medium;
  }
    
-  */
+  
   .create-user-form .leaflet-container {
     margin-bottom: 40px;
     border: 1px solid #d3d2d5;
