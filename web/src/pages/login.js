@@ -32,7 +32,7 @@ function Login(){
            localStorage.setItem('id_login', response.data._id);
            localStorage.setItem('cargo', response.data.cargo);
            localStorage.setItem('nome', response.data.nome);
-           history.push(`/admin/inicial`)
+           history.push(`admin/inicial`)
         }else{
            
         }
@@ -48,7 +48,7 @@ function Login(){
         <div id="page-login">
             <aside>
                 <header>
-                    <img src={logoImg} className="CRA-RR"/>
+                    <img src={logoImg} className="AMATUR"/>
 
                     <h2>Digite seu nome e senha para acessar o sistema</h2>
                 </header>

@@ -9,7 +9,7 @@ import api from '../services/api';
                 <div className="content-wrapper">
                     <main>
                         <h1>Gestão Eletronica de Documentos</h1>
-                        <p>Sistema de Arquivos CRA-RR</p>
+                        <p>Sistema de Arquivos AMATUR</p>
                     </main>
 
                     <div className='location'>

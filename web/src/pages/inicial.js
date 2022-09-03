@@ -7,11 +7,11 @@ function Inicial(){
     return(
         <div id="page-inicial">
             <div className="content-wrapper">
-                <img src={logoImg} className="CRA-RR"/>
+                <img src={logoImg} className="AMATUR"/>
         
                 <main>
                     <h1>Gestão Eletronica de Documentos</h1>
-                    <p>Sistema de Arquivos CRA-RR</p>
+                    <p>Sistema de Arquivos AMATUR</p>
                 </main>
 
                 <div className='location'>

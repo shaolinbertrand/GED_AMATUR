@@ -1,7 +1,6 @@
 import React, { FormEvent, useState, ChangeEvent } from "react";
 import { useHistory } from "react-router-dom";
 import api from "../services/api";
-
 import '../styles/pages/CriarUser.css';
 import Sidebar from "../components/Sidebar";
 
@@ -41,7 +40,7 @@ export default function CreateUser() {
         acao:"Realizou cadastro do usuário "+name
       })
       alert('Cadastro realizado com sucesso!!')
-      history.push('/admin/inicial')
+      history.push('admin/inicial')
     }else{
       alert(response.statusText)
     }

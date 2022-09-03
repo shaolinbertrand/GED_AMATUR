@@ -23,7 +23,7 @@ export default function Sidebar(){
     return (
         <aside>
                 <header>
-                    <img src={logoImg}  className="CRA-RR"/>
+                    <img src={logoImg}  className="AMATUR"/>
 
                     <h2>Escolha a opção desejada:</h2>
                 </header>

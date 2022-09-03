@@ -54,7 +54,7 @@ function User(props){
                         <h2 style={text}>Nome: {user.nome}</h2>
                         <h2 style={text}>Cpf: {user.CPF}</h2>
                         <h2 style={text}>Cargo: {user.cargo}</h2>
-                        <h2 style={text}>Telefone: {user.telefone}</h2>
+                        <h2 style={text}>Setor: {user.setor}</h2>
                         <Link to={`/log/${user._id}`} className="mostrar_dados">
                           <button type="button" className= "botao">
                             <BiSelectMultiple size={26} color="rgba(0, 0, 0, 0.6)"/>

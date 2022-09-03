@@ -56,9 +56,9 @@ function User(){
     
         return (
             
-            <div id="page-CreateUser">
+            <div id="page-listUser">
                   <Sidebar/>
-                  <div className="create-user-form" >
+                  <div className="list-user-form" >
                   <h2 style={text}>USUÁRIOS</h2>
                     <Link to='/inativos'>
                         <button type="button" className= "botao">
