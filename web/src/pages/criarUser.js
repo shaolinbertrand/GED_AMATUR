@@ -125,5 +125,3 @@ export default function CreateUser() {
     </div>
   );
 }
-
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;

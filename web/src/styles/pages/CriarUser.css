@@ -11,7 +11,7 @@
     width: 700px;
     margin: 64px auto;
   
-    background: #FFFFFF;
+    background: #e50909;
     border: 1px solid #D3E2E5;
     border-radius: 20px;
   
@@ -125,7 +125,7 @@
     cursor: pointer;
     background: #3CDC8C;
     border-radius: 20px;
-    color: #FFFFFF;
+    color: #da0404;
     font-weight: 800;
   
     display: flex;
