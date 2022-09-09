@@ -26,6 +26,31 @@
     border-radius: 20px;
   }
   
+  .create-user-form .input-block-setor .radium{
+    color: black;
+    line-height: 20px;
+    margin-left: 25px;
+    
+  }
+  .create-user-form .input-block-setor .radium input{
+    height: 20px;
+    margin-left: 5px;
+
+    
+  }
+  .create-user-form .input-block-setor span {
+    margin-left: 25px;
+    color: black;
+    line-height: 20px;
+  }
+
+  .create-user-form .input-block-setor label {
+    display: flex;
+    color: #8FA7B3;
+    margin-bottom: 8px;
+    line-height: 24px;
+  }
+  
   .create-user-form fieldset {
     border: 0;
   }

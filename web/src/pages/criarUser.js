@@ -54,7 +54,7 @@ export default function CreateUser() {
       <main>
       <div className="create-user-form" >
           <fieldset>
-            <legend>Dados</legend>
+            <legend>Dados de Usuário</legend>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
@@ -82,17 +82,17 @@ export default function CreateUser() {
               value={cargo} 
               onChange={event => setCargo(event.target.value)} />
             </div>
-
-            <div className="input-block">
+          </fieldset>
+            <div className="input-block-setor">
               <label htmlFor="setor">Setor</label > 
               <div className="radium" >
-                <input type="radio" name="setor" value="diretoria" onChange={event => setSetor(event.target.value)} /> Diretoria
-                <input  type="radio" name="setor" value="ti" onChange={event => setSetor(event.target.value)}/> T.i
-                <input  type="radio" name="setor" value="rh" onChange={event => setSetor(event.target.value)}/> R.H
-                <input  type="radio" name="setor" value="financeiro" onChange={event => setSetor(event.target.value)}/>  Financeiro
+               <span>Diretoria</span> <input type="radio" name="setor" value="diretoria" onChange={event => setSetor(event.target.value)} />
+               <span>T.i</span><input  type="radio" name="setor" value="ti" onChange={event => setSetor(event.target.value)}/>
+               <span>R.H</span><input  type="radio" name="setor" value="rh" onChange={event => setSetor(event.target.value)}/>
+               <span>Financeiro</span><input  type="radio" name="setor" value="financeiro" onChange={event => setSetor(event.target.value)}/>
                </div>
               </div>
-             
+          <fieldset>   
               
               
                <div className="input-block">

@@ -50,7 +50,7 @@ import Sidebar from "../components/Sidebar";
       <main>
         <div className="create-ADM-form" >
           <fieldset>
-            <legend>Dados do Registrado</legend>
+            <legend>Dados do Contrato</legend>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>

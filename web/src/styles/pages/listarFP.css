@@ -1,4 +1,4 @@
-/*#page-CreateUser {
+#page-CreateUser {
     display: flex;
     
   }
@@ -160,4 +160,4 @@
   
   .create-user-form button.confirm-button:hover {
     background: #36CF82;
-  }*/
+  }
