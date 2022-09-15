@@ -5,7 +5,8 @@ const upload = require('./config/multer');
 const UserControllers = require ('./controllers/UserControllers');
 const EmpresaControllers = require ('./controllers/EmpresaControllers');
 const AgenciaControllers = require ('./controllers/AgenciaControllers');
-const PagamentoControllers = require('./controllers/PagamentoControllers')
+const PagamentoControllers = require('./controllers/PagamentoControllers');
+const ImpostoControllers = require('./controllers/ImpostoControllers');
 const { Router } = require('express');
 routes.get("/usuariosAtivos", UserControllers.indexAtivos); //lista todos os usuarios ativos
 routes.get("/usuariosInativos", UserControllers.indexInativos); //lista todos os usuarios inativos
@@ -42,4 +43,9 @@ routes.put("/folha/doc/:id",upload.single('documento'),PagamentoControllers.Cria
 routes.get("/folha/doc/:id",PagamentoControllers.doc)//lista todos os documneots associados a mesma folha de pagamento
 routes.put("/folha/:id",PagamentoControllers.update);//atualiza dados de uma folha
 routes.get("/folha/:id",PagamentoControllers.show);//mostra uma unica folha
+// Imposto
+routes.post("/novoImposto",upload.single('imposto'),ImpostoControllers.store);//cadastra novo imposto no banco
+routes.get("/impostos/cadastrados",ImpostoControllers.index);//lista todas os Impostos no banco
+routes.delete("/imposto/:id",ImpostoControllers.destroy); // deleta um imposto do banco
+routes.put("/imposto/:id",ImpostoControllers.update);//atualiza dados de uma folha
 module.exports = routes;

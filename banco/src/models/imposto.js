@@ -8,11 +8,11 @@ const impostoSchema = new mongoose.Schema({
     },
     periodo: {
         type: String,
-        required: true,
+        required: false,
     },
     NumParc:{
         type: Number,
-        required: true,
+        required: false,
     },
     url:{
         type: String,
@@ -21,10 +21,6 @@ const impostoSchema = new mongoose.Schema({
     namebanco:{
         type:String,
         required: true,
-    },
-    IdAgencia:{
-        type: String,
-        required: true
     },
     createdAt:{
         type: Date,
