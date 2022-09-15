@@ -1,7 +1,9 @@
 
 import api from "../services/api";
 import React, {useEffect, useState} from 'react'
-import {BiSelectMultiple} from  'react-icons/bi'
+import {BiSelectMultiple} from  'react-icons/bi';
+import {BsTrash} from 'react-icons/bs';
+import {BsWrench} from 'react-icons/bs';
 import Sidebar from '../components/Sidebar'
 import '../styles/pages/CriarUser.css';
 import { Link } from "react-router-dom";
@@ -55,11 +57,22 @@ function User(props){
                         <h2 style={text}>Cpf: {user.CPF}</h2>
                         <h2 style={text}>Cargo: {user.cargo}</h2>
                         <h2 style={text}>Setor: {user.setor}</h2>
+
                         <Link to={`/log/${user._id}`} className="mostrar_dados">
                           <button type="button" className= "botao">
                             <BiSelectMultiple size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>
                         </Link>
+
+                        <Link to={`/TI/edituser/${user._id}`} className="atualizar_dados">
+                          <button type="button" className= "botao">
+                            <BsWrench size={26} color="gray"/>
+                          </button>
+                        </Link>
+
+                        <button type="button" className= "botao">
+                          <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>
                                     
                     </div>                  
                   </div>

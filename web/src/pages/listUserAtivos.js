@@ -65,12 +65,12 @@ function User(){
                 {list.map(user => (
                         <div  style={listStyle}  >
                            <span style={text}>{user.nome}</span>
-                            <Link to='user' className="atualizar_dados">
+                            <Link to={`/TI/edituser/${user._id}`} className="atualizar_dados">
                                 <button type="button" className= "botao">
                                     <BsWrench size={26} color="gray"/>
                                 </button>
                             </Link>
-                            <Link to={`/admin/user/${user._id}`} className="mostrar_dados">
+                            <Link to={`/TI/user/${user._id}`} className="mostrar_dados">
                                 <button type="button" className= "botao">
                                     <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                                 </button>

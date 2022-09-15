@@ -23,6 +23,8 @@ export default function UploadFile(props) {
   const history = useHistory()
 
   const [file, setFile] = useState('')
+  const [tipoValidade, setTipoV] = useState('')
+  const [numero, setNumero] = useState('')
   const [name, setName] = useState('')
 
   useEffect(()=>{
@@ -35,15 +37,18 @@ export default function UploadFile(props) {
   },[])
 
   async function handleSubmit() {
+
     console.log(file)
     let formData = new FormData();
-      formData.append('documento', file);
-    const response = await api.put(`/adm/doc/${props.match.params.id}`,  
-        formData, {
+      formData.append('contrato', file);
+      formData.append('tipoValidade',tipoValidade);
+      formData.append('numero',numero);
+    const response = await api.put(`/empresa/doc/${props.match.params.id}`,
+        formData, { 
             headers: {
-                'Content-Type': 'multipart/form-data'
+                'Content-Type': 'multipart/form-data',
               }
-        }    
+        } 
       )
     if(response.status == 200){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
@@ -66,6 +71,20 @@ export default function UploadFile(props) {
           <fieldset>
   <legend>Novo Arquivo {name}</legend>
             
+            <div className="input-block"> 
+              <label htmlFor="tipoValidade">Tipo de Validade</label>
+              <input id="tipoValidade" 
+              value={tipoValidade} 
+              onChange={event => setTipoV(event.target.value)} />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="numeroC">Numero de Contrato</label >
+              <input id="senha"
+              value={numero} 
+              onChange={event => setNumero(event.target.value)} />
+            </div>
+
             <StyledDropZone
             onDrop={(file, text) => setFile(file)}
             >

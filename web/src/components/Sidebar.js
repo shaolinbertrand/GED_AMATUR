@@ -31,7 +31,7 @@ export default function Sidebar(){
                 <div className="corpo" >
                 <br></br>
                     <div>Novo Usuario</div>
-                    <Link to="/admin/usuario/create" className="enter-app">
+                    <Link to="/usuario/create" className="enter-app">
                         <button type="button" className= "botao">
 
                             <BiUserPin size={26} color="rgba(0, 0, 0, 0.6)"/>
@@ -45,28 +45,28 @@ export default function Sidebar(){
                         </button>
                     </Link>
                     <br></br>
-                    <div>Cadastrar Contrato</div>
-                    <Link to="/user/adms/create" className="enter-app">
+                    <div>Cadastrar Empresa</div>
+                    <Link to="/empresa/create" className="enter-app">
                         <button type="button" className= "botao">
                             <FaFileContract size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <br></br>
-                    <div>Listar Contratos</div>
-                    <Link to="/admin/listarContrato" className="enter-app">
+                    <div>Listar Empresas</div>
+                    <Link to="/listarEmpresa" className="enter-app">
                         <button type="button" className= "botao">
                             <FaFileContract size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <br></br>
-                    <div>Cadastrar Caixa de Agencia</div>
+                    <div>Cadastrar Caixa de Agência</div>
                     <Link to="/user/adms/create" className="enter-app">
                         <button type="button" className= "botao">
                             <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <br></br>
-                    <div>Listar Agencia</div>
+                    <div>Listar Agências</div>
                     <Link to="/admin/listarAgencia" className="enter-app">
                         <button type="button" className= "botao">
                             <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
