@@ -47,5 +47,6 @@ routes.get("/folha/:id",PagamentoControllers.show);//mostra uma unica folha
 routes.post("/novoImposto",upload.single('imposto'),ImpostoControllers.store);//cadastra novo imposto no banco
 routes.get("/impostos/cadastrados",ImpostoControllers.index);//lista todas os Impostos no banco
 routes.delete("/imposto/:id",ImpostoControllers.destroy); // deleta um imposto do banco
-routes.put("/imposto/:id",ImpostoControllers.update);//atualiza dados de uma folha
+routes.put("/imposto/:id",ImpostoControllers.update);//atualiza dados de um imposto
+routes.get("/imposto/:id",ImpostoControllers.show);//mostra um unico imposto
 module.exports = routes;
