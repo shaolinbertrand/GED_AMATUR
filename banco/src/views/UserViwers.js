@@ -5,7 +5,7 @@ module.exports = {
             _id: user._id,
             nome: user.nome,
             senha: user.password,
-            telefone: user.telefone,
+            setor: user.setor,
             CPF: user.CPF,
             cargo:user.cargo,
         };
