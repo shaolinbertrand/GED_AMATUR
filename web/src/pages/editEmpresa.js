@@ -16,7 +16,6 @@ export default function EditAdm(props) {
   
 
   async function handleSubmit() {
-    console.log('ssdsdsd')
     const response = await api.put(`/empresa/${props.match.params.id}`,  {
         name: name,
         area: area,

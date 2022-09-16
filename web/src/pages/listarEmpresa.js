@@ -40,7 +40,7 @@ function AdministradoresMap(){
 
     useEffect(()=>{
         const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-            acao:"Visualizou Todos os Registrados "
+            acao:"Visualizou Todas as Empresas"
           })
     
         api.get("empresa/cadastradas")
@@ -80,32 +80,31 @@ function AdministradoresMap(){
                         Buscar
                     </button>
                 </div>
-                  <h2 style={text}>CONTRATOS</h2>
+                  <h2 style={text}>Empresas</h2>
 
                   <ul>  
-                {list.map(contrato => (
+                {list.map(empresa => (
                         <div  style={listStyle}  >
                            
-                            <span style={text}>{contrato.registro}</span>
-                            <span style={text}>{contrato.name}</span>
+                            <span style={text}>{empresa.name}</span>
                             <span>
-                                <Link to={`/empresa/${contrato._id}`} className="mostrar_dados">
+                                <Link to={`/empresa/${empresa._id}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
-                                <Link to={`/editEmpresa/${contrato._id}`} className="mostrar_dados">
+                                <Link to={`/editEmpresa/${empresa._id}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
                             
-                                <Link to={`/doc/${contrato._id}/${contrato.name}/${contrato.registro}`} className="mostrar_dados">
+                                <Link to={`/Empresadoc/${empresa._id}/${empresa.name}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BiArchive size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
-                                <Link to={`/upload/${contrato._id}/${contrato.registro}`} className="mostrar_dados">
+                                <Link to={`/uploadContrato/${empresa._id}/${empresa.registro}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BiPaperclip size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>

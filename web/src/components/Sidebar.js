@@ -59,29 +59,29 @@ export default function Sidebar(){
                         </button>
                     </Link>
                     <br></br>
-                    <div>Cadastrar Caixa de Agência</div>
-                    <Link to="/user/adms/create" className="enter-app">
+                    <div>Cadastrar Agência</div>
+                    <Link to="/TI/agenciaCreate" className="enter-app">
                         <button type="button" className= "botao">
                             <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <br></br>
                     <div>Listar Agências</div>
-                    <Link to="/admin/listarAgencia" className="enter-app">
+                    <Link to="/TI/listarAgencia" className="enter-app">
                         <button type="button" className= "botao">
                             <FaCashRegister size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <br></br>
                     <div>Cadastrar Imposto</div>
-                    <Link to="/user/adms/create" className="enter-app">
+                    <Link to="/impostoCreate" className="enter-app">
                         <button type="button" className= "botao">
                             <FaMoneyCheckAlt size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>
                     </Link>
                     <br></br>
                     <div>Listar Impostos</div>
-                    <Link to="/admin/listarImposto" className="enter-app">
+                    <Link to="/listarImposto" className="enter-app">
                         <button type="button" className= "botao">
                             <FaMoneyCheckAlt size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>

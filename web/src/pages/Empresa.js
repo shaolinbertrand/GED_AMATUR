@@ -48,7 +48,7 @@ function Adm(props){
             <div id="page-CreateUser">
                   <Sidebar/>
                   <div className="create-user-form" >
-                  <h2 style={text}>Registrado</h2>
+                  <h2 style={text}>Empresa</h2>
 
                   
                     <div  style={listStyle}  >
@@ -59,12 +59,12 @@ function Adm(props){
                                 <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
                             </button>
                         </Link>
-                        <Link to={`/doc/${props.match.params.id}/${user.name}/${user.registro}`} className="mostrar_dados">
+                        <Link to={`/Empresadoc/${props.match.params.id}/${user.name}`} className="mostrar_dados">
                           <button type="button" className= "botao">
                               <BiArchive size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>
                         </Link>
-                        <Link to={`/upload/${props.match.params.id}/${user.registro}`} className="mostrar_dados">
+                        <Link to={`/uploadContrato/${props.match.params.id}/`} className="mostrar_dados">
                           <button type="button" className= "botao">
                               <BiPaperclip size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>

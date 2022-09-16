@@ -69,7 +69,7 @@ export default function UploadFile(props) {
       <main>
       <div className="create-ADM-form" >
           <fieldset>
-  <legend>Novo Arquivo {name}</legend>
+  <legend>Novo Contrato {name}</legend>
             
             <div className="input-block"> 
               <label htmlFor="tipoValidade">Tipo de Validade</label>
@@ -91,7 +91,7 @@ export default function UploadFile(props) {
             <div>
             {
              !file ?
-              'Adicione o arquivo aqui' :
+              'Adicione o contrato aqui' :
              <h2 style={text}> {file.name}</h2>
             }
            </div>

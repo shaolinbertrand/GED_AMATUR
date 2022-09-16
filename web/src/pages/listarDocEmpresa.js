@@ -7,7 +7,6 @@ import {BsWrench} from 'react-icons/bs';
 import {BsEye} from 'react-icons/bs'
 import {BiPaperclip} from  'react-icons/bi';
 import { Link } from 'react-router-dom';
-import jsPDF from 'jspdf';
 
 
 const listStyle = {
@@ -38,10 +37,10 @@ const text = {
  
 function DocumentosMap(props){
     const [list, setList] = useState([]);
-
+    console.log(props.match.params.id)
     useEffect(()=>{
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-        acao:"Visualizou Documentos do Registrado "+props.match.params.name
+        acao:"Visualizou Contratos da Empresa "+props.match.params.name
       })
         api.get(`empresa/doc/${props.match.params.id}`)
       .then((todo)=> setList(todo.data));
@@ -76,7 +75,9 @@ function DocumentosMap(props){
                   <ul>  
                 {list.map(doc => (
                         <div onClick={() => irPraUrl(doc.url)} style={listStyle}  > 
-                         <span style={text}>{doc.name}</span>      
+                         <span style={text}>{doc.numero}</span> 
+                         <span style={text}>{doc.name}</span>
+                         <span style={text}>{doc.tipoValidade}</span> 
                        </div>
                        ))}                  
                 </ul>
@@ -91,7 +92,7 @@ function DocumentosMap(props){
                         <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
                       </button>
                     </Link>
-                    <Link to={`/upload/${props.match.params.id}/${props.match.params.registro}`} className="mostrar_dados">
+                    <Link to={`/uploadContrato/${props.match.params.id}`} className="mostrar_dados">
                       <button type="button" className= "botao">
                         <BiPaperclip size={26} color="rgba(0, 0, 0, 0.6)"/>
                       </button>
@@ -99,9 +100,6 @@ function DocumentosMap(props){
                 </div>
                   </div>
         )   
-        
-
- //adm/cadastrados
 
 };
 
