@@ -41,7 +41,7 @@ function AdministradoresMap(){
 
     useEffect(()=>{
         const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-            acao:"Visualizou Todos os Registrados "
+            acao:"Visualizou Folhas de Pagamento "
           })
     
         api.get("folhas/cadastradas")
@@ -55,7 +55,7 @@ function AdministradoresMap(){
         const response = await api.get(`/buscarADM?usuario=${busca}`)
     
         if(response.status == 200){
-          alert('Registrado encontrado')
+          alert('Folha de Pagamento encontrada')
           history.push(`/adm/${response.data._id}`)
         }else{
           alert(response.statusText)

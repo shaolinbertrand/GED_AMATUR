@@ -37,7 +37,7 @@ function Adm(props){
             .then(todo => {
             setList(todo.data)
             const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-              acao:"visualizou dados do Registrado "+todo.data.name
+              acao:"visualizou dados da Empresa "+todo.data.name
             })
            }
             );

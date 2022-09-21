@@ -25,7 +25,7 @@ import Sidebar from "../components/Sidebar";
 
     if(response.status == 200){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-        acao:"Realizou Cadastro da Empresa "+name
+        acao:"Realizou Cadastro da Agencia "+name
       })
       alert('Cadastro realizado com sucesso!!')
       history.push('/admin/listarEmpresa')

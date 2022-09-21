@@ -34,7 +34,7 @@ export default function EditUser(props) {
         acao:"Editou dados do usuário "+name
       })
       alert('Edição realizada com sucesso!!')
-      history.push(`/admin/user/${props.match.params.id}`)
+      history.push(`/TI/user/${props.match.params.id}`)
     }else{
       alert(response.statusText)
     }
