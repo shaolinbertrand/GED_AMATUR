@@ -1,13 +1,13 @@
-#page-CreateUser {
+#page-FP {
     display: flex;
     
   }
   
-  #page-CreateUser main {
+  #page-FP main {
     flex: 1;
   }
   
-  .create-user-form {
+  .FP-form {
     width: 700px;
     margin: 64px auto;
     background: #FFFFFF;
@@ -36,22 +36,22 @@
  }
    
   
-  .create-user-form .leaflet-container {
+  .FP-form .leaflet-container {
     margin-bottom: 40px;
     border: 1px solid #d3d2d5;
     border-radius: 20px;
   }
   
-  .create-user-form fieldset {
+  .FP-form fieldset {
     border: 0;
     align-items: center;
   }
   
-  .create-user-form fieldset + fieldset {
+  .FP-form fieldset + fieldset {
     margin-top: 80px;
   }
   
-  .create-user-form fieldset legend {
+  .FP-form fieldset legend {
     width: 100%;
   
     font-size: 32px;
@@ -64,26 +64,26 @@
     padding-bottom: 24px;
   }
   
-  .create-user-form .input-block + .input-block {
+  .FP-form .input-block + .input-block {
     margin-top: 24px;
   }
   
-  .create-user-form .input-block label {
+  .FP-form .input-block label {
     display: flex;
     color: #8FA7B3;
     margin-bottom: 8px;
     line-height: 40px;
   }
   
-  .create-user-form .input-block label span {
+  .FP-form .input-block label span {
     font-size: 14px;
     color: #8FA7B3;
     margin-left: 24px;
     line-height: 40px;
   }
   
-  .create-user-form .input-block input,
-  .create-user-form .input-block textarea {
+  .FP-form .input-block input,
+  .FP-form .input-block textarea {
     width: 100%;
     background: #F5F8FA;
     border: 1px solid #D3E2E5;
@@ -93,13 +93,13 @@
     
   }
   
-  .create-user-form .input-block input {
+  .FP-form .input-block input {
     height: 64px;
     padding: 0 16px;
     
   }
   
-  .create-user-form .input-block textarea {
+  .FP-form .input-block textarea {
     min-height: 120px;
     max-height: 240px;
     resize: vertical;
@@ -107,12 +107,12 @@
     line-height: 28px;
   }
   
-  .create-user-form .input-block .button-select {
+  .FP-form .input-block .button-select {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
   
-  .create-user-form .input-block .button-select button {
+  .FP-form .input-block .button-select button {
     height: 64px;
     background: #F5F8FA;
     border: 1px solid #D3E2E5;
@@ -120,22 +120,22 @@
     cursor: pointer;
   }
   
-  .create-user-form .input-block .button-select button.active {
+  .FP-form .input-block .button-select button.active {
     background: #EDFFF6;
     border: 1px solid #A1E9C5;
     color: #37C77F;
   }
   
-  .create-user-form .input-block .button-select button:first-child {
+  .FP-form .input-block .button-select button:first-child {
     border-radius: 20px 0px 0px 20px;
   }
   
-  .create-user-form .input-block .button-select button:last-child {
+  .FP-form .input-block .button-select button:last-child {
     border-radius: 0 20px 20px 0;
     border-left: 0;
   }
   
-  .create-user-form button.confirm-button {
+  .FP-form button.confirm-button {
     margin-top: 64px;
   
     width: 100%;
@@ -154,10 +154,10 @@
     transition: background-color 0.2s;
   }
   
-  .create-user-form button.confirm-button svg {
+  .FP-form button.confirm-button svg {
     margin-right: 16px;
   }
   
-  .create-user-form button.confirm-button:hover {
+  .FP-form button.confirm-button:hover {
     background: #36CF82;
   }

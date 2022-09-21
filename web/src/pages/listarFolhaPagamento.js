@@ -65,9 +65,9 @@ function AdministradoresMap(){
     
         return (
             
-            <div id="page-CreateUser">
+            <div id="page-FP">
                 <Sidebar/>
-                <div className="create-user-form" >
+                <div className="FP-form" >
                 <div>
                     
                         <div className="input-block">
