@@ -8,30 +8,6 @@ import Sidebar from '../components/Sidebar'
 import '../styles/pages/listarUser.css';
 import { Link } from 'react-router-dom';
 
-const listStyle = {
-    cursor: "pointer",
-    boxShadow: '1px 3px 4px grey',
-    borderRadius: '16px',
-    margin: '10px',
-    padding: '10px',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    height: '50px',
-    background: "#ffd666"
-}
-
-const text = {
-    fontWeight: "bold",
-    cursor: "pointer",
-    textAlign: "center",
-    fontSize: "0.8em",
-    color: "#000000",
-    flexDirection: "row",
-    marginLeft: '17px',
-    marginRight: '17px',
-    marginTop: '10px'
-}
-
 
 
 function User() {
@@ -50,7 +26,7 @@ function User() {
         <div id="page-listUser">
             <Sidebar />
             <div className="list-user-form" >
-                <h2 style={text}>USUÁRIOS</h2>
+                <h2>USUÁRIOS</h2>
                 <div className="tipos">
                     <Link to='/inativos'>
                         <button type="button" className="botaouser">
@@ -65,9 +41,9 @@ function User() {
                 </div>
                 <ul>
                     {list.map(user => (
-                        <div style={listStyle}>
+                        <div className="lista">
 
-                            <span style={text}>{user.nome}</span>
+                            <span className="nome">{user.nome}</span>
 
                             <Link to={`/TI/edituser/${user._id}`} className="atualizar_dados">
                                 <button type="button" className="botaolist" title="EDITAR">
