@@ -10,16 +10,24 @@ import ListUserInativos from './pages/ListUserInativos'
 import CriarUser from './pages/criarUser';
 import InicialUser from './pages/inicialUser';
 import InicialAdm from './pages/inicialAdm';
-import CriarADM from './pages/criarADM';
-import ListarContrato from './pages/listarContrato';
+import criarEmpresa from './pages/criarEmpresa';
+import ListarEmpresa from './pages/listarEmpresa';
 import ListarAgencia from './pages/listarAgencia';
+import CriaAgencia from './pages/criarAgencia';
+import CriarImposto from './pages/criarImposto';
 import ListarImposto from './pages/listarImposto';
 import ListarFP from './pages/listarFolhaPagamento';
-import Adm from './pages/ADM';
-import Doc from './pages/listarDoc';
+import Empresa from './pages/Empresa';
+import Agencia from './pages/Agencia';
+import Imposto from './pages/Imposto';
+import DocAgencia from './pages/listarDocAgencia';
+import DocEmpresa from './pages/listarDocEmpresa';
 import EditUser from './pages/editUser';
-import EditAdm from './pages/editAdm';
-import Upload from './pages/uploadfile';
+import EditEmpresa from './pages/editEmpresa';
+import EditAgencia from './pages/editAgencia';
+import EditImposto from './pages/editImposto';
+import UploadContrato from './pages/uploadContrato';
+import UploadCaixa from './pages/uploadCaixa';
 import Log from './pages/log';
 
 
@@ -29,23 +37,31 @@ function Routes(){
             <Switch>
                 <Route path="/" exact component ={Inicial}/>
                 <Route path="/login" component={Login}/>
-                <Route path="/admin/users" component={ListUser}/>
+                <Route path="/TI/users" component={ListUser}/>
                 <Route path="/ativos" component={ListUserAtivos}/>
                 <Route path="/inativos" component={ListUserInativos}/>
-                <Route path="/admin/user/:id" component={User}/>
-                <Route path="/admin/edituser/:id" component={EditUser}/>
-                <Route path="/admin/editadm/:id" component={EditAdm}/>
-                <Route path="/admin/usuario/create" component={CriarUser}/>
+                <Route path="/TI/user/:id" component={User}/>
+                <Route path="/TI/edituser/:id" component={EditUser}/>
+                <Route path="/editEmpresa/:id" component={EditEmpresa}/>
+                <Route path="/editAgencia/:id" component={EditAgencia}/>
+                <Route path="/editImposto/:id" component={EditImposto}/>
+                <Route path="/usuario/create" component={CriarUser}/>
                 <Route path="/admin/inicial" component={InicialAdm}/>
                 <Route path="/user/inicial" component={InicialUser}/>
-                <Route path="/user/adms/create" component={CriarADM}/>
-                <Route path='/admin/listarContrato' component={ListarContrato}/>
-                <Route path='/admin/listarAgencia' component={ListarAgencia}/>
-                <Route path='/admin/listarImposto' component={ListarImposto}/>
-                <Route path='/admin/listarFolhaPagamentos' component={ListarFP}/>
-                <Route path='/adm/:id' component={Adm}/>
-                <Route path='/doc/:id/:name/:registro' component={Doc}/>
-                <Route path='/upload/:id/' component={Upload}/>
+                <Route path="/empresa/create" component={criarEmpresa}/>
+                <Route path='/listarEmpresa' component={ListarEmpresa}/>
+                <Route path='/TI/listarAgencia' component={ListarAgencia}/>
+                <Route path='/TI/agenciaCreate' component={CriaAgencia}/>
+                <Route path='/impostoCreate' component={CriarImposto}/>
+                <Route path='/listarImposto' component={ListarImposto}/>
+                <Route path='/listarFolhaPagamentos' component={ListarFP}/>
+                <Route path='/empresa/:id' component={Empresa}/>
+                <Route path='/agencia/:id' component={Agencia}/>
+                <Route path='/imposto/:id'component={Imposto}/>
+                <Route path='/Agenciadoc/:id/:name/' component={DocAgencia}/>
+                <Route path='/Empresadoc/:id/:name/' component={DocEmpresa}/>
+                <Route path='/uploadContrato/:id/' component={UploadContrato}/>
+                <Route path='/uploadCaixa/:id/' component={UploadCaixa}/>
                 <Route path='/log/:id/' component={Log}/>
             </Switch>
         </BrowserRouter>

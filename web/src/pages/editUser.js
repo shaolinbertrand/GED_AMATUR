@@ -15,20 +15,19 @@ export default function EditUser(props) {
   const [cargo, setCargo] = useState('')
   const [senha, setPassword] = useState('')
   const [CPF, setCPF] = useState('')
-  const [Adimin, setAdimin] = useState(false)
   const [Ativo, setAtivo] = useState(true)
-  const [telefone, setTelefone] = useState('')
+  const [setor, setSetor] = useState('')
   
 
   async function handleSubmit() {
     console.log('ssdsdsd')
     const response = await api.put(`/usuario/${props.match.params.id}?id=607b5fcfc740aa2cc8057a89`,  {
-        nome: name,
-        telefone: telefone,
-        CPF:CPF,
-        cargo: cargo,
-        admin: Adimin,
-        ativo: Ativo
+      nome: name,
+      setor: setor,
+      password:senha,
+      CPF:CPF,
+      cargo: cargo,
+      ativo: Ativo
       })
     if(response.status == 200){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
@@ -47,9 +46,9 @@ export default function EditUser(props) {
   .then( todo=> {
     setName(todo.data.nome)
     setCargo(todo.data.cargo)
-    setTelefone(todo.data.telefone)
-    setCPF(todo.data.cpf)
-    setAdimin(todo.data.admin)
+    setSetor(todo.data.setor)
+    setCPF(todo.data.CPF)
+    setPassword(todo.data.senha)
     setAtivo(todo.data.ativo)
   }
   );
@@ -73,6 +72,13 @@ export default function EditUser(props) {
             </div>
 
             <div className="input-block">
+              <label htmlFor="senha">Senha</label >
+              <input id="senha"
+              value={senha}  //esconder a senha, tarefa para casa
+              onChange={event => setPassword(event.target.value)} />
+            </div>
+
+            <div className="input-block">
               <label htmlFor="cargo">Cargo</label >
               <input id="cargo"
               value={cargo} 
@@ -80,10 +86,10 @@ export default function EditUser(props) {
             </div>
 
             <div className="input-block">
-              <label htmlFor="telefone">Telefone</label >
-              <input id="telefone"
-              value={telefone} 
-              onChange={event => setTelefone(event.target.value)} />
+              <label htmlFor="setor">Setor</label >
+              <input id="setor"
+              value={setor} 
+              onChange={event => setSetor(event.target.value)} />
             </div>
 
             <div className="input-block">
@@ -94,20 +100,6 @@ export default function EditUser(props) {
             </div>
 
             <div className="input-block">
-              <label htmlFor="Adimin">Administrador do Sistema</label>
-
-              <div className="button-select">
-                <button type="button" 
-                className={Adimin ? 'active' : ''}
-                onClick={() => setAdimin(true)}
-                >Sim</button>
-                <button 
-                type="button"
-                className={!Adimin ? 'active' : ''}
-                onClick={() => setAdimin(false)}
-                >Não</button>
-              </div>
-
               <label htmlFor="Adimin">Usuário Ativo</label>
               <div className="button-select">
                 <button type="button" 

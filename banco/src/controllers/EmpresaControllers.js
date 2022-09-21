@@ -35,7 +35,7 @@ module.exports ={
     //mostrando todos os contratos associados a mesma empresa
     async doc(req,res){
         const contratos = await Contrato.find({"IdEmpresa":req.params.id});
-        const adm = await Empresa.findById(req.params.id);
+        const empresa = await Empresa.findById(req.params.id);
         return res.json(contratoView.renderMany(contratos))
 
     },

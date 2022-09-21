@@ -43,7 +43,7 @@ function AdministradoresMap(){
             acao:"Visualizou Todos os Registrados "
           })
     
-        api.get("agencia/cadastradas")
+        api.get("impostos/cadastrados")
       .then((todo)=> setList(todo.data));
     },[])
     const history = useHistory()
@@ -80,36 +80,25 @@ function AdministradoresMap(){
                         Buscar
                     </button>
                 </div>
-                  <h2 style={text}>REGISTRADOS</h2>
+                  <h2 style={text}>IMPOSTOS</h2>
 
                   <ul>  
-                {list.map(adm => (
+                {list.map(imposto => (
                         <div  style={listStyle}  >
                            
-                            <span style={text}>{adm.registro}</span>
-                            <span style={text}>{adm.name}</span>
+                            <span style={text}>{imposto.name}</span>
                             <span>
-                                <Link to={`/adm/${adm._id}`} className="mostrar_dados">
+                                <Link to={`/imposto/${imposto._id}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
-                                <Link to={`/admin/editadm/${adm._id}`} className="mostrar_dados">
+                                <Link to={`/editImposto/${imposto._id}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
                             
-                                <Link to={`/doc/${adm._id}/${adm.name}/${adm.registro}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
-                                        <BiArchive size={26} color="rgba(0, 0, 0, 0.6)"/>
-                                    </button>
-                                </Link>
-                                <Link to={`/upload/${adm._id}/${adm.registro}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
-                                        <BiPaperclip size={26} color="rgba(0, 0, 0, 0.6)"/>
-                                    </button>
-                                </Link>
                             </span>
                         
                            
