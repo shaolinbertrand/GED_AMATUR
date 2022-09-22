@@ -54,7 +54,7 @@ export default function UploadFile(props) {
       )
     if(response.status == 200){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-        acao:"Enviou um novo arquivo para o registrado "+props.match.params.id
+        acao:"Enviou um novo arquivo para a agencia "+props.match.params.id
       })
       alert('Upload realizada com sucesso!!')
       history.push(`/agencia/doc/${props.match.params.id}/${name}/${props.match.params.registro}`)

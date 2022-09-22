@@ -54,7 +54,7 @@ function AdministradoresMap(){
         const response = await api.get(`/buscarADM?usuario=${busca}`)
     
         if(response.status == 200){
-          alert('Registrado encontrado')
+          alert('Agencia encontrado')
           history.push(`/adm/${response.data._id}`)
         }else{
           alert(response.statusText)

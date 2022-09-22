@@ -20,7 +20,7 @@ export default function EditAdm(props) {
       })
     if(response.status == 200){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-        acao:"Editou dados do Registrado "+name
+        acao:"Editou dados da Agencia"+name
       })
       alert('Edição realizada com sucesso!!')
       history.push(`/agencia/${props.match.params.id}`)

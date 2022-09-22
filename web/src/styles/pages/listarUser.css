@@ -1,6 +1,7 @@
 #page-listUser {
     display: flex;
     
+    
   }
   
   #page-listUser main {
@@ -10,9 +11,11 @@
   .list-user-form {
     width: 700px;
     margin: 64px auto;
-  
-    background: purple;
-    border: 1px solid #D3E2E5;
+    
+    text-align: RIGHT;
+
+    background: #fa8f1d;
+    border: 1px solid #fa8f1d;
     border-radius: 20px;
   
     padding: 64px 80px;
@@ -61,7 +64,7 @@
   .list-user-form .input-block label span {
     font-size: 14px;
     color: #8FA7B3;
-    margin-left: 24px;
+    margin-right: 24px;
     line-height: 24px;
   }
   
@@ -115,30 +118,21 @@
     border-radius: 0 20px 20px 0;
     border-left: 0;
   }
+  .botaouser{
+    margin: 5px 5px;
+    
   
-  .list-user-form button.confirm-button {
-    margin-top: 64px;
-  
-    width: 100%;
-    height: 64px;
-    border: 0;
-    cursor: pointer;
-    background: #3CDC8C;
-    border-radius: 20px;
-    color: #FFFFFF;
-    font-weight: 800;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    transition: background-color 0.2s;
   }
-  
-  .list-user-form button.confirm-button svg {
-    margin-right: 16px;
+ 
+.tipos{
+  margin-right: 38%;
+}
+  .botaolist{
+    margin-right: 10px;
+   
+    
   }
-  
-  .list-user-form button.confirm-button:hover {
-    background: #36CF82;
+  .botaolist:hover{
+    color:black;
+    background: #ff4800;
   }
