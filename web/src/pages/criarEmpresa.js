@@ -64,8 +64,6 @@ import Sidebar from "../components/Sidebar";
             Confirmar
           </button>
           </fieldset>
-
-          
         </div>
       </main>
     </div>
