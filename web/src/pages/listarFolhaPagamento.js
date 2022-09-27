@@ -104,7 +104,7 @@ function AdministradoresMap(){
                             <span style={text}>{folha.mes}</span>
                             <span style={text}>{folha.ano}</span>
                             <span>
-                                <Link to={`/doc/${folha._id}/${folha.name}`} className="mostrar_dados">
+                                <Link to={`/Folhadoc/${folha._id}/${folha.mes}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BiArchive size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>

@@ -23,6 +23,7 @@ import Agencia from './pages/Agencia';
 import Imposto from './pages/Imposto';
 import DocAgencia from './pages/listarDocAgencia';
 import DocEmpresa from './pages/listarDocEmpresa';
+import DocFolha from './pages/listarDocFolha';
 import EditUser from './pages/editUser';
 import EditEmpresa from './pages/editEmpresa';
 import EditAgencia from './pages/editAgencia';
@@ -63,6 +64,7 @@ function Routes(){
                 <Route path='/imposto/:id'component={Imposto}/>
                 <Route path='/Agenciadoc/:id/:name/' component={DocAgencia}/>
                 <Route path='/Empresadoc/:id/:name/' component={DocEmpresa}/>
+                <Route path='/Folhadoc/:id/:name/' component={DocFolha}/>
                 <Route path='/uploadContrato/:id/' component={UploadContrato}/>
                 <Route path='/uploadCaixa/:id/' component={UploadCaixa}/>
                 <Route path='/uploadDocumento/:id/' component={UploadDoc}/>

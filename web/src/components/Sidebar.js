@@ -30,7 +30,7 @@ export default function Sidebar(){
 
                 <div className="corpo" >
                 <br></br>
-                    <div>Novo Usuario</div>
+                    <div>Novo Usuário</div>
                     <Link to="/usuario/create" className="enter-app">
                         <button type="button" className= "botao">
 

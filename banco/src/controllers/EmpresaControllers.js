@@ -83,5 +83,11 @@ module.exports ={
         await Contrato.find({"IdEmpresa":req.params.id}).remove()
         return res.send({msg:"Empresa excluida com sucesso"});
     },
+    async destroyContrato(req,res){
+        const documento = await Contrato.findById(req.params.id)
+        await Empresa.findByIdAndUpdate(documento.IdEmpresa,{$pull:{"contrato": {"name":documento.name}}},{new:false,useFindAndModify:true})
+        await Contrato.findByIdAndRemove(req.params.id)
+        return res.send({msg:"Contrato excluido com sucesso"});
+    },
 
 }

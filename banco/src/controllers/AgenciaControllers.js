@@ -82,4 +82,11 @@ module.exports ={
         return res.send({msg:"Agencia excluida com sucesso"});
     },
 
+    async destroyCaixa(req,res){
+        const documento = await Caixa.findById(req.params.id)
+        await Agencia.findByIdAndUpdate(documento.IdAgencia,{$pull:{"caixa": {"name":documento.name}}},{new:false,useFindAndModify:true})
+        await Caixa.findByIdAndRemove(req.params.id)
+        return res.send({msg:"Caixa excluido com sucesso"});
+    },
+
 }

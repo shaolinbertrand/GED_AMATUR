@@ -5,7 +5,8 @@ module.exports = {
                 numero:Contrato.numero,
                 name: Contrato.name,
                 tipoValidade: Contrato.tipoValidade,
-                url:Contrato.url
+                url:Contrato.url,
+                id:Contrato._id,
         };
     },
     renderMany(contratos){
