@@ -73,8 +73,8 @@ export default function EditUser(props) {
 
             <div className="input-block">
               <label htmlFor="senha">Senha</label >
-              <input id="senha"
-              value={senha}  //esconder a senha, tarefa para casa
+              <input type='password' id="senha"
+              value={senha}
               onChange={event => setPassword(event.target.value)} />
             </div>
 

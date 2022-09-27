@@ -2,7 +2,7 @@ import api from "../services/api";
 import React, {useEffect, useState} from 'react'
 import { useHistory } from "react-router-dom";
 import Sidebar from '../components/Sidebar'
-import '../styles/pages/listarUser.css';
+import '../styles/pages/listar.css';
 import {BsWrench} from 'react-icons/bs';
 import {BiArchive} from 'react-icons/bi';
 import {BsEye} from 'react-icons/bs'
@@ -64,13 +64,13 @@ function AdministradoresMap(){
     
         return (
             
-            <div id="page-CreateUser">
+            <div id="page-list">
                 <Sidebar/>
-                <div className="create-user-form" >
+                <div className="list-form" >
                 <div>
                     <fieldset>
                         <div className="input-block">
-                            <h2 style={text}>Busca</h2>
+                            <h2 >Busca</h2>
                             <input id="busca" 
                                 value={busca} 
                                 onChange={event => setBusca(event.target.value)} />
@@ -80,21 +80,21 @@ function AdministradoresMap(){
                         Buscar
                     </button>
                 </div>
-                  <h2 style={text}>IMPOSTOS</h2>
+                  <h2>IMPOSTOS</h2>
 
                   <ul>  
                 {list.map(imposto => (
-                        <div  style={listStyle}  >
+                        <div  className="lista"  >
                            
-                            <span style={text}>{imposto.name}</span>
+                            <span className="nome">{imposto.name}</span>
                             <span>
                                 <Link to={`/imposto/${imposto._id}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
+                                    <button type="button" className= "botaolist"  title="VISUALIZAR">
                                         <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
                                 <Link to={`/editImposto/${imposto._id}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
+                                    <button type="button" className= "botaolist"  title="EDITAR">
                                         <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>

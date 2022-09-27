@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import api from "../services/api";
 import { StyledDropZone } from 'react-drop-zone'
 import 'react-drop-zone/dist/styles.css'
-import '../styles/pages/CriarAdm.css';
+import '../styles/pages/FormCriar.css';
 import Sidebar from "../components/Sidebar";
 
 const text = {
@@ -55,12 +55,12 @@ const text = {
   }
 
   return (
-    <div id="page-CreateADM">
+    <div id="page-Create">
 
     <Sidebar />
 
       <main>
-        <div className="create-ADM-form" >
+        <div className="create-form" >
           <fieldset>
             <legend>Dados do Imposto</legend>
 
