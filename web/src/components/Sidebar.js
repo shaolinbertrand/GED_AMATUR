@@ -95,7 +95,7 @@ export default function Sidebar(){
                     </Link>
                     <br></br>
                     <div>Listar Folhas de Pagamento</div>
-                    <Link to="/admin/listarFolhaPagamentos" className="enter-app">
+                    <Link to="/listarFolhaPagamentos" className="enter-app">
                         <button type="button" className= "botao">
                             <FaWallet size={26} color="rgba(0, 0, 0, 0.6)"/>
                         </button>

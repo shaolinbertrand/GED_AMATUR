@@ -3,7 +3,7 @@ import api from "../services/api";
 import React, {useEffect, useState} from 'react'
 import { useHistory } from "react-router-dom";
 import Sidebar from '../components/Sidebar'
-import '../styles/pages/listarUser.css';
+import '../styles/pages/listar.css';
 import {BsWrench} from 'react-icons/bs';
 import {BiArchive} from 'react-icons/bi';
 import {BsEye} from 'react-icons/bs'
@@ -64,13 +64,13 @@ function AdministradoresMap(){
     
         return (
             
-            <div id="page-CreateUser">
+            <div id="page-list">
                 <Sidebar/>
-                <div className="create-user-form" >
+                <div className="list-form" >
                 <div>
                     <fieldset>
                         <div className="input-block">
-                            <h2 style={text}>Busca</h2>
+                            <h2 >Busca</h2>
                             <input id="busca" 
                                 value={busca} 
                                 onChange={event => setBusca(event.target.value)} />
@@ -80,32 +80,32 @@ function AdministradoresMap(){
                         Buscar
                     </button>
                 </div>
-                  <h2 style={text}>Empresas</h2>
+                  <h2 >Empresas</h2>
 
                   <ul>  
                 {list.map(empresa => (
-                        <div  style={listStyle}  >
+                        <div  className="lista"  >
                            
-                            <span style={text}>{empresa.name}</span>
+                            <span className="nome">{empresa.name}</span>
                             <span>
                                 <Link to={`/empresa/${empresa._id}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
+                                    <button type="button" className= "botaolist"  title="VISUALIZAR">
                                         <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
                                 <Link to={`/editEmpresa/${empresa._id}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
+                                    <button type="button" className= "botaolist"  title="EDITAR">
                                         <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
                             
                                 <Link to={`/Empresadoc/${empresa._id}/${empresa.name}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
+                                    <button type="button" className= "botaolist"  title="CONTRATOS">
                                         <BiArchive size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
                                 <Link to={`/uploadContrato/${empresa._id}/${empresa.registro}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
+                                    <button type="button" className= "botaolist"  title="ENVIAR CONTRATO">
                                         <BiPaperclip size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>

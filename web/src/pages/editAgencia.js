@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import api from "../services/api";
 import React, {useEffect, useState} from 'react'
 
-import '../styles/pages/CriarUser.css';
+import '../styles/pages/FormCriar.css';
 import Sidebar from "../components/Sidebar";
 
 
@@ -39,12 +39,12 @@ export default function EditAdm(props) {
   },[])
 
   return (
-    <div id="page-CreateUser">
+    <div id="page-Create">
 
     <Sidebar />
 
       <main>
-      <div className="create-ADM-form" >
+      <div className="create-form" >
           <fieldset>
             <legend>Dados</legend>
 
