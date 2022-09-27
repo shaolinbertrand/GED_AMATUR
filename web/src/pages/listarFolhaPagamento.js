@@ -86,7 +86,7 @@ function AdministradoresMap(){
                                 <option value='11'>Novembro</option>
                                 <option value='12'>Dezembro</option>
 	                        </select>
-                            
+                        
                         
                     
                     <button onClick={handleSubmit}  type="submit" className= "botaoBuscar">
@@ -97,29 +97,19 @@ function AdministradoresMap(){
                   <h2 style={text}>Folha de Pagamento</h2>
 
                   <ul>  
-                {list.map(adm => (
+                {list.map(folha => (
                         <div  style={listStyle}  >
                            
                             
-                            <span style={text}>{adm.mes}</span>
+                            <span style={text}>{folha.mes}</span>
+                            <span style={text}>{folha.ano}</span>
                             <span>
-                                <Link to={`/adm/${adm._id}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
-                                        <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
-                                    </button>
-                                </Link>
-                                <Link to={`/admin/editadm/${adm._id}`} className="mostrar_dados">
-                                    <button type="button" className= "botao">
-                                        <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
-                                    </button>
-                                </Link>
-                            
-                                <Link to={`/doc/${adm._id}/${adm.name}/${adm.registro}`} className="mostrar_dados">
+                                <Link to={`/doc/${folha._id}/${folha.name}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BiArchive size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
                                 </Link>
-                                <Link to={`/upload/${adm._id}/${adm.registro}`} className="mostrar_dados">
+                                <Link to={`/uploadDocumento/${folha._id}`} className="mostrar_dados">
                                     <button type="button" className= "botao">
                                         <BiPaperclip size={26} color="rgba(0, 0, 0, 0.6)"/>
                                     </button>
