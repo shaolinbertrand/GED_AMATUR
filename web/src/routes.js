@@ -11,6 +11,7 @@ import CriarUser from './pages/criarUser';
 import InicialUser from './pages/inicialUser';
 import InicialAdm from './pages/inicialAdm';
 import criarEmpresa from './pages/criarEmpresa';
+import CriarFolha from './pages/criarFolha';
 import ListarEmpresa from './pages/listarEmpresa';
 import ListarAgencia from './pages/listarAgencia';
 import CriaAgencia from './pages/criarAgencia';
@@ -28,6 +29,7 @@ import EditAgencia from './pages/editAgencia';
 import EditImposto from './pages/editImposto';
 import UploadContrato from './pages/uploadContrato';
 import UploadCaixa from './pages/uploadCaixa';
+import UploadDoc from './pages/uploadDocumentos';
 import Log from './pages/log';
 
 
@@ -46,6 +48,7 @@ function Routes(){
                 <Route path="/editAgencia/:id" component={EditAgencia}/>
                 <Route path="/editImposto/:id" component={EditImposto}/>
                 <Route path="/usuario/create" component={CriarUser}/>
+                <Route path="/folha/create" component={CriarFolha}/>
                 <Route path="/admin/inicial" component={InicialAdm}/>
                 <Route path="/user/inicial" component={InicialUser}/>
                 <Route path="/empresa/create" component={criarEmpresa}/>
@@ -62,6 +65,7 @@ function Routes(){
                 <Route path='/Empresadoc/:id/:name/' component={DocEmpresa}/>
                 <Route path='/uploadContrato/:id/' component={UploadContrato}/>
                 <Route path='/uploadCaixa/:id/' component={UploadCaixa}/>
+                <Route path='/uploadDocumento/:id/' component={UploadDoc}/>
                 <Route path='/log/:id/' component={Log}/>
             </Switch>
         </BrowserRouter>

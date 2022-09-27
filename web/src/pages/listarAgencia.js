@@ -121,8 +121,6 @@ function AdministradoresMap(){
         )   
         
 
- //adm/cadastrados
-
 };
 
 export default AdministradoresMap;
