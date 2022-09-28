@@ -35,29 +35,10 @@ const text = {
      marginRight:'17px',
      marginTop:'10px' 
     }    
-
-    async function ApagarDoc(docID,props) {
-      const history = useHistory()
-      alert('Tem Certeza que quer apagar esse arquivo?')
-      
-
-      const response = await api.delete(`/agencia/doc/${docID}`)
-  
-      if(response.status == 200){
-        const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-          acao:"Apagou Caixa da Agencia "+props.match.params.name
-        })
-        alert('Arquivo deletado com sucesso!!')
-        history.push(`/Agenciadoc/${props.match.params.id}`)
-      }else{
-        alert(response.statusText)
-      }
-   
-    }     
  
-
 function DocumentosMap(props){
     const [list, setList] = useState([]);
+    const history = useHistory()
 
     useEffect(()=>{
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
@@ -71,20 +52,20 @@ function DocumentosMap(props){
         window.location.href=url;
       }
 
-    <div id="page-print">
-            <Sidebar id={props.match.params.id}/>
-                <div className="content-wrapper">
-                    <main>
-                        <h1>Gestão Eletronica de Documentos</h1>
-                        <p>Sistema de Arquivos CRA-RR</p>
-                    </main>
+    async function ApagarDoc(docID) {
+        const response = await api.delete(`/agencia/doc/${docID}`)
+        if(response.status == 200){
+          const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+            acao:"Apagou Caixa da Agencia "+props.match.params.name
+          })
+          alert('Arquivo deletado com sucesso!!')
+          window.location.reload(true)
+        }else{
+          alert(response.statusText)
+        }
+      
+      } 
 
-                    <div className='location'>
-                        <strong>Boa Vista</strong>
-                        <span>Roraima</span>
-                    </div>
-                </div>
-        </div>
         return (
           
             
@@ -95,11 +76,14 @@ function DocumentosMap(props){
 
                   <ul>  
                 {list.map(doc => (
-                        <div onClick={() => irPraUrl(doc.url)} style={listStyle}> 
+                        <div  style={listStyle}> 
                          <span style={text}>{doc.name}</span>
                          <span style={text}>{doc.dia}/{doc.mes}/{doc.ano}</span>
-                          <button onClick={ApagarDoc(doc._id,props)}type="button" className="botao">
+                          <button onClick={() => ApagarDoc(doc._id)} type="button" className="botao">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
+                          </button>
+                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao">
+                                <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>      
                        </div>
                        
