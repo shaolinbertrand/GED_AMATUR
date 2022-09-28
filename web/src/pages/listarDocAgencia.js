@@ -3,6 +3,7 @@ import api from "../services/api";
 import React, {useEffect, useState} from 'react'
 import Sidebar from '../components/Sidebar'
 import '../styles/pages/CriarUser.css';
+import { useHistory } from "react-router-dom";
 import {BsWrench} from 'react-icons/bs';
 import {BsEye} from 'react-icons/bs'
 import {BiPaperclip} from  'react-icons/bi';
@@ -35,7 +36,8 @@ const text = {
      marginTop:'10px' 
     }    
 
-    async function ApagarDoc(docID) {
+    async function ApagarDoc(docID,props) {
+      const history = useHistory()
       alert('Tem Certeza que quer apagar esse arquivo?')
       
 
@@ -46,7 +48,7 @@ const text = {
           acao:"Apagou Caixa da Agencia "+props.match.params.name
         })
         alert('Arquivo deletado com sucesso!!')
-        history.push(`/Agenciadoc/${props.match.params._id}`)
+        history.push(`/Agenciadoc/${props.match.params.id}`)
       }else{
         alert(response.statusText)
       }
@@ -96,7 +98,7 @@ function DocumentosMap(props){
                         <div onClick={() => irPraUrl(doc.url)} style={listStyle}> 
                          <span style={text}>{doc.name}</span>
                          <span style={text}>{doc.dia}/{doc.mes}/{doc.ano}</span>
-                          <button onClick={ApagarDoc(doc._id)}type="button" className="botao">
+                          <button onClick={ApagarDoc(doc._id,props)}type="button" className="botao">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>      
                        </div>
