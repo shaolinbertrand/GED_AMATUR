@@ -29,7 +29,7 @@ import Sidebar from "../components/Sidebar";
         acao:"Realizou Cadastro da Empresa "+name
       })
       alert('Cadastro realizado com sucesso!!')
-      history.push('/admin/listarEmpresa')
+      history.push('/listarEmpresa')
     }else{
       alert(response.statusText)
     }
