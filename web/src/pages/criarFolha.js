@@ -2,7 +2,7 @@ import React, { FormEvent, useState, ChangeEvent } from "react";
 import { useHistory } from "react-router-dom";
 import api from "../services/api";
 
-import '../styles/pages/CriarAdm.css';
+import '../styles/pages/FormCriar.css';
 import Sidebar from "../components/Sidebar";
 
 
@@ -37,12 +37,12 @@ import Sidebar from "../components/Sidebar";
   }
 
   return (
-    <div id="page-CreateADM">
+    <div id="page-Create">
 
     <Sidebar />
 
       <main>
-        <div className="create-ADM-form" >
+        <div className="create-form" >
           <fieldset>
             <legend>Dados da Folha</legend>
 
