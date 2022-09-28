@@ -28,7 +28,7 @@ import Sidebar from "../components/Sidebar";
         acao:"Realizou Cadastro da Agencia "+name
       })
       alert('Cadastro realizado com sucesso!!')
-      history.push('/admin/listarEmpresa')
+      history.push('/TI/listarAgencia')
     }else{
       alert(response.statusText)
     }
@@ -53,8 +53,8 @@ import Sidebar from "../components/Sidebar";
             </div>
 
             <button onClick={handleSubmit}  className="confirm-button"  type="submit">
-            Confirmar
-          </button>
+              Confirmar
+            </button>
           </fieldset>
 
           

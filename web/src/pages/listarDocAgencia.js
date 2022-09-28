@@ -35,8 +35,25 @@ const text = {
      marginTop:'10px' 
     }    
 
-     
+    async function ApagarDoc(docID) {
+      alert('Tem Certeza que quer apagar esse arquivo?')
+      
+
+      const response = await api.delete(`/agencia/doc/${docID}`)
+  
+      if(response.status == 200){
+        const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+          acao:"Apagou Caixa da Agencia "+props.match.params.name
+        })
+        alert('Arquivo deletado com sucesso!!')
+        history.push(`/Agenciadoc/${props.match.params._id}`)
+      }else{
+        alert(response.statusText)
+      }
+   
+    }     
  
+
 function DocumentosMap(props){
     const [list, setList] = useState([]);
 
@@ -79,12 +96,9 @@ function DocumentosMap(props){
                         <div onClick={() => irPraUrl(doc.url)} style={listStyle}> 
                          <span style={text}>{doc.name}</span>
                          <span style={text}>{doc.dia}/{doc.mes}/{doc.ano}</span>
-                         <Link to={`/empresa/create`} className="mostrar_dados">
-                          <button type="button" className="botao">
+                          <button onClick={ApagarDoc(doc._id)}type="button" className="botao">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
-                          </button>
-                        </Link> 
-                             
+                          </button>      
                        </div>
                        
                        ))}                  
