@@ -22,7 +22,7 @@ routes.get("/listaLog/:id",UserControllers.ListaLog)//mostra todos os logs do us
 routes.post("/novaEmpresa",upload.single('contrato'),EmpresaControllers.store);//cadastra nova empresa no banco
 routes.get("/empresa/cadastradas",EmpresaControllers.index);//lista todas as empresas no banco
 routes.delete("/empresa/:id",EmpresaControllers.destroy);//deleta uma empresa do banco
-routes.delete("/epresa/doc/:id",EmpresaControllers.destroyContrato);//deleta um contrato da empresa
+routes.delete("/empresa/doc/:id",EmpresaControllers.destroyContrato);//deleta um contrato da empresa
 routes.put("/empresa/doc/:id",upload.single('contrato'),EmpresaControllers.CriaContrato);//envia um documento associando a uma empresa
 routes.put("/empresa/:id",EmpresaControllers.update);//atualiza dados de uma empresa
 routes.get("/empresa/:id",EmpresaControllers.show);//mostra uma unica empresa
