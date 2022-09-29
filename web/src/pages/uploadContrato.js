@@ -55,7 +55,7 @@ export default function UploadFile(props) {
         acao:"Enviou um novo arquivo para o Contrato "+props.match.params.id
       })
       alert('Upload realizada com sucesso!!')
-      history.push(`/doc/${props.match.params.id}/${name}/${props.match.params.registro}`)
+      history.push(`/Empresadoc/${props.match.params.id}/${name}/${props.match.params.registro}`)
     }else{
       alert(response.statusText)
     }

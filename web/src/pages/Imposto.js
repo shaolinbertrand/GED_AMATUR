@@ -1,12 +1,12 @@
 
 import api from "../services/api";
 import React, {useEffect, useState} from 'react'
-import {BiArchive} from 'react-icons/bi';
 import {BsEye} from 'react-icons/bs'
 import {BsWrench} from 'react-icons/bs'
-import {BiPaperclip} from  'react-icons/bi';
+import { BsTrash } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import Sidebar from '../components/Sidebar'
+import { useHistory } from "react-router-dom";
 import '../styles/pages/CriarUser.css';
 
 const listStyle = {
@@ -33,6 +33,7 @@ const text = {
  
 function Adm(props){
          const [imposto, setList] = useState([]);
+         const history = useHistory()
         //const user = api.get(`/usuario/${props.match.params.id}`)
         useEffect(()=>{
             //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
@@ -45,6 +46,19 @@ function Adm(props){
            }
             );
         },[])
+        async function ApagarDoc(docID) {
+            const response = await api.delete(`/imposto/${docID}`)
+            if(response.status == 200){
+              const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+                acao:"Apagou o Imposto "+props.match.params.name
+              })
+              alert('Arquivo deletado com sucesso!!')
+              history.push("/listarImposto")
+            }else{
+              alert(response.statusText)
+            }
+          
+          }
         console.log(props.id)
         return (
             
@@ -67,7 +81,10 @@ function Adm(props){
                             <button type="button" className= "botao">
                                 <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
                             </button>
-                        </Link>                             
+                        </Link>
+                        <button onClick={() => ApagarDoc(imposto._id)} type="button" className="botao">
+                                <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
+                        </button>                         
                     </div>                  
                   </div>
                

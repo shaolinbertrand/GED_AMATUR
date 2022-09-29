@@ -5,6 +5,7 @@ import Sidebar from '../components/Sidebar'
 import '../styles/pages/CriarUser.css';
 import {BsWrench} from 'react-icons/bs';
 import { BsTrash } from 'react-icons/bs';
+import {BsEye} from 'react-icons/bs'
 import {BiPaperclip} from  'react-icons/bi';
 import { Link } from 'react-router-dom';
 
@@ -40,7 +41,7 @@ function DocumentosMap(props){
     console.log(props.match.params.id)
     useEffect(()=>{
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
-        acao:"Visualizou Contratos da Empresa "+props.match.params.name
+        acao:"Visualizou Documentos da Folha de "+props.match.params.name
       })
         api.get(`folha/doc/${props.match.params.id}`)
       .then((todo)=> setList(todo.data));
@@ -49,21 +50,19 @@ function DocumentosMap(props){
     function irPraUrl(url) {
         window.location.href=url;
       }
-
-    <div id="page-print">
-            <Sidebar id={props.match.params.id}/>
-                <div className="content-wrapper">
-                    <main>
-                        <h1>Gestão Eletronica de Documentos</h1>
-                        <p>Sistema de Arquivos CRA-RR</p>
-                    </main>
-
-                    <div className='location'>
-                        <strong>Boa Vista</strong>
-                        <span>Roraima</span>
-                    </div>
-                </div>
-        </div>
+    async function ApagarDoc(docID) {
+        const response = await api.delete(`/folha/doc/${docID}`)
+        if(response.status == 200){
+          const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+            acao:"Apagou Documento da Folha de "+props.match.params.name
+          })
+          alert('Arquivo deletado com sucesso!!')
+          window.location.reload(true)
+        }else{
+          alert(response.statusText)
+        }
+      
+      } 
         return (
           
             
@@ -74,9 +73,15 @@ function DocumentosMap(props){
 
                   <ul>  
                 {list.map(doc => (
-                        <div onClick={() => irPraUrl(doc.url)} style={listStyle}  > 
+                        <div  style={listStyle}  > 
                          <span style={text}>{doc.name}</span>
-                         <span style={text}>{doc.DataUpload}</span> 
+                         <span style={text}>{doc.DataUpload}</span>
+                         <button onClick={() => ApagarDoc(doc.id)} type="button" className="botao">
+                                <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
+                          </button>
+                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao">
+                                <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
+                          </button>  
                        </div>
                        ))}                  
                 </ul>

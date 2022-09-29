@@ -38,7 +38,7 @@ export default function UploadFile(props) {
 
     console.log(file)
     let formData = new FormData();
-      formData.append('contrato', file);
+      formData.append('documento', file);
     const response = await api.put(`/folha/doc/${props.match.params.id}`,
         formData, { 
             headers: {
@@ -51,7 +51,7 @@ export default function UploadFile(props) {
         acao:"Enviou um novo documento para folha "+props.match.params.id
       })
       alert('Upload realizada com sucesso!!')
-      history.push(`/doc/${props.match.params.id}/${name}/${props.match.params.registro}`)
+      history.push(`/Folhadoc/${props.match.params.id}/${name}/${props.match.params.registro}`)
     }else{
       alert(response.statusText)
     }

@@ -6,6 +6,7 @@ import '../styles/pages/CriarUser.css';
 import {BsWrench} from 'react-icons/bs';
 import {BsEye} from 'react-icons/bs'
 import {BiPaperclip} from  'react-icons/bi';
+import { BsTrash } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 
@@ -49,21 +50,20 @@ function DocumentosMap(props){
     function irPraUrl(url) {
         window.location.href=url;
       }
+    async function ApagarDoc(docID) {
+        const response = await api.delete(`/empresa/doc/${docID}`)
+        if(response.status == 200){
+          const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+            acao:"Apagou Caixa da Agencia "+props.match.params.name
+          })
+          alert('Arquivo deletado com sucesso!!')
+          window.location.reload(true)
+        }else{
+          alert(response.statusText)
+        }
+      
+      }   
 
-    <div id="page-print">
-            <Sidebar id={props.match.params.id}/>
-                <div className="content-wrapper">
-                    <main>
-                        <h1>Gestão Eletronica de Documentos</h1>
-                        <p>Sistema de Arquivos CRA-RR</p>
-                    </main>
-
-                    <div className='location'>
-                        <strong>Boa Vista</strong>
-                        <span>Roraima</span>
-                    </div>
-                </div>
-        </div>
         return (
           
             
@@ -74,10 +74,16 @@ function DocumentosMap(props){
 
                   <ul>  
                 {list.map(doc => (
-                        <div onClick={() => irPraUrl(doc.url)} style={listStyle}  > 
+                        <div style={listStyle}  > 
                          <span style={text}>{doc.numero}</span> 
                          <span style={text}>{doc.name}</span>
-                         <span style={text}>{doc.tipoValidade}</span> 
+                         <span style={text}>{doc.tipoValidade}</span>
+                         <button onClick={() => ApagarDoc(doc.id)} type="button" className="botao">
+                                <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
+                          </button>
+                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao">
+                                <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
+                          </button>
                        </div>
                        ))}                  
                 </ul>
