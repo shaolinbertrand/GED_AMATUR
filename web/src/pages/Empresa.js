@@ -6,7 +6,7 @@ import {BsWrench} from 'react-icons/bs'
 import {BiPaperclip} from  'react-icons/bi';
 import { Link } from "react-router-dom";
 import Sidebar from '../components/Sidebar'
-import '../styles/pages/CriarUser.css';
+import '../styles/pages/listarUser.css';
 
 const listStyle = {
     boxShadow: '1px 3px 4px grey',
@@ -45,9 +45,9 @@ function Adm(props){
         console.log(props.id)
         return (
             
-            <div id="page-CreateUser">
+            <div id="page-listUser">
                   <Sidebar/>
-                  <div className="create-user-form" >
+                  <div className="list-user-form" >
                   <h2 style={text}>Empresa</h2>
 
                   
