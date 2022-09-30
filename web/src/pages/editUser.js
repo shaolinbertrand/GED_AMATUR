@@ -18,6 +18,24 @@ export default function EditUser(props) {
   const [Ativo, setAtivo] = useState(true)
   const [setor, setSetor] = useState('')
   
+  
+  const cpf1 = document.querySelector("#CPF");
+
+  if (cpf1){
+    cpf1.addEventListener("keyup", () => {
+    let value = cpf1.value.replace(/[^0-9]/g, "").replace(/^([\d]{3})([\d]{3})?([\d]{3})?([\d]{2})?/, "$1.$2.$3-$4");
+    
+    cpf1.value = value;
+    });
+  }
+  var radios = document.getElementsByName("setor");
+
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].value == setor) {
+            radios[i].checked = true;
+        }
+    }
+
 
   async function handleSubmit() {
     console.log('ssdsdsd')
@@ -63,7 +81,7 @@ export default function EditUser(props) {
       <div className="create-user-form" >
           <fieldset>
             <legend>Dados</legend>
-
+            
             <div className="input-block">
               <label htmlFor="name">Nome</label>
               <input id="name" 
@@ -85,16 +103,20 @@ export default function EditUser(props) {
               onChange={event => setCargo(event.target.value)} />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="setor">Setor</label >
-              <input id="setor"
-              value={setor} 
-              onChange={event => setSetor(event.target.value)} />
-            </div>
+             <div className="input-block-setor">
+              <label htmlFor="setor">Setor</label > 
+              <div className="radium" >
+               <span>Diretoria</span> <input type="radio" name="setor" value="Diretoria" onChange={event => setSetor(event.target.value)} />
+               <span>T.I.</span><input  type="radio" name="setor" value="T.I" onChange={event => setSetor(event.target.value)}/>
+               <span>R.H</span><input  type="radio" name="setor" value="RH" onChange={event => setSetor(event.target.value)}/>
+               <span>Financeiro</span><input  type="radio" name="setor" value="Financeiro" onChange={event => setSetor(event.target.value)}/>
+               </div>
+              </div>
+
 
             <div className="input-block">
               <label htmlFor="CPF">CPF</label >
-              <input id="CPF"
+              <input id="CPF" maxlength="14"
               value={CPF} 
               onChange={event => setCPF(event.target.value)} />
             </div>
@@ -102,15 +124,8 @@ export default function EditUser(props) {
             <div className="input-block">
               <label htmlFor="Adimin">Usuário Ativo</label>
               <div className="button-select">
-                <button type="button" 
-                className={Ativo ? 'active' : ''}
-                onClick={() => setAtivo(true)}
-                >Sim</button>
-                <button 
-                type="button"
-                className={!Ativo ? 'active' : ''}
-                onClick={() => setAtivo(false)}
-                >Não</button>
+                <button type="button" className={Ativo ? 'active' : ''} onClick={() => setAtivo(true)}>Sim</button>
+                <button type="button" className={!Ativo ? 'active' : ''} onClick={() => setAtivo(false)}>Não</button>
               </div>
             </div>
 

@@ -25,6 +25,10 @@
     border: 1px solid #d3d2d5;
     border-radius: 20px;
   }
+
+  .create-user-form .input-block-setor{
+    margin-top:25px;
+  }
   
   .create-user-form .input-block-setor .radium{
     color: black;
@@ -34,13 +38,14 @@
   }
   .create-user-form .input-block-setor .radium input{
     height: 20px;
-    margin-left: 5px;
-
+    margin-left: 2px;
+    border-color: #8FA7B3;
+    cursor:pointer;
     
   }
   .create-user-form .input-block-setor span {
-    margin-left: 25px;
-    color: black;
+    margin-left: 45px;
+    color: #8FA7B3;
     line-height: 20px;
   }
 
@@ -90,6 +95,53 @@
     line-height: 24px;
   }
   
+  .create-user-form .input-block + .input-block {
+    margin-top: 24px;
+  }
+  
+  .create-user-form .input-block-senha label {
+    display: flex;
+    color: #8FA7B3;
+    margin-bottom: 8px;
+    line-height: 24px;
+  }
+  
+  .create-user-form .input-block-senha label span {
+    font-size: 14px;
+    color: #8FA7B3;
+    margin-left: 24px;
+    line-height: 24px;
+  }
+  
+  .create-user-form .input-block-senha #senha{
+    width: 90%;
+    background: #F5F8FA;
+    border: 1px solid #D3E2E5;
+    border-radius: 20px;
+    outline: none;
+    color: #5C8599;
+     height: 64px;
+    padding: 0 16px;
+  }
+
+  .create-user-form .input-block-senha span{
+    font-size: 14px;
+    color: #8FA7B3;
+    
+  }
+  .create-user-form .input-block-senha {
+    position:relative;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+  }
+  .create-user-form .input-block-senha .Check{
+    position:relative;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
   .create-user-form .input-block input,
   .create-user-form .input-block textarea {
     width: 100%;
@@ -113,32 +165,30 @@
     line-height: 28px;
   }
   
-  .create-user-form .input-block .button-select {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+ .create-user-form .input-block .button-select {
+    text-align: center;
   }
   
   .create-user-form .input-block .button-select button {
     height: 64px;
+    margin-right: 50px;
     background: #F5F8FA;
     border: 1px solid #D3E2E5;
     color: #5C8599;
     cursor: pointer;
+    border-radius: 20px;
   }
   
   .create-user-form .input-block .button-select button.active {
-    background: #EDFFF6;
-    border: 1px solid #A1E9C5;
-    color: #37C77F;
+    background: #ffd666;
+    border: 1px solid #fa8f1d;
+    color: #fa8f1d;
   }
   
-  .create-user-form .input-block .button-select button:first-child {
-    border-radius: 20px 0px 0px 20px;
-  }
-  
-  .create-user-form .input-block .button-select button:last-child {
-    border-radius: 0 20px 20px 0;
-    border-left: 0;
+  .create-user-form .input-block .button-select button:hover {
+    background: #ff9e44;
+    border: 1px solid #f77f00;
+    color: #fff3e7;
   }
   
   .create-user-form button.confirm-button {
@@ -167,3 +217,7 @@
   .create-user-form button.confirm-button:hover {
     background: #36CF82;
   }
+.radium{
+  margin-bottom:25px;
+
+}

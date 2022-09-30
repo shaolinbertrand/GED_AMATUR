@@ -10,29 +10,6 @@ import {BsEye} from 'react-icons/bs'
 import {BiPaperclip} from  'react-icons/bi';
 import { Link } from "react-router-dom";
 
-const listStyle = {
-    cursor: "pointer",
-    boxShadow: '1px 3px 4px grey',
-    borderRadius: '16px',
-    margin:'10px',
-    padding:'10px',
-    flexDirection:'row',
-    justifyContent:'space-between',
-    height: '50px',
-    background:"#ffd666"
-     } 
-
-const text = {
-    fontWeight: "bold",
-     cursor: "pointer",
-     textAlign:"center",
-     fontSize: "0.8em",
-     color: "#000000",
-     flexDirection: "row",
-     marginLeft:'17px',
-     marginRight:'17px',
-     marginTop:'10px' 
-    }    
 
      
 function AdministradoresMap(){
