@@ -84,7 +84,7 @@ export default function CreateUser() {
             <div className="input-block-setor">
               <label htmlFor="setor">Setor</label > 
               <div className="radium" >
-               <span>Diretoria</span> <input type="radio" name="setor" value="diretoria" onChange={event => setSetor(event.target.value)} />
+               <span>Diretoria</span> <input type="radio" name="setor" value="diretoria" onChange={event => setSetor(event.target.value)}/>
                <span>T.I.</span><input  type="radio" name="setor" value="ti" onChange={event => setSetor(event.target.value)}/>
                <span>R.H</span><input  type="radio" name="setor" value="rh" onChange={event => setSetor(event.target.value)}/>
                <span>Financeiro</span><input  type="radio" name="setor" value="financeiro" onChange={event => setSetor(event.target.value)}/>
