@@ -31,6 +31,7 @@ export default function UploadFile(props) {
   useEffect(()=>{
     //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
      api.get(`/agencia/${props.match.params.id}`)
+    
   .then( todo=> {
     setName(todo.data.name)
   }
@@ -45,19 +46,23 @@ export default function UploadFile(props) {
       formData.append('dia',dia);
       formData.append('mes',mes);
       formData.append('ano',ano);
+      console.log(formData);
+
     const response = await api.put(`/agencia/doc/${props.match.params.id}`,
-        formData, { 
+      
+          formData, { 
             headers: {
                 'Content-Type': 'multipart/form-data',
               }
         } 
       )
+      console.log(props.match.params.id);
     if(response.status == 200){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
         acao:"Enviou um novo arquivo para a agencia "+props.match.params.id
       })
       alert('Upload realizada com sucesso!!')
-      history.push(`/agencia/doc/${props.match.params.id}/${name}/${props.match.params.registro}`)
+      history.push(`/Agenciadoc/${props.match.params.id}/${props.match.params.name}`)
     }else{
       alert(response.statusText)
     }
@@ -69,7 +74,7 @@ export default function UploadFile(props) {
     <Sidebar />
 
       <main>
-      <div className="create-ADM-form" >
+      <div className="create-user-form" >
           <fieldset>
   <legend>Novo Caixa -{'>'} {name}</legend>
             
@@ -82,7 +87,7 @@ export default function UploadFile(props) {
 
             <div className="input-block">
               <label htmlFor="numeroC">Mês</label >
-              <input id="senha"
+              <input id="senha" 
               value={mes} 
               onChange={event => setMes(event.target.value)} />
             </div>
