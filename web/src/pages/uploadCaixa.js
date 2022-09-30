@@ -62,7 +62,7 @@ export default function UploadFile(props) {
         acao:"Enviou um novo arquivo para a agencia "+props.match.params.id
       })
       alert('Upload realizada com sucesso!!')
-      history.push(`/Agenciadoc/${props.match.params.id}/${props.match.params.name}`)
+      history.push(`/Agenciadoc/${props.match.params.id}/${name}`)
     }else{
       alert(response.statusText)
     }
