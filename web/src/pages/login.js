@@ -14,9 +14,23 @@ function Login(){
 
     const [name, setName] = useState('')
     const [senha, setPassword] = useState('')
-    
+   var conf = "a" //variavel para confirmar função
+   document.addEventListener("keypress", function(e) {
+        if(e.key === 'Enter' && conf=="a" ) {
+            console.log("valor de teste aqui:"+conf);
+            var btn = document.querySelector("#botaoEntrar");
+          
+           btn.click();
+        
+        }
+        
+      });
     async function handleSubmit() {
-  
+   
+    
+        if(conf=="a"){
+            conf="b"; // para fazer apenas uma vez
+            console.log("valor de teste aqui:"+conf);
      console.log(name)
      console.log(senha)
      try{
@@ -24,6 +38,7 @@ function Login(){
         
 
         if(response.status == 200){
+            
             console.log('id_login')
             const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
                 acao:"Realizou Login "
@@ -32,14 +47,14 @@ function Login(){
            localStorage.setItem('id_login', response.data._id);
            localStorage.setItem('cargo', response.data.cargo);
            localStorage.setItem('nome', response.data.nome);
-           history.push(`admin/inicial`)
+           history.push(`/admin/inicial`)
         }else{
            
         }
      }catch(e){
         alert('Login não realizado!!')
      }
-
+    }
     
   
     }
@@ -75,7 +90,7 @@ function Login(){
                             onChange={event => setPassword(event.target.value)} />
                     </div>
                     
-                    <div onClick={handleSubmit} className="Entrar_no_sistema"> 
+                    <div id="botaoEntrar" onClick={handleSubmit} className="Entrar_no_sistema"> 
                         <BiLogIn size={26} color="rgba(0, 0, 0, 0.6)"/>
                     </div>
                 </fieldset>
