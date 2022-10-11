@@ -63,7 +63,7 @@ export default function UploadFile(props) {
     <Sidebar />
 
       <main>
-      <div className="create-ADM-form" >
+      <div className="create-form" >
           <fieldset>
   <legend>Novo Documento Folha de {name}</legend>
 
