@@ -50,7 +50,7 @@ export default function EditAdm(props) {
     <Sidebar />
 
       <main>
-      <div className="create-ADM-form" >
+      <div className="create-form" >
           <fieldset>
             <legend>Dados</legend>
 
