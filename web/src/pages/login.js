@@ -44,6 +44,7 @@ function Login(){
            alert('Login realizado com sucesso!!')
            localStorage.setItem('id_login', response.data._id);
            localStorage.setItem('cargo', response.data.cargo);
+           
            localStorage.setItem('nome', response.data.nome);
            history.push(`/admin/inicial`)
         }else{

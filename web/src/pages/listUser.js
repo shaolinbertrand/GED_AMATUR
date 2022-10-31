@@ -10,7 +10,7 @@ import '../styles/pages/listarUser.css';
 import { Link } from 'react-router-dom';
 import admin from './login'
 
-
+var conf = "a";
 function User() {
     const [list, setList] = useState([]);
     const history = useHistory()
@@ -76,30 +76,13 @@ function User() {
             </main>
         </div>
     )}catch(e){
-        alert("Permissão negada")
         history.push('/admin/inicial')
-        return (
-            <div id="page-listUser">
-                <Sidebar />
-                <main>
-                    <div className="list-user-form" >
-                        <h2 >USUÁRIOS</h2>
-                        <div className="tipos">
-                            <Link to='/inativos'>
-                                <button type="button" className="botaouser">
-                                    Inativos
-                                </button>
-                            </Link>
-                            <Link to='/ativos'>
-                                <button type="button" className="botaouser">
-                                    Ativos
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
-                </main>
-            </div>
-            )
+        if(conf=="a"){
+            conf="b"; 
+        alert("Permissão negada")
+    }
+        return(null)
+      
     }
 
 

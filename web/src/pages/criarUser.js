@@ -19,10 +19,12 @@ export default function CreateUser() {
   
 
   async function handleSubmit() {
-    console.log('ssdsdsd')
-
-
-    const response = await api.post('/cadastro',  {
+    
+   let response=null
+    try{
+      
+      response =  await  api.post(`/cadastro?id=${localStorage.getItem('id_login')}`,  {
+      
       nome: name,
       setor: setor,
       password:senha,
@@ -31,17 +33,23 @@ export default function CreateUser() {
       ativo: Ativo
     })
 
-  
-
-    if(response.status == 200){
+   
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
         acao:"Realizou cadastro do usuário "+name
       })
       alert('Cadastro realizado com sucesso!!')
-      history.push('admin/inicial')
-    }else{
-      alert(response.statusText)
-    }
+      history.push('/admin/inicial')
+    
+    }catch(e){
+      console.log(e);
+    history.push('/admin/inicial')
+    
+    alert("Permissão negada")
+}
+    
+  
+
+    
   }
 
   return (

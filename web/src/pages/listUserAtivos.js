@@ -3,16 +3,21 @@ import api from "../services/api";
 import React, { useEffect, useState } from 'react'
 import { BsWrench } from 'react-icons/bs';
 import { BsEye } from 'react-icons/bs';
+import { useHistory } from "react-router-dom";
 import { BsTrash } from 'react-icons/bs';
 import Sidebar from '../components/Sidebar'
 import '../styles/pages/listarUser.css';
 import { Link } from 'react-router-dom';
+import { FaRegObjectUngroup } from "react-icons/fa";
 
 
-
+var conf = "a";
 function User() {
+    let ver= api.get(`/verificaP?id=6308ef2b0d32674010b47da9`)
+   console.log(ver)
     const [list, setList] = useState([]);
-
+    const history = useHistory()
+    
     useEffect(() => {
         const log = api.post(`/log/user/${localStorage.getItem('id_login')}`, {
             acao: "Listou Usuários Ativos "
@@ -21,7 +26,7 @@ function User() {
             .then((todo) => setList(todo.data));
     }, [])
 
-    return (
+    try{ return (
 
         <div id="page-listUser">
             <Sidebar />
@@ -65,10 +70,21 @@ function User() {
             </div>
 
         </div>
-    )
+    )}catch(e){
+        history.push('/admin/inicial')
+        if(conf=="a"){
+            conf="b"; 
+            
+        alert("Permissão negada")
+    }
+    
+        return(null)
+      
+    }
 
 
 
 };
+
 
 export default User;
