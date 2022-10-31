@@ -15,27 +15,44 @@ export default function EditUser(props) {
   const [cargo, setCargo] = useState('')
   const [senha, setPassword] = useState('')
   const [CPF, setCPF] = useState('')
-  const [Adimin, setAdimin] = useState(false)
   const [Ativo, setAtivo] = useState(true)
-  const [telefone, setTelefone] = useState('')
+  const [setor, setSetor] = useState('')
   
+  
+  const cpf1 = document.querySelector("#CPF");
+
+  if (cpf1){
+    cpf1.addEventListener("keyup", () => {
+    let value = cpf1.value.replace(/[^0-9]/g, "").replace(/^([\d]{3})([\d]{3})?([\d]{3})?([\d]{2})?/, "$1.$2.$3-$4");
+    
+    cpf1.value = value;
+    });
+  }
+  var radios = document.getElementsByName("setor");
+
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].value == setor) {
+            radios[i].checked = true;
+        }
+    }
+
 
   async function handleSubmit() {
     console.log('ssdsdsd')
     const response = await api.put(`/usuario/${props.match.params.id}?id=607b5fcfc740aa2cc8057a89`,  {
-        nome: name,
-        telefone: telefone,
-        CPF:CPF,
-        cargo: cargo,
-        admin: Adimin,
-        ativo: Ativo
+      nome: name,
+      setor: setor,
+      password:senha,
+      CPF:CPF,
+      cargo: cargo,
+      ativo: Ativo
       })
     if(response.status == 200){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
         acao:"Editou dados do usuário "+name
       })
       alert('Edição realizada com sucesso!!')
-      history.push(`/admin/user/${props.match.params.id}`)
+      history.push(`/TI/user/${props.match.params.id}`)
     }else{
       alert(response.statusText)
     }
@@ -47,9 +64,9 @@ export default function EditUser(props) {
   .then( todo=> {
     setName(todo.data.nome)
     setCargo(todo.data.cargo)
-    setTelefone(todo.data.telefone)
-    setCPF(todo.data.cpf)
-    setAdimin(todo.data.admin)
+    setSetor(todo.data.setor)
+    setCPF(todo.data.CPF)
+    setPassword(todo.data.senha)
     setAtivo(todo.data.ativo)
   }
   );
@@ -64,12 +81,19 @@ export default function EditUser(props) {
       <div className="create-user-form" >
           <fieldset>
             <legend>Dados</legend>
-
+            
             <div className="input-block">
               <label htmlFor="name">Nome</label>
               <input id="name" 
               value={name} 
               onChange={event => setName(event.target.value)} />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="senha">Senha</label >
+              <input type='password' id="senha"
+              value={senha}
+              onChange={event => setPassword(event.target.value)} />
             </div>
 
             <div className="input-block">
@@ -79,46 +103,29 @@ export default function EditUser(props) {
               onChange={event => setCargo(event.target.value)} />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="telefone">Telefone</label >
-              <input id="telefone"
-              value={telefone} 
-              onChange={event => setTelefone(event.target.value)} />
-            </div>
+             <div className="input-block-setor">
+              <label htmlFor="setor">Setor</label > 
+              <div className="radium" >
+               <span>Diretoria</span> <input type="radio" name="setor" value="Diretoria" onChange={event => setSetor(event.target.value)} />
+               <span>T.I.</span><input  type="radio" name="setor" value="T.I" onChange={event => setSetor(event.target.value)}/>
+               <span>R.H</span><input  type="radio" name="setor" value="RH" onChange={event => setSetor(event.target.value)}/>
+               <span>Financeiro</span><input  type="radio" name="setor" value="Financeiro" onChange={event => setSetor(event.target.value)}/>
+               </div>
+              </div>
+
 
             <div className="input-block">
               <label htmlFor="CPF">CPF</label >
-              <input id="CPF"
+              <input id="CPF" maxlength="14"
               value={CPF} 
               onChange={event => setCPF(event.target.value)} />
             </div>
 
             <div className="input-block">
-              <label htmlFor="Adimin">Administrador do Sistema</label>
-
-              <div className="button-select">
-                <button type="button" 
-                className={Adimin ? 'active' : ''}
-                onClick={() => setAdimin(true)}
-                >Sim</button>
-                <button 
-                type="button"
-                className={!Adimin ? 'active' : ''}
-                onClick={() => setAdimin(false)}
-                >Não</button>
-              </div>
-
               <label htmlFor="Adimin">Usuário Ativo</label>
               <div className="button-select">
-                <button type="button" 
-                className={Ativo ? 'active' : ''}
-                onClick={() => setAtivo(true)}
-                >Sim</button>
-                <button 
-                type="button"
-                className={!Ativo ? 'active' : ''}
-                onClick={() => setAtivo(false)}
-                >Não</button>
+                <button type="button" className={Ativo ? 'active' : ''} onClick={() => setAtivo(true)}>Sim</button>
+                <button type="button" className={!Ativo ? 'active' : ''} onClick={() => setAtivo(false)}>Não</button>
               </div>
             </div>
 

@@ -22,6 +22,7 @@ routes.get("/listaLog/:id",UserControllers.ListaLog)//mostra todos os logs do us
 routes.post("/novaEmpresa",upload.single('contrato'),EmpresaControllers.store);//cadastra nova empresa no banco
 routes.get("/empresa/cadastradas",EmpresaControllers.index);//lista todas as empresas no banco
 routes.delete("/empresa/:id",EmpresaControllers.destroy);//deleta uma empresa do banco
+routes.delete("/empresa/doc/:id",EmpresaControllers.destroyContrato);//deleta um contrato da empresa
 routes.put("/empresa/doc/:id",upload.single('contrato'),EmpresaControllers.CriaContrato);//envia um documento associando a uma empresa
 routes.put("/empresa/:id",EmpresaControllers.update);//atualiza dados de uma empresa
 routes.get("/empresa/:id",EmpresaControllers.show);//mostra uma unica empresa
@@ -31,6 +32,7 @@ routes.get("/empresa/doc/:id",EmpresaControllers.doc)//lista todos os contratos 
 routes.post("/novaAgencia",upload.single('caixa'),AgenciaControllers.store);//cadastra nova agencia no banco
 routes.get("/agencia/cadastradas",AgenciaControllers.index);//lista todas as agencias no banco
 routes.delete("/agencia/:id",AgenciaControllers.destroy);//deleta uma agencia do banco
+routes.delete("/agencia/doc/:id",AgenciaControllers.destroyCaixa);//deleta um caixa da Agencia
 routes.put("/agencia/doc/:id",upload.single('caixa'),AgenciaControllers.CriaCaixa);//envia um caixa associando a uma agencia
 routes.get("/agencia/doc/:id",AgenciaControllers.doc)//lista todos os caixas associados a mesma agencia
 routes.put("/agencia/:id",AgenciaControllers.update);//atualiza dados de uma agencia
@@ -39,6 +41,7 @@ routes.get("/agencia/:id",AgenciaControllers.show);//mostra uma unica agencia
 routes.post("/novaFolha",upload.single('documento'),PagamentoControllers.store);//cadastra nova folha de pagamento no banco
 routes.get("/folhas/cadastradas",PagamentoControllers.index);//lista todas as folhas de pagamento no banco
 routes.delete("/folha/:id",PagamentoControllers.destroy);//deleta uma folha de pagamento do banco
+routes.delete("/folha/doc/:id",PagamentoControllers.destroyDocumento);//deleta um docuemnto da Folha de Pagamento
 routes.put("/folha/doc/:id",upload.single('documento'),PagamentoControllers.CriaDoc);//envia um documento associando a uma folha de pagamento
 routes.get("/folha/doc/:id",PagamentoControllers.doc)//lista todos os documneots associados a mesma folha de pagamento
 routes.put("/folha/:id",PagamentoControllers.update);//atualiza dados de uma folha

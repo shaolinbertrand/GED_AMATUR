@@ -1,8 +1,7 @@
  aside{
     width: 440px;
-    background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
+    background: linear-gradient(329.54deg, #fa8f1d 0%, rgba(255,130,0,0.25) 100%);
     padding: 80px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -10,16 +9,30 @@
 }
 
 aside h2{
-    font-size: 40px;
-    font-weight: 800;
-    line-height: 42px;
-    margin-top: 64px;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-top: 1px;
+    margin-left: -40px;
+    margin-right: -40px;
+}
+aside .AMATUR{
+    margin-top: -100px;
+    margin-right: -40px;
+    margin-left: -40px;
+    width: 350px;
+    height: 350px;
+}
+aside .espaco{
+    width: 350px;
+    height: 70px;
 }
 
 aside .corpo{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 aside  .enter-app{
@@ -31,8 +44,9 @@ aside  .enter-app{
 
 aside .botao{
     background: #ffd666;
+    color:black;
     border-radius: 30px;
-
+    padding: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,15 +54,20 @@ aside .botao{
 }
 
 .botao:hover{
-    background: #96FEFF;
+    background: #ff4800;
+    color:white;
 }
+
+
 
 aside footer{
    display:flex;
    flex-direction: column;
-
+   
+    color: white;
    line-height:24px;
 }
+
 
 
 

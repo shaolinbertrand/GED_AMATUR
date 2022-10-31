@@ -81,5 +81,11 @@ module.exports ={
         await Documento.find({"IdFolha":req.params.id}).remove()
         return res.send({msg:"Folha de Pagamento excluida com sucesso"});
     },
+    async destroyDocumento(req,res){
+        const arquivo = await Documento.findById(req.params.id)
+        await Pagamento.findByIdAndUpdate(arquivo.IdPagamento,{$pull:{"documento": {"name":arquivo.name}}},{new:false,useFindAndModify:true})
+        await Documento.findByIdAndRemove(req.params.id)
+        return res.send({msg:"Documento excluido com sucesso"});
+    },
 
 }

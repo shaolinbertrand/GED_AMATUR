@@ -8,6 +8,7 @@ module.exports = {
             setor: user.setor,
             CPF: user.CPF,
             cargo:user.cargo,
+            ativo:user.ativo
         };
     },
     renderMany(users){

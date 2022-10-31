@@ -4,7 +4,8 @@ module.exports = {
         return{
                 name: Documento.name,
                 DataUpload: Documento.DataUpload,
-                url:Documento.url
+                url:Documento.url,
+                id:Documento._id
         };
     },
     renderMany(documentos){

@@ -5,15 +5,32 @@ import {BiLogIn} from 'react-icons/bi'
 import { useHistory } from "react-router-dom";
 import api from "../services/api";
 import '../styles/pages/login.css'
+
+
 function Login(){
+     let logado
 
     const history = useHistory()
 
     const [name, setName] = useState('')
     const [senha, setPassword] = useState('')
-    
+   var conf = "a" //variavel para confirmar função
+   document.addEventListener("keypress", function(e) {
+        if(e.key === 'Enter' && conf=="a" ) {
+            console.log("valor de teste aqui:"+conf);
+            var btn = document.querySelector("#botaoEntrar");
+          
+           btn.click();
+        
+        }
+        
+      });
     async function handleSubmit() {
-      
+   
+    
+        if(conf=="a"){
+            conf="b"; // para fazer apenas uma vez
+            console.log("valor de teste aqui:"+conf);
      console.log(name)
      console.log(senha)
      try{
@@ -21,15 +38,23 @@ function Login(){
         
 
         if(response.status == 200){
+            
+            console.log('id_login')
+            const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
+                acao:"Realizou Login "
+              })
            alert('Login realizado com sucesso!!')
-           history.push('/admin/inicial')
+           localStorage.setItem('id_login', response.data._id);
+           localStorage.setItem('cargo', response.data.cargo);
+           localStorage.setItem('nome', response.data.nome);
+           history.push(`/admin/inicial`)
         }else{
            
         }
      }catch(e){
         alert('Login não realizado!!')
      }
-
+    }
     
   
     }
@@ -38,7 +63,7 @@ function Login(){
         <div id="page-login">
             <aside>
                 <header>
-                    <img src={logoImg} className="CRA-RR"/>
+                    <img src={logoImg} className="AMATUR"/>
 
                     <h2>Digite seu nome e senha para acessar o sistema</h2>
                 </header>
@@ -65,7 +90,7 @@ function Login(){
                             onChange={event => setPassword(event.target.value)} />
                     </div>
                     
-                    <div onClick={handleSubmit} className="Entrar_no_sistema"> 
+                    <div id="botaoEntrar" onClick={handleSubmit} className="Entrar_no_sistema"> 
                         <BiLogIn size={26} color="rgba(0, 0, 0, 0.6)"/>
                     </div>
                 </fieldset>

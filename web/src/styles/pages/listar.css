@@ -1,0 +1,96 @@
+#page-list {
+    display: flex;
+    
+    
+  }
+  
+  #page-list main {
+    flex: 1;
+  }
+  
+  .list-form {
+    width: 700px;
+    margin: 64px auto;
+    
+    text-align: RIGHT;
+
+    background: #fa8f1d;
+    border: 1px solid #fa8f1d;
+    border-radius: 20px;
+  
+    padding: 64px 80px;
+  
+    overflow: hidden;
+  }
+  
+  .list-form .leaflet-container {
+    margin-bottom: 40px;
+    border: 1px solid #d3d2d5;
+    border-radius: 20px;
+  }
+  
+  .list-form fieldset {
+    border: 0;
+  }
+  
+  .list-form fieldset + fieldset {
+    margin-top: 80px;
+  }
+  
+  .list-form fieldset legend {
+    width: 100%;
+  
+    font-size: 32px;
+    line-height: 34px;
+    color: #5C8599;
+    font-weight: 700;
+  
+    border-bottom: 1px solid #D3E2E5;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+  }
+  
+ .lista {
+    cursor:initial;
+    box-Shadow: 1px 3px 4px grey;
+    border-Radius: 16px;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    position: relative;
+    background: #ffd666;
+ }
+  
+ .list-form h2{
+    font-Weight: bold;
+    text-align: center;
+    font-Size: 1em;
+    color: #000000;
+    flex-Direction: row;
+    margin-left: 17px;
+    margin-right: 17px;
+    margin-Top: 10px;
+ }
+ .nome{
+  cursor:text;
+  font-Weight: bold;
+  position: absolute;
+  font-Size: 1em;
+  color: #000000;
+  left: 10px;
+}
+  
+
+  .botaolist{
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+
+    
+  }
+  .botaolist:hover{
+    color:black;
+    background: #ff4800;
+  }

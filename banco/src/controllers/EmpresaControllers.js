@@ -35,7 +35,7 @@ module.exports ={
     //mostrando todos os contratos associados a mesma empresa
     async doc(req,res){
         const contratos = await Contrato.find({"IdEmpresa":req.params.id});
-        const adm = await Empresa.findById(req.params.id);
+        const empresa = await Empresa.findById(req.params.id);
         return res.json(contratoView.renderMany(contratos))
 
     },
@@ -82,6 +82,12 @@ module.exports ={
         await Empresa.findByIdAndRemove(req.params.id);
         await Contrato.find({"IdEmpresa":req.params.id}).remove()
         return res.send({msg:"Empresa excluida com sucesso"});
+    },
+    async destroyContrato(req,res){
+        const documento = await Contrato.findById(req.params.id)
+        await Empresa.findByIdAndUpdate(documento.IdEmpresa,{$pull:{"contrato": {"name":documento.name}}},{new:false,useFindAndModify:true})
+        await Contrato.findByIdAndRemove(req.params.id)
+        return res.send({msg:"Contrato excluido com sucesso"});
     },
 
 }
