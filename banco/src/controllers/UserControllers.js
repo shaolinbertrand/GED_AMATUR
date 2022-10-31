@@ -6,13 +6,54 @@ const userView = require('../views/UserViwers')
 const logView = require('../views/LogViewers')
 const logger = require("../logger");
 
-
-logado = ""
 module.exports = {
+    async Verifica(req,res){
+        const userlogado = await User.findById(req.query.id)
+        let permissao = {}
+        if (userlogado.setor=='T.I'){
+            permissao = {
+                'criarUser':true,
+                'criarContrato':true,
+                'criaAgencia':true,
+                'criaImposto':true,
+                'editar':true,
+                'Vagecia':true,
+                'Vuser':true,
+                'Vcontrato':true,
+                'Vimposto':true                                        
+            }
+        }
+        else if(userlogado.setor=='diretoria'){
+            permissao = {
+                'criarUser':false,
+                'criarContrato':false,
+                'criaAgencia':false,
+                'criaImposto':false,
+                'editar':true,
+                'Vagecia':true,
+                'Vuser':true,
+                'Vcontrato':true,
+                'Vimposto':true
+            }
+        }else if(userlogado.setor=='Financeiro'){
+                permissao = {
+                    'criarUser':false,
+                    'criarContrato':true,
+                    'criaAgencia':true,
+                    'criaImposto':false,
+                    'editar':false,
+                    'Vagecia':true,
+                    'Vuser':false,
+                    'Vcontrato':true,
+                    'Vimposto':true
+                }
+        }
+        return res.json(permissao)
+    },
+
     async index(req,res){
         const userlogado = await User.findById(req.query.id)
-        console.log(userlogado.setor)
-        if (userlogado.setor=='T.I'){
+        if (userlogado.setor=='T.I' || userlogado.setor=="diretoria"){
             const users= await User.find();
             return res.json(userView.renderMany(users));
         }
@@ -21,9 +62,8 @@ module.exports = {
         }  
     },
     async indexAtivos(req,res){
-        //const userlogado = await User.findById(req.query.id)
-        //if(userlogado.admin == true)
-        if (5>2){
+        const userlogado = await User.findById(req.query.id)
+        if (userlogado.setor=='T.I' || userlogado.setor=="diretoria"){
             const users= await User.find({"ativo":true});
             return res.json(userView.renderMany(users));
         }
@@ -32,8 +72,8 @@ module.exports = {
         }  
     },
     async indexInativos(req,res){
-        //const userlogado = await User.findById(req.query.id)
-        if (5>2){
+        const userlogado = await User.findById(req.query.id)
+        if (userlogado.setor=='T.I' || userlogado.setor=="diretoria"){
             const users= await User.find({"ativo":false});
             return res.json(userView.renderMany(users));
         }
@@ -48,14 +88,19 @@ module.exports = {
     },
 
     async store(req,res){
-        const user = await User.create(req.body);
-        return res.json(user);
+        const userlogado = await User.findById(req.query.id)
+        if (userlogado.setor=='T.I'){
+            const user = await User.create(req.body);
+            return res.json(user);
+        }
+        else{
+            return res.json({msg:"Permissão negada"}).status("401")
+        }
     },
 
     async update(req,res){
-        //const userlogado = await User.findById(req.query.id)
-           // if ((userlogado.admin == true) || (userlogado._id == req.params.id)) 
-           if (2>0){ //tratamento para que só o administrador do sistema ou o proprio usuario possa atualizar seus dados
+        const userlogado = await User.findById(req.query.id)
+        if ((userlogado.setor=='T.I') || (userlogado._id == req.params.id)){ //tratamento para que só o administrador do sistema ou o proprio usuario possa atualizar seus dados
                 const user = await User.findByIdAndUpdate(req.params.id,req.body, {new: true,useFindAndModify: false});
                 return res.json(user);
             }
@@ -65,9 +110,8 @@ module.exports = {
     },
 
     async destroy(req,res){
-        console.log(req.query.id)
-        //const userlogado = await User.findById(req.query.id) //tratamento para que só o administrador do sistema possa deletar usuarios
-            if (2>0) {
+        const userlogado = await User.findById(req.query.id) //tratamento para que só o administrador do sistema possa deletar usuarios
+            if (userlogado.setor=='T.I'){
                 await User.findByIdAndRemove(req.params.id);
                 return res.send({msg: "usuario deletado com sucesso"});
             }

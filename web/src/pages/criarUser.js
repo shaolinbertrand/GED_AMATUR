@@ -16,15 +16,21 @@ export default function CreateUser() {
   const [CPF, setCPF] = useState('')
   const [Ativo, setAtivo] = useState(true)
   const [setor, setSetor] = useState('')
-  
+  const [verifica,setVerifica] = useState('')
+
+   const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
+    .then((todo)=>setVerifica(todo.data))
+   const PermissaoCriar = verifica.criarUser
+   console.log(PermissaoCriar)
+   if (PermissaoCriar == false){
+    console.log('entrou no if')
+    alert("permissao negada")
+    history.push('admin/inicial')
+   }
 
   async function handleSubmit() {
-    
-   let response=null
-    try{
-      
-      response =  await  api.post(`/cadastro?id=${localStorage.getItem('id_login')}`,  {
-      
+
+    const response = await api.post('/cadastro',  {
       nome: name,
       setor: setor,
       password:senha,
@@ -33,23 +39,17 @@ export default function CreateUser() {
       ativo: Ativo
     })
 
-   
+  
+
+    if(response.status == 200){
       const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
         acao:"Realizou cadastro do usuário "+name
       })
       alert('Cadastro realizado com sucesso!!')
-      history.push('/admin/inicial')
-    
-    }catch(e){
-      console.log(e);
-    history.push('/admin/inicial')
-    
-    alert("Permissão negada")
-}
-    
-  
-
-    
+      history.push('admin/inicial')
+    }else{
+      alert(response.statusText)
+    }
   }
 
   return (
