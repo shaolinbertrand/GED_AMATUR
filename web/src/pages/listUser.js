@@ -21,9 +21,12 @@ function User() {
             const log = api.post(`/log/user/${localStorage.getItem('id_login')}`, {
                 acao: "Listou todos os usuários "
             })
+            console.log('inseriu dados no log')
             api.get(`usuarios?id=${localStorage.getItem('id_login')}`)
                 .then((todo) => setList(todo.data));
+                console.log('pegou o json')
         } catch (e) {
+            console.log('entrou no erro')
             console.log(e)
         }
 
