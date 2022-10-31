@@ -16,11 +16,19 @@ export default function CreateUser() {
   const [CPF, setCPF] = useState('')
   const [Ativo, setAtivo] = useState(true)
   const [setor, setSetor] = useState('')
-  
+  const [verifica,setVerifica] = useState('')
+
+   const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
+    .then((todo)=>setVerifica(todo.data))
+   const PermissaoCriar = verifica.criarUser
+   console.log(PermissaoCriar)
+   if (PermissaoCriar == false){
+    console.log('entrou no if')
+    alert("permissao negada")
+    history.push('admin/inicial')
+   }
 
   async function handleSubmit() {
-    console.log('ssdsdsd')
-
 
     const response = await api.post('/cadastro',  {
       nome: name,

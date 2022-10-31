@@ -16,8 +16,9 @@ routes.post("/cadastro", UserControllers.store);// cadastra um novo usuario no b
 routes.put("/usuario/:id",UserControllers.update);// atualiza dados de um unico usuario 
 routes.delete("/usuario/:id",UserControllers.destroy);//deleta um usuario
 routes.get("/login",UserControllers.login);//login no sistema
-routes.post("/log/user/:id", UserControllers.log)//cria um log para tal usuario
-routes.get("/listaLog/:id",UserControllers.ListaLog)//mostra todos os logs do usuario
+routes.post("/log/user/:id", UserControllers.log);//cria um log para tal usuario
+routes.get("/listaLog/:id",UserControllers.ListaLog);//mostra todos os logs do usuario
+routes.get("/verificaP/",UserControllers.Verifica);//verifica permissões de um usuário
 //Empresas
 routes.post("/novaEmpresa",upload.single('contrato'),EmpresaControllers.store);//cadastra nova empresa no banco
 routes.get("/empresa/cadastradas",EmpresaControllers.index);//lista todas as empresas no banco
