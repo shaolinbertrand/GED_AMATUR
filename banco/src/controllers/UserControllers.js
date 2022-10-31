@@ -10,13 +10,14 @@ const logger = require("../logger");
 logado = ""
 module.exports = {
     async index(req,res){
-        //const userlogado = await User.findById(req.query.id)
-        if (5>2){
+        const userlogado = await User.findById(req.query.id)
+        console.log(userlogado.setor)
+        if (userlogado.setor=='T.I'){
             const users= await User.find();
             return res.json(userView.renderMany(users));
         }
         else{
-            return res.json({msg:"Permissão negada"})
+            return res.json({msg:"Permissão negada"}).status("401")
         }  
     },
     async indexAtivos(req,res){
@@ -27,7 +28,7 @@ module.exports = {
             return res.json(userView.renderMany(users));
         }
         else{
-            return res.json({msg:"Permissão negada"})
+            return res.json({msg:"Permissão negada"}).status("401")
         }  
     },
     async indexInativos(req,res){
@@ -37,7 +38,7 @@ module.exports = {
             return res.json(userView.renderMany(users));
         }
         else{
-            return res.json({msg:"Permissão negada"})
+            return res.json({msg:"Permissão negada"}).status("401")
         }  
     },
 

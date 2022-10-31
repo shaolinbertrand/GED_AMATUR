@@ -1,6 +1,7 @@
 
 import api from "../services/api";
 import React, { useEffect, useState } from 'react'
+import { useHistory } from "react-router-dom";
 import { BsWrench } from 'react-icons/bs';
 import { BsEye } from 'react-icons/bs';
 import { BsTrash } from 'react-icons/bs';
@@ -9,30 +10,27 @@ import '../styles/pages/listarUser.css';
 import { Link } from 'react-router-dom';
 import admin from './login'
 
-let logado = admin.logado
 
 function User() {
     const [list, setList] = useState([]);
+    const history = useHistory()
 
-    useEffect(() => {
-        try {
-            console.log(admin.logado)
+    useEffect(async () => {
             //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
             const log = api.post(`/log/user/${localStorage.getItem('id_login')}`, {
                 acao: "Listou todos os usuários "
             })
             console.log('inseriu dados no log')
-            api.get(`usuarios?id=${localStorage.getItem('id_login')}`)
+           const resposta = await api.get(`usuarios?id=${localStorage.getItem('id_login')}`)
                 .then((todo) => setList(todo.data));
-                console.log('pegou o json')
-        } catch (e) {
-            console.log('entrou no erro')
+        try{console.log(resposta)}
+        catch(e){
             console.log(e)
         }
 
     }, [])
 
-    return (
+    try{return (
 
         <div id="page-listUser">
             <Sidebar />
@@ -71,12 +69,38 @@ function User() {
                                 </button>
 
                             </div>
-                        ))}
+                        ))
+                        }
                     </ul>
                 </div>
             </main>
         </div>
-    )
+    )}catch(e){
+        alert("Permissão negada")
+        history.push('/admin/inicial')
+        return (
+            <div id="page-listUser">
+                <Sidebar />
+                <main>
+                    <div className="list-user-form" >
+                        <h2 >USUÁRIOS</h2>
+                        <div className="tipos">
+                            <Link to='/inativos'>
+                                <button type="button" className="botaouser">
+                                    Inativos
+                                </button>
+                            </Link>
+                            <Link to='/ativos'>
+                                <button type="button" className="botaouser">
+                                    Ativos
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            )
+    }
 
 
 
