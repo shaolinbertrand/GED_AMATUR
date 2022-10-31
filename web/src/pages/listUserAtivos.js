@@ -13,8 +13,7 @@ import { FaRegObjectUngroup } from "react-icons/fa";
 
 var conf = "a";
 function User() {
-    let ver= api.get(`/verificaP?id=6308ef2b0d32674010b47da9`)
-   console.log(ver)
+    
     const [list, setList] = useState([]);
     const history = useHistory()
     

@@ -35,6 +35,7 @@ const text = {
      marginRight:'17px',
      marginTop:'10px' 
     }    
+    
  
 function DocumentosMap(props){
     const [list, setList] = useState([]);
@@ -76,13 +77,13 @@ function DocumentosMap(props){
 
                   <ul>  
                 {list.map(doc => (
-                        <div  style={listStyle}> 
-                         <span style={text}>{doc.name}</span>
-                         <span style={text}>{doc.dia}/{doc.mes}/{doc.ano}</span>
-                          <button onClick={() => ApagarDoc(doc._id)} type="button" className="botao">
+                        <div  className="lista"> 
+                         <span className="teste1">{doc.name}</span>
+                         <span className="teste2">{doc.dia}/{doc.mes}/{doc.ano}</span>
+                          <button onClick={() => ApagarDoc(doc._id)} type="button" className="botao-list">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>
-                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao">
+                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao-list">
                                 <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>      
                        </div>
