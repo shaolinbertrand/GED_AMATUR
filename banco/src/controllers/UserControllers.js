@@ -21,7 +21,8 @@ module.exports = {
                 'ListarUser':true,
                 'ListarEmpresa':true,
                 'ListarImposto':true,
-                'ListarFolha':true,                                        
+                'ListarFolha':true,
+                'Excluir':true,                                        
             }
         }
         else if(userlogado.setor=='diretoria'){
@@ -35,7 +36,8 @@ module.exports = {
                 'ListarUser':true,
                 'ListarEmpresa':true,
                 'ListarImposto':true,
-                'ListarFolha':true,  
+                'ListarFolha':true,
+                'Excluir':false,  
             }
         }else if(userlogado.setor=='Financeiro'){
                 permissao = {
@@ -48,7 +50,8 @@ module.exports = {
                 'ListarUser':false,
                 'ListarEmpresa':true,
                 'ListarImposto':true,
-                'ListarFolha':true,  
+                'ListarFolha':true,
+                'Excluir':false,  
                 }
         }else if (userlogado.setor=='RH'){
             permissao = {
@@ -61,7 +64,8 @@ module.exports = {
                 'ListarUser':false,
                 'ListarEmpresa':false,
                 'ListarImposto':true,
-                'ListarFolha':true,                                        
+                'ListarFolha':true,
+                'Excluir':false,                                       
             }
         }
         return res.json(permissao)
