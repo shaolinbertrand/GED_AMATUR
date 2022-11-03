@@ -17,11 +17,12 @@ module.exports = {
                 'criarAgencia':true,
                 'criarImposto':true,
                 'criarFolha':true,
-                'ListarAgecia':true,
+                'ListarAgencia':true,
                 'ListarUser':true,
                 'ListarEmpresa':true,
                 'ListarImposto':true,
-                'ListarFolha':true,                                        
+                'ListarFolha':true,
+                'Excluir':true,                                        
             }
         }
         else if(userlogado.setor=='diretoria'){
@@ -31,24 +32,26 @@ module.exports = {
                 'criarAgencia':false,
                 'criarImposto':false,
                 'criarFolha':false,
-                'ListarAgecia':true,
+                'ListarAgencia':true,
                 'ListarUser':true,
                 'ListarEmpresa':true,
                 'ListarImposto':true,
-                'ListarFolha':true,  
+                'ListarFolha':true,
+                'Excluir':false,  
             }
         }else if(userlogado.setor=='Financeiro'){
                 permissao = {
-                    'criarUser':false,
+                'criarUser':false,
                 'criarEmpresa':true,
                 'criarAgencia':true,
                 'criarImposto':false,
                 'criarFolha':false,
-                'ListarAgecia':true,
+                'ListarAgencia':true,
                 'ListarUser':false,
                 'ListarEmpresa':true,
                 'ListarImposto':true,
-                'ListarFolha':true,  
+                'ListarFolha':true,
+                'Excluir':false,  
                 }
         }else if (userlogado.setor=='RH'){
             permissao = {
@@ -57,11 +60,12 @@ module.exports = {
                 'criarAgencia':false,
                 'criarImposto':true,
                 'criarFolha':true,
-                'ListarAgecia':false,
+                'ListarAgencia':false,
                 'ListarUser':false,
                 'ListarEmpresa':false,
                 'ListarImposto':true,
-                'ListarFolha':true,                                        
+                'ListarFolha':true,
+                'Excluir':false,                                       
             }
         }
         return res.json(permissao)
