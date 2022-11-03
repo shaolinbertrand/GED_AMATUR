@@ -14,7 +14,17 @@ import Sidebar from "../components/Sidebar";
   const [name, setName] = useState('')
   const [area, setArea] = useState('')
   const [documento, setdocumento] = useState([])
-  
+  const [verifica,setVerifica] = useState('')
+
+   const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
+    .then((todo)=>setVerifica(todo.data))
+   const PermissaoCriar = verifica.criarEmpresa
+   console.log(PermissaoCriar)
+   if (PermissaoCriar == false){
+    
+    alert("permissao negada")
+    history.push('/admin/inicial')
+   }
   
   async function handleSubmit() {
 

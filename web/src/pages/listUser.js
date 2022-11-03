@@ -64,9 +64,7 @@ function User() {
                                         <BsEye size={26} color="rgba(0, 0, 0, 0.6)" />
                                     </button>
                                 </Link>
-                                <button type="button" className="botaolist" title="EXCLUIR">
-                                    <BsTrash size={26} color="rgba(0, 0, 0, 0.6)" />
-                                </button>
+                                
 
                             </div>
                         ))
