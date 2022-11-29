@@ -10,7 +10,7 @@ module.exports = {
     async Verifica(req,res){
         const userlogado = await User.findById(req.query.id)
         let permissao = {}
-        if (userlogado.setor=='T.I'){
+        if (userlogado.setor=='ti'){
             permissao = {
                 'criarUser':true,
                 'criarContrato':true,
@@ -53,7 +53,7 @@ module.exports = {
 
     async index(req,res){
         const userlogado = await User.findById(req.query.id)
-        if (userlogado.setor=='T.I' || userlogado.setor=="diretoria"){
+        if (userlogado.setor=='ti' || userlogado.setor=="diretoria"){
             const users= await User.find();
             return res.json(userView.renderMany(users));
         }
@@ -63,7 +63,7 @@ module.exports = {
     },
     async indexAtivos(req,res){
         const userlogado = await User.findById(req.query.id)
-        if (userlogado.setor=='T.I' || userlogado.setor=="diretoria"){
+        if (userlogado.setor=='ti' || userlogado.setor=="diretoria"){
             const users= await User.find({"ativo":true});
             return res.json(userView.renderMany(users));
         }
@@ -73,7 +73,7 @@ module.exports = {
     },
     async indexInativos(req,res){
         const userlogado = await User.findById(req.query.id)
-        if (userlogado.setor=='T.I' || userlogado.setor=="diretoria"){
+        if (userlogado.setor=='ti' || userlogado.setor=="diretoria"){
             const users= await User.find({"ativo":false});
             return res.json(userView.renderMany(users));
         }
@@ -89,7 +89,7 @@ module.exports = {
 
     async store(req,res){
         const userlogado = await User.findById(req.query.id)
-        if (userlogado.setor=='T.I'){
+        if (userlogado.setor=='ti'){
             const user = await User.create(req.body);
             return res.json(user);
         }
@@ -100,7 +100,7 @@ module.exports = {
 
     async update(req,res){
         const userlogado = await User.findById(req.query.id)
-        if ((userlogado.setor=='T.I') || (userlogado._id == req.params.id)){ //tratamento para que só o administrador do sistema ou o proprio usuario possa atualizar seus dados
+        if ((userlogado.setor=='ti') || (userlogado._id == req.params.id)){ //tratamento para que só o administrador do sistema ou o proprio usuario possa atualizar seus dados
                 const user = await User.findByIdAndUpdate(req.params.id,req.body, {new: true,useFindAndModify: false});
                 return res.json(user);
             }
@@ -111,7 +111,7 @@ module.exports = {
 
     async destroy(req,res){
         const userlogado = await User.findById(req.query.id) //tratamento para que só o administrador do sistema possa deletar usuarios
-            if (userlogado.setor=='T.I'){
+            if (userlogado.setor=='ti'){
                 await User.findByIdAndRemove(req.params.id);
                 return res.send({msg: "usuario deletado com sucesso"});
             }

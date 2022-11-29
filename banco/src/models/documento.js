@@ -30,7 +30,7 @@ const DocSchema = new mongoose.Schema({
 });
 DocSchema.pre('save',function(){
     if (this.url){
-        this.url = `http://192.168.10.146:3001/files/${this.namebanco}`;
+        this.url = `http://192.168.10.119:3001/files/${this.namebanco}`;
     }
 });
 

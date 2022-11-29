@@ -19,9 +19,14 @@ app.use('/files', express.static(path.resolve(__dirname,'src','upload')))
 
 
 // Iniciando o DB
-mongoose.connect('mongodb://localhost:27017/nodeapi',
- {useNewUrlParser: true,useUnifiedTopology: true}
- );
+mongoose.connect('mongodb://127.0.0.1:27017/nodeAPI', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log(`CONNECTED TO MONGO!`);
+    })
+    .catch((err) => {
+        console.log(`OH NO! MONGO CONNECTION ERROR!`);
+        console.log(err);
+    })
  requireDir("./src/models");
 
 
