@@ -25,7 +25,17 @@ const text = {
   const [periodo, setPeriodo] = useState('')
   const [NumParc, setNumParc] = useState('')
   const [file, setFile] = useState('')
-  
+  const [verifica,setVerifica] = useState('')
+
+   const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
+    .then((todo)=>setVerifica(todo.data))
+   const PermissaoCriar = verifica.criarImposto
+   console.log(PermissaoCriar)
+   if (PermissaoCriar == false){
+    history.push('/admin/inicial')
+    alert("permissao negada")
+    
+   }
   
   async function handleSubmit() {
 

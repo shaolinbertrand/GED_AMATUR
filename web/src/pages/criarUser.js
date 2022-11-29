@@ -23,9 +23,9 @@ export default function CreateUser() {
    const PermissaoCriar = verifica.criarUser
    console.log(PermissaoCriar)
    if (PermissaoCriar == false){
-    console.log('entrou no if')
+    
     alert("permissao negada")
-    history.push('admin/inicial')
+    history.push('/admin/inicial')
    }
 
   async function handleSubmit() {

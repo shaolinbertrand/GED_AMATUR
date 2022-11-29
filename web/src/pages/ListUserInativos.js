@@ -2,17 +2,18 @@
 import api from "../services/api";
 import React, { useEffect, useState } from 'react'
 import { BsWrench } from 'react-icons/bs';
+import { useHistory } from "react-router-dom";
 import { BsEye } from 'react-icons/bs';
 import { BsTrash } from 'react-icons/bs';
 import Sidebar from '../components/Sidebar'
 import '../styles/pages/listarUser.css';
 import { Link } from 'react-router-dom';
 
-
+var conf = "a";
 
 function User() {
     const [list, setList] = useState([]);
-
+    const history = useHistory()
     useEffect(() => {
         const log = api.post(`/log/user/${localStorage.getItem('id_login')}`, {
             acao: "Visualizou Usuários Inativos "
@@ -21,7 +22,7 @@ function User() {
             .then((todo) => setList(todo.data));
     }, [])
 
-    return (
+    try{ return (
 
         <div id="page-listUser">
             <Sidebar />
@@ -53,9 +54,7 @@ function User() {
                                     <BsEye size={26} color="rgba(0, 0, 0, 0.6)" />
                                 </button>
                             </Link>
-                            <button type="button" className="botaolist" title="EXCLUIR">
-                                <BsTrash size={26} color="rgba(0, 0, 0, 0.6)" />
-                            </button>
+                           
 
                         </div>
                     ))}
@@ -63,7 +62,16 @@ function User() {
             </div>
 
         </div>
-    )
+    )}catch(e){
+        history.push('/admin/inicial')
+        if(conf=="a"){
+            conf="b"; 
+        alert("Permissão negada")
+    }
+        return(null)
+      
+    }
+
 
 
 

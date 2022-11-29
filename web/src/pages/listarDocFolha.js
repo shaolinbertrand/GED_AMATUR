@@ -2,6 +2,7 @@
 import api from "../services/api";
 import React, {useEffect, useState} from 'react'
 import Sidebar from '../components/Sidebar'
+import { useHistory } from "react-router-dom";
 import '../styles/pages/CriarUser.css';
 import {BsWrench} from 'react-icons/bs';
 import { BsTrash } from 'react-icons/bs';
@@ -51,6 +52,19 @@ function DocumentosMap(props){
         window.location.href=url;
       }
     async function ApagarDoc(docID) {
+      const [verifica,setVerifica] = useState('')
+      const history = useHistory()
+
+      const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
+       .then((todo)=>setVerifica(todo.data))
+      const PermissaoCriar = verifica.Excluir
+      console.log(PermissaoCriar)
+      if (PermissaoCriar == false){
+       
+       alert("permissao negada")
+       history.push('/admin/inicial')
+      }else{
+
         const response = await api.delete(`/folha/doc/${docID}`)
         if(response.status == 200){
           const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
@@ -61,7 +75,7 @@ function DocumentosMap(props){
         }else{
           alert(response.statusText)
         }
-      
+      }
       } 
         return (
           

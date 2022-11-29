@@ -17,7 +17,7 @@ function Login(){
    var conf = "a" //variavel para confirmar função
    document.addEventListener("keypress", function(e) {
         if(e.key === 'Enter' && conf=="a" ) {
-            console.log("valor de teste aqui:"+conf);
+            
             var btn = document.querySelector("#botaoEntrar");
           
            btn.click();
@@ -30,9 +30,7 @@ function Login(){
     
         if(conf=="a"){
             conf="b"; // para fazer apenas uma vez
-            console.log("valor de teste aqui:"+conf);
-     console.log(name)
-     console.log(senha)
+            
      try{
         const response = await api.get(`/login/?usuario=${name}&senha=${senha}`)
         
@@ -46,6 +44,7 @@ function Login(){
            alert('Login realizado com sucesso!!')
            localStorage.setItem('id_login', response.data._id);
            localStorage.setItem('cargo', response.data.cargo);
+           
            localStorage.setItem('nome', response.data.nome);
            history.push(`/admin/inicial`)
         }else{

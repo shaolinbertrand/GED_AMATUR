@@ -221,3 +221,53 @@
   margin-bottom:25px;
 
 }
+
+.lista {
+  
+  cursor:initial;
+  box-Shadow: 1px 3px 4px grey;
+  border-Radius: 16px;
+  margin: 10px;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  position: relative;
+  background: #ffd666;
+}
+.teste1{
+  cursor:text;
+  font-Weight: bold;
+  position: absolute;
+  font-Size: 1em;
+  color: #000000;
+  
+  max-width: 28ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.teste2{
+  
+  cursor:text;
+  font-Weight: bold;
+  left: 30ch;
+  position: absolute;
+  font-Size: 1em;
+  color: #000000;
+  
+  
+  
+}
+.botao-list{
+  cursor: pointer;
+  left: 38ch;
+  margin-right: 10px;
+  position: relative;
+ 
+  
+}
+.botao-list:hover{
+  color:black;
+  background: #ff4800;
+}

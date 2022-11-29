@@ -49,6 +49,17 @@ function AdministradoresMap(){
     },[])
     const history = useHistory()
     const [busca, setBusca] = useState('');
+    const [verifica,setVerifica] = useState('')
+
+    const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
+     .then((todo)=>setVerifica(todo.data))
+    const PermissaoCriar = verifica.ListarFolha
+    console.log(PermissaoCriar)
+    if (PermissaoCriar == false){
+     
+     alert("permissao negada")
+     history.push('/admin/inicial')
+    }
     async function handleSubmit() {
 
 

@@ -10,34 +10,23 @@ import {BsEye} from 'react-icons/bs'
 import {BiPaperclip} from  'react-icons/bi';
 import { Link } from "react-router-dom";
 
-const listStyle = {
-    cursor: "pointer",
-    boxShadow: '1px 3px 4px grey',
-    borderRadius: '16px',
-    margin:'10px',
-    padding:'10px',
-    flexDirection:'row',
-    justifyContent:'space-between',
-    height: '50px',
-    background:"#ffd666"
-     } 
-
-const text = {
-    fontWeight: "bold",
-     cursor: "pointer",
-     textAlign:"center",
-     fontSize: "0.8em",
-     color: "#000000",
-     flexDirection: "row",
-     marginLeft:'17px',
-     marginRight:'17px',
-     marginTop:'10px' 
-    }    
+   
 
      
 function AdministradoresMap(){
     const [list, setList] = useState([]);
+ const history = useHistory()
+ const [verifica,setVerifica] = useState('')
 
+   const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
+    .then((todo)=>setVerifica(todo.data))
+   const PermissaoCriar = verifica.ListarAgencia
+   console.log(PermissaoCriar)
+   if (PermissaoCriar == false){
+    
+    alert("permissao negada")
+    history.push('/admin/inicial')
+   }
     useEffect(()=>{
         const log = api.post(`/log/user/${localStorage.getItem('id_login')}`,{
             acao:"Visualizou Todas as Agencias "
@@ -46,7 +35,7 @@ function AdministradoresMap(){
         api.get("agencia/cadastradas")
       .then((todo)=> setList(todo.data));
     },[])
-    const history = useHistory()
+   
     const [busca, setBusca] = useState('');
     async function handleSubmit() {
 

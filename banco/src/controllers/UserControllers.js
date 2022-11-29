@@ -13,40 +13,60 @@ module.exports = {
         if (userlogado.setor=='ti'){
             permissao = {
                 'criarUser':true,
-                'criarContrato':true,
-                'criaAgencia':true,
-                'criaImposto':true,
-                'editar':true,
-                'Vagecia':true,
-                'Vuser':true,
-                'Vcontrato':true,
-                'Vimposto':true                                        
+                'criarEmpresa':true,
+                'criarAgencia':true,
+                'criarImposto':true,
+                'criarFolha':true,
+                'ListarAgencia':true,
+                'ListarUser':true,
+                'ListarEmpresa':true,
+                'ListarImposto':true,
+                'ListarFolha':true,
+                'Excluir':true,                                        
             }
         }
         else if(userlogado.setor=='diretoria'){
             permissao = {
                 'criarUser':false,
-                'criarContrato':false,
-                'criaAgencia':false,
-                'criaImposto':false,
-                'editar':true,
-                'Vagecia':true,
-                'Vuser':true,
-                'Vcontrato':true,
-                'Vimposto':true
+                'criarEmpresa':false,
+                'criarAgencia':false,
+                'criarImposto':false,
+                'criarFolha':false,
+                'ListarAgencia':true,
+                'ListarUser':true,
+                'ListarEmpresa':true,
+                'ListarImposto':true,
+                'ListarFolha':true,
+                'Excluir':false,  
             }
         }else if(userlogado.setor=='Financeiro'){
                 permissao = {
-                    'criarUser':false,
-                    'criarContrato':true,
-                    'criaAgencia':true,
-                    'criaImposto':false,
-                    'editar':false,
-                    'Vagecia':true,
-                    'Vuser':false,
-                    'Vcontrato':true,
-                    'Vimposto':true
+                'criarUser':false,
+                'criarEmpresa':true,
+                'criarAgencia':true,
+                'criarImposto':false,
+                'criarFolha':false,
+                'ListarAgencia':true,
+                'ListarUser':false,
+                'ListarEmpresa':true,
+                'ListarImposto':true,
+                'ListarFolha':true,
+                'Excluir':false,  
                 }
+        }else if (userlogado.setor=='RH'){
+            permissao = {
+                'criarUser':false,
+                'criarEmpresa':false,
+                'criarAgencia':false,
+                'criarImposto':true,
+                'criarFolha':true,
+                'ListarAgencia':false,
+                'ListarUser':false,
+                'ListarEmpresa':false,
+                'ListarImposto':true,
+                'ListarFolha':true,
+                'Excluir':false,                                       
+            }
         }
         return res.json(permissao)
     },
