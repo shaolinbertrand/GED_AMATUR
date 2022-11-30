@@ -21,10 +21,10 @@ app.use('/files', express.static(path.resolve(__dirname,'src','upload')))
 // Iniciando o DB
 mongoose.connect('mongodb://127.0.0.1:27017/nodeAPI', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log(`CONNECTED TO MONGO!`);
+        console.log(`Conectado ao Mongo DB!`);
     })
     .catch((err) => {
-        console.log(`OH NO! MONGO CONNECTION ERROR!`);
+        console.log(`OH Shit! Erro ao conectar com o Mongo DB!`);
         console.log(err);
     })
  requireDir("./src/models");
