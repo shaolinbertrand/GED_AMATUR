@@ -27,7 +27,7 @@ module.exports ={
         if(!empresa){
             empresa= await Empresa.findOne({"area":{$regex: usuario}});
             if(!empresa){
-                return res.json("Empresa não encontrada").status("200");
+                return res.json("Empresa não encontrada").status("404");
             }
         }
         return res.json(empresaView.render(empresa));
