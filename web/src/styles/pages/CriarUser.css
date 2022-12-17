@@ -235,28 +235,41 @@
   position: relative;
   background: #ffd666;
 }
-.teste1{
+.numeracao{
   cursor:text;
   font-Weight: bold;
   position: absolute;
   font-Size: 1em;
   color: #000000;
-  
-  max-width: 28ch;
+
+}
+.nomedoc{
+  cursor:text;
+  font-Weight: bold;
+  position: absolute;
+  font-Size: 1em;
+  color: #000000;
+  margin-left: 3ch;
+
+  max-width: 23ch;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.teste2{
+.descricao{
   
   cursor:text;
   font-Weight: bold;
-  left: 30ch;
+  left: 35ch;
+  margin-top: 5px;
   position: absolute;
-  font-Size: 1em;
+  font-Size: 14px;
   color: #000000;
   
-  
+  max-width: 15ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   
 }
 .botao-list{

@@ -80,7 +80,13 @@
   font-Size: 1em;
   color: #000000;
   left: 10px;
+
+  max-width: 28ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
   
 
   .botaolist{

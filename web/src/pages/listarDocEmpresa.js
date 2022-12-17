@@ -87,14 +87,14 @@ function DocumentosMap(props){
 
                   <ul>  
                 {list.map(doc => (
-                        <div style={listStyle}  > 
-                         <span style={text}>{doc.numero}</span> 
-                         <span style={text}>{doc.name}</span>
-                         <span style={text}>{doc.tipoValidade}</span>
-                         <button onClick={() => ApagarDoc(doc.id)} type="button" className="botao">
+                        <div className="lista"  > 
+                         <span className="numeracao">{doc.numero}</span> 
+                         <span className="nomedoc">{doc.name}</span>
+                         <span className="descricao">{doc.tipoValidade}</span>
+                         <button onClick={() => ApagarDoc(doc.id)} type="button" className="botao-list">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>
-                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao">
+                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao-list">
                                 <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>
                        </div>

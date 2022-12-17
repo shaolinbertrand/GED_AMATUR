@@ -25,7 +25,7 @@ export default function EditAdm(props) {
         acao:"Editou dados da Empresa "+name
       })
       alert('Edição realizada com sucesso!!')
-      history.push(`/adm/${props.match.params.id}`)
+      history.push(`/empresa/${props.match.params.id}`)
     }else{
       alert(response.statusText)
     }
