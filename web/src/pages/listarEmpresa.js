@@ -26,26 +26,32 @@ function AdministradoresMap(){
     const history = useHistory()
     const [busca, setBusca] = useState('');
     const [verifica,setVerifica] = useState('')
-
-   const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
+    const [empresa, setEmpresa] = useState('')
+  
+        const teste = api.get(`verificaP/?id=${localStorage.getItem('id_login')}`)
     .then((todo)=>setVerifica(todo.data))
    const PermissaoCriar = verifica.ListarEmpresa
-   console.log(PermissaoCriar)
+   //console.log(PermissaoCriar)
    if (PermissaoCriar == false){
     
     alert("permissao negada")
     history.push('/admin/inicial')
    }
+    
+   
     async function handleSubmit() {
 
 
-        const response = await api.get(`/buscarADM?usuario=${busca}`)
-    
-        if(response.status == 200){
-          alert('Empresa encontrada')
-          history.push(`/adm/${response.data._id}`)
+        const response = await api.get(`/buscarEmpresa?usuario=${busca}`).then((todo)=>setEmpresa(todo.data))
+        alert(empresa._id)
+        console.log(empresa)
+        if(empresa._id !="undefined"){
+          alert("Empresa não encontrada")
+         
         }else{
-          alert(response.statusText)
+            alert("Empresa encontrada")
+            history.push(`/empresa/${empresa._id}`)
+          
         }
      
       }

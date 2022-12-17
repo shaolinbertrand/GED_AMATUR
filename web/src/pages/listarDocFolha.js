@@ -87,9 +87,9 @@ function DocumentosMap(props){
 
                   <ul>  
                 {list.map(doc => (
-                        <div  style={listStyle}  > 
-                         <span style={text}>{doc.name}</span>
-                         <span style={text}>{doc.DataUpload}</span>
+                        <div  className="lista"   > 
+                         <span className="nomedoc">{doc.name}</span>
+                         <span className="descricao">{doc.DataUpload}</span>
                          <button onClick={() => ApagarDoc(doc.id)} type="button" className="botao">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>

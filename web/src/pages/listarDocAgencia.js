@@ -89,8 +89,8 @@ function DocumentosMap(props){
                   <ul>  
                 {list.map(doc => (
                         <div  className="lista"> 
-                         <span className="teste1">{doc.name}</span>
-                         <span className="teste2">{doc.dia}/{doc.mes}/{doc.ano}</span>
+                         <span className="nomedoc">{doc.name}</span>
+                         <span className="descricao">{doc.dia}/{doc.mes}/{doc.ano}</span>
                           <button onClick={() => ApagarDoc(doc._id)} type="button" className="botao-list">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>
