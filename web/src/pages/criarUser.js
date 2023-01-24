@@ -30,7 +30,7 @@ export default function CreateUser() {
 
   async function handleSubmit() {
 
-    const response = await api.post('/cadastro',  {
+    const response = await api.post(`/cadastro?id=${localStorage.getItem('id_login')}`,  {
       nome: name,
       setor: setor,
       password:senha,
