@@ -28,6 +28,7 @@ import EditUser from './pages/editUser';
 import EditEmpresa from './pages/editEmpresa';
 import EditAgencia from './pages/editAgencia';
 import EditImposto from './pages/editImposto';
+import EditFP from './pages/editFP';
 import UploadContrato from './pages/uploadContrato';
 import UploadCaixa from './pages/uploadCaixa';
 import UploadDoc from './pages/uploadDocumentos';
@@ -48,6 +49,7 @@ function Routes(){
                 <Route path="/editEmpresa/:id" component={EditEmpresa}/>
                 <Route path="/editAgencia/:id" component={EditAgencia}/>
                 <Route path="/editImposto/:id" component={EditImposto}/>
+                <Route path="/editFP/:id" component={EditFP}/>
                 <Route path="/usuario/create" component={CriarUser}/>
                 <Route path="/folha/create" component={CriarFolha}/>
                 <Route path="/admin/inicial" component={InicialAdm}/>

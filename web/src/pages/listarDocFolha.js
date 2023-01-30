@@ -90,23 +90,22 @@ function DocumentosMap(props){
                         <div  className="lista"   > 
                          <span className="nomedoc">{doc.name}</span>
                          <span className="descricao">{doc.DataUpload}</span>
-                         <button onClick={() => ApagarDoc(doc.id)} type="button" className="botao">
+                         <button onClick={() => ApagarDoc(doc.id)} type="button" className="botao" title= "EXCLUIR DOC">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>
-                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao">
+                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao" title= "VISUALIZAR DOC">
                                 <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>  
                        </div>
                        ))}                  
                 </ul>
-
-                    <Link to={`/editEmpresa/${props.match.params.id}`} className="mostrar_dados">
-                      <button type="button" className= "botao">
-                        <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
-                      </button>
-                    </Link>
-                    <Link to={`/uploadDocumento/${props.match.params.id}`} className="mostrar_dados">
-                      <button type="button" className= "botao">
+                <Link to={`/editFP/${props.match.params.id}`} className="mostrar_dados">
+                  <button type="button" className="botao" title= "EDITAR FOLHA">
+                    <BsWrench size={26} color="rgba(0, 0, 0, 0.6)" />
+                  </button>
+                </Link>
+                    <Link to={`/uploadDocumento/${props.match.params.id}`} className="mostrar_dados" >
+                      <button type="button" className= "botao" title= "ENVIAR FOLHA">
                         <BiPaperclip size={26} color="rgba(0, 0, 0, 0.6)"/>
                       </button>
                     </Link>

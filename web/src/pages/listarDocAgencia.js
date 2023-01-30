@@ -91,10 +91,10 @@ function DocumentosMap(props){
                         <div  className="lista"> 
                          <span className="nomedoc">{doc.name}</span>
                          <span className="descricao">{doc.dia}/{doc.mes}/{doc.ano}</span>
-                          <button onClick={() => ApagarDoc(doc._id)} type="button" className="botao-list">
+                          <button onClick={() => ApagarDoc(doc._id)} type="button" title= "EXCLUIR DOC" className="botao-list">
                                 <BsTrash size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>
-                          <button onClick={() => irPraUrl(doc.url)} type="button" className="botao-list">
+                          <button onClick={() => irPraUrl(doc.url)} type="button" title= "VISUALIZAR DOC" className="botao-list">
                                 <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                           </button>      
                        </div>
@@ -102,16 +102,16 @@ function DocumentosMap(props){
                        ))}                  
                 </ul>
                     <Link to={`/agencia/${props.match.params.id}`} className="mostrar_dados">
-                      <button type="button" className= "botao">
+                      <button type="button" className= "botao" title= "VISUALIZAR AG">
                         <BsEye size={26} color="rgba(0, 0, 0, 0.6)"/>
                       </button>
                     </Link>
-                    <Link to={`/editAgencia/${props.match.params.id}`} className="mostrar_dados">
+                    <Link to={`/editAgencia/${props.match.params.id}`} className="mostrar_dados" title= "EDITAR AGENCIA">
                       <button type="button" className= "botao">
                         <BsWrench size={26} color="rgba(0, 0, 0, 0.6)"/>
                       </button>
                     </Link>
-                    <Link to={`/uploadCaixa/${props.match.params.id}`} className="mostrar_dados">
+                    <Link to={`/uploadCaixa/${props.match.params.id}`} className="mostrar_dados" title= "ENVIAR CAIXA">
                       <button type="button" className= "botao">
                         <BiPaperclip size={26} color="rgba(0, 0, 0, 0.6)"/>
                       </button>
