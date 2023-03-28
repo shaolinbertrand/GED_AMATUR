@@ -5,6 +5,7 @@ import { StyledDropZone } from 'react-drop-zone'
 import 'react-drop-zone/dist/styles.css'
 import '../styles/pages/CriarUser.css';
 import Sidebar from "../components/Sidebar";
+import {CircularProgressbar} from "react-circular-progressbar";
 
 const text = {
   fontWeight: "bold",
@@ -26,9 +27,9 @@ export default function UploadFile(props) {
   const [tipoValidade, setTipoV] = useState('')
   const [numero, setNumero] = useState('')
   const [name, setName] = useState('')
+  const [progress,setProgress] = useState('')
 
   useEffect(()=>{
-    //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
      api.get(`/empresa/${props.match.params.id}`)
   .then( todo=> {
     setName(todo.data.name)
@@ -45,6 +46,14 @@ export default function UploadFile(props) {
       formData.append('numero',numero);
     const response = await api.put(`/empresa/doc/${props.match.params.id}`,
         formData, { 
+          onUploadProgress: e => {
+            const progress = parseInt(Math.round((e.loaded * 100) / e.total));
+            setProgress(progress)
+            alert(
+              `O arquivo ${name} está ${progress}% carregado...`
+            )
+            
+          },
             headers: {
                 'Content-Type': 'multipart/form-data',
               }
@@ -93,13 +102,20 @@ export default function UploadFile(props) {
              !file ?
               'Adicione o contrato aqui' :
              <h2 style={text}> {file.name}</h2>
-            }
+            }  
            </div>
               </StyledDropZone>
-
             <button onClick={handleSubmit}  className="confirm-button"  type="submit">
-            Confirmar
-          </button>
+              Confirmar
+            </button>
+            <CircularProgressbar
+                styles={{
+                  root: { width: 24 },
+                  path: { stroke: "#7159c1" }
+                }}
+                strokeWidth={10}
+                percentage={progress}
+              />
           </fieldset>
 
           
