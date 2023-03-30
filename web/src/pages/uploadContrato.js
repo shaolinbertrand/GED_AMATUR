@@ -27,7 +27,7 @@ export default function UploadFile(props) {
   const [tipoValidade, setTipoV] = useState('')
   const [numero, setNumero] = useState('')
   const [name, setName] = useState('')
-  const [progress,setProgress] = useState('')
+  const [progress,setProgress] = useState(0)
 
   useEffect(()=>{
      api.get(`/empresa/${props.match.params.id}`)
@@ -49,10 +49,6 @@ export default function UploadFile(props) {
           onUploadProgress: e => {
             const progress = parseInt(Math.round((e.loaded * 100) / e.total));
             setProgress(progress)
-            alert(
-              `O arquivo ${name} está ${progress}% carregado...`
-            )
-            
           },
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -105,20 +101,21 @@ export default function UploadFile(props) {
             }  
            </div>
               </StyledDropZone>
+              <div style={{ width: 200, height: 200}} className="barra-de-progresso">
+                <CircularProgressbar
+                      styles={{
+                        root: { width: 300 },
+                        path: { stroke: "#7159c1" }
+                      }}
+                      value={progress}
+                      strokeWidth={10}
+                      text={`${progress}%`}
+                  />
+          </div>
             <button onClick={handleSubmit}  className="confirm-button"  type="submit">
               Confirmar
             </button>
-            <CircularProgressbar
-                styles={{
-                  root: { width: 24 },
-                  path: { stroke: "#7159c1" }
-                }}
-                strokeWidth={10}
-                percentage={progress}
-              />
           </fieldset>
-
-          
         </div>
       </main>
     </div>

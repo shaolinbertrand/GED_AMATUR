@@ -4,7 +4,7 @@ import { MdCheckCircle, MdError, MdLink } from "react-icons/md";
 
 import { Container, FileInfo, Preview } from "./styles";
 
-const FileList = ({uploadedFile}) => (
+const FileList = ({uploadedFile},{progress}) => (
   <Container>
     {(uploadedFile => (
       <li key={uploadedFile.id}>
@@ -20,17 +20,14 @@ const FileList = ({uploadedFile}) => (
         </FileInfo>
 
         <div>
-          {!uploadedFile.uploaded &&
-            !uploadedFile.error && (
-              <CircularProgressbar
-                styles={{
-                  root: { width: 24 },
-                  path: { stroke: "#7159c1" }
-                }}
-                strokeWidth={10}
-                percentage={uploadedFile.progress}
+          <CircularProgressbar
+              styles={{
+                root: { width: 24 },
+                path: { stroke: "#7159c1" }
+              }}
+              strokeWidth={10}
+              percentage={progress}
               />
-            )}
 
           {uploadedFile.url && (
             <a
