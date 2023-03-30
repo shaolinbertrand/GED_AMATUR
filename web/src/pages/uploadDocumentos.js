@@ -42,11 +42,19 @@ export default function UploadFile(props) {
     let formData = new FormData();
       formData.append('documento', file);
     const response = await api.put(`/folha/doc/${props.match.params.id}`,
+<<<<<<< Updated upstream
         formData, {
           onUploadProgress: e => {
             const progress = parseInt(Math.round((e.loaded * 100) / e.total));
             setProgress(progress)
           }, 
+=======
+        formData, { 
+          onUploadProgress: e => {
+            const progress = parseInt(Math.round((e.loaded * 100) / e.total));
+            setProgress(progress)
+          },
+>>>>>>> Stashed changes
             headers: {
                 'Content-Type': 'multipart/form-data',
               }
@@ -84,6 +92,7 @@ export default function UploadFile(props) {
             }
            </div>
               </StyledDropZone>
+<<<<<<< Updated upstream
           <div style={{ width: 200, height: 200}} className="barra-de-progresso">
                 <CircularProgressbar
                       styles={{
@@ -96,6 +105,20 @@ export default function UploadFile(props) {
                       />
             </div>
             <button onClick={handleSubmit}  className="confirm-button"  type="submit">
+=======
+              <div style={{ width: 200, height: 200}} className="barra-de-progresso">
+              <CircularProgressbar
+                    styles={{
+                      root: { width: 300 },
+                      path: { stroke: "#7159c1" }
+                    }}
+                    value={progress}
+                    strokeWidth={10}
+                    text={`${progress}%`}
+              />
+            </div>
+          <button onClick={handleSubmit}  className="confirm-button"  type="submit">
+>>>>>>> Stashed changes
             Confirmar
           </button>
           </fieldset>

@@ -116,6 +116,7 @@ export default function UploadFile(props) {
             }
            </div>
               </StyledDropZone>
+<<<<<<< Updated upstream
               <div style={{ width: 200, height: 200}} className="barra-de-progresso">
                 <CircularProgressbar
                       styles={{
@@ -126,6 +127,18 @@ export default function UploadFile(props) {
                       strokeWidth={10}
                       text={`${progress}%`}
                   />
+=======
+          <div style={{ width: 200, height: 200}} className="barra-de-progresso">
+              <CircularProgressbar
+                    styles={{
+                      root: { width: 300 },
+                      path: { stroke: "#7159c1" }
+                    }}
+                    value={progress}
+                    strokeWidth={10}
+                    text={`${progress}%`}
+              />
+>>>>>>> Stashed changes
             </div>
           <button onClick={handleSubmit}  className="confirm-button"  type="submit">
             Confirmar
