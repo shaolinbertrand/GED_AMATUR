@@ -5,6 +5,7 @@ import { StyledDropZone } from 'react-drop-zone'
 import 'react-drop-zone/dist/styles.css'
 import '../styles/pages/CriarUser.css';
 import Sidebar from "../components/Sidebar";
+import {CircularProgressbar} from "react-circular-progressbar";
 
 const text = {
   fontWeight: "bold",
@@ -26,6 +27,7 @@ export default function UploadFile(props) {
   const [tipoValidade, setTipoV] = useState('')
   const [numero, setNumero] = useState('')
   const [name, setName] = useState('')
+  const [progress,setProgress] = useState(0)
 
   useEffect(()=>{
     //api.get("usuarios?id=60ac05f9498fd53d8c5514ec")
@@ -45,6 +47,10 @@ export default function UploadFile(props) {
       formData.append('numero',numero);
     const response = await api.put(`/empresa/doc/${props.match.params.id}`,
         formData, { 
+          onUploadProgress: e => {
+            const progress = parseInt(Math.round((e.loaded * 100) / e.total));
+            setProgress(progress)
+          },
             headers: {
                 'Content-Type': 'multipart/form-data',
               }
@@ -96,8 +102,18 @@ export default function UploadFile(props) {
             }
            </div>
               </StyledDropZone>
-
-            <button onClick={handleSubmit}  className="confirm-button"  type="submit">
+            <div style={{ width: 200, height: 200}} className="barra-de-progresso">
+              <CircularProgressbar
+                    styles={{
+                      root: { width: 300 },
+                      path: { stroke: "#7159c1" }
+                    }}
+                    value={progress}
+                    strokeWidth={10}
+                    text={`${progress}%`}
+              />
+            </div>
+          <button onClick={handleSubmit}  className="confirm-button"  type="submit">
             Confirmar
           </button>
           </fieldset>
