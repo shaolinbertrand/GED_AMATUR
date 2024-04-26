@@ -32,6 +32,7 @@ import UploadContrato from './pages/uploadContrato';
 import UploadCaixa from './pages/uploadCaixa';
 import UploadDoc from './pages/uploadDocumentos';
 import Log from './pages/log';
+import pix from './pages/Tela PIX';
 
 
 function Routes(){
@@ -69,6 +70,7 @@ function Routes(){
                 <Route path='/uploadCaixa/:id/' component={UploadCaixa}/>
                 <Route path='/uploadDocumento/:id/' component={UploadDoc}/>
                 <Route path='/log/:id/' component={Log}/>
+                <Route path='/telapix' component={pix}/>
             </Switch>
         </BrowserRouter>
     );
